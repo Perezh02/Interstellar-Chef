@@ -1,10 +1,12 @@
 package com.interstellarchef.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Character {
   private String name;
   private String description;
+  private HashMap<String,String> actionResponse; //action, text printed in response to action
   private List<Item> items;
 
   public String getName() {
@@ -21,6 +23,14 @@ public class Character {
 
   public void setDescription(String description) {
     this.description = description;
+  }
+
+  public HashMap<String, String> getActionResponse() {
+    return actionResponse;
+  }
+
+  public void setActionResponse(HashMap<String, String> actionResponse) {
+    this.actionResponse = actionResponse;
   }
 
   public List<Item> getItems() {

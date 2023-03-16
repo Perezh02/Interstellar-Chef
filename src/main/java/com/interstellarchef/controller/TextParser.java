@@ -1,20 +1,18 @@
 package com.interstellarchef.controller;
 
 import com.interstellarchef.model.Character;
+import com.interstellarchef.model.Game;
 import com.interstellarchef.model.Item;
-import com.interstellarchef.model.Location;
 
 public class TextParser {
 
   //todo: when JSON files created, take values and printed strings below from the JSON file
   private final GameController gameController;
-  private String[] actions;
-  private String[] directions;
-  private Item[] items;
-  private Character[] characters;
+  private final Game game;
 
-  TextParser(GameController gameController){
+  TextParser(GameController gameController, Game game){
     this.gameController = gameController;
+    this.game = game;
   }
 
 
@@ -27,6 +25,7 @@ public class TextParser {
     while(!valid){
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
+      currentAction = inputArray[0];
 
       //check if input greater than 1 word, else continue
       if(inputArray.length == 1) {
@@ -34,44 +33,25 @@ public class TextParser {
         continue;
       }
 
-      //check action
-      currentAction = checkAction(inputArray[0]);
-
-      //if action not valid, continue
-      if(currentAction.equals("")) {
-        System.out.println("Try again with a different action word."); //todo: load from json
-        continue;
-      }
-
-      //check noun
-      currentNoun = checkNoun(currentAction, inputArray[1]);
+      //check noun and action
+      currentNoun = checkInput(currentAction, inputArray[1]);
 
       //if noun not valid, continue
       if(currentNoun.equals("")) {
         System.out.println("You can't do that! Try again."); //todo: load from json
-        //continue;
+      } else {
+        valid = true;
       }
 
     }
   }
 
-  private String checkAction(String action){
-    String result = "";
-    for (String verb : actions){
-      if(action.equalsIgnoreCase(verb)){
-        result = verb;
-        break;
-      }
-    }
-    return result;
-  }
-
-  private String checkNoun(String action, String noun){
+  private String checkInput(String action, String noun){
     String result = "";
 
     //check directions
     if (action.equalsIgnoreCase("go")){ //todo: include synonyms and load from json
-      for (String direction : directions){
+      for (String direction : game.getCurrentLocation().getExits().keySet()){
         if(noun.equalsIgnoreCase(direction)){
           return direction;
         }
@@ -79,16 +59,28 @@ public class TextParser {
     }
 
     //check characters
-    if (action.equalsIgnoreCase("talk")) { //todo: include synonyms and load from json
-      for(Character character: characters){
+    if (action.equalsIgnoreCase("talk") || action.equalsIgnoreCase("look")) { //todo: include synonyms and load from json
+      for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
           return character.getName();
         }
       }
     }
 
-    //check items
-    for(Item item: items){
+    //check items in current room
+    for(Item item: game.getCurrentLocation().getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        for (String allowedAction : item.getActionResponse().keySet()) {
+          //checks if action can be performed on item
+          if (action.equalsIgnoreCase(allowedAction)){
+            return item.getName();
+          }
+        }
+      }
+    }
+
+    //check items in inventory
+    for(Item item: game.getInventory().getItems()){
       if(noun.equalsIgnoreCase(item.getName())){
         for (String allowedAction : item.getActionResponse().keySet()) {
           //checks if action can be performed on item
@@ -96,10 +88,11 @@ public class TextParser {
             result = item.getName();
             break;
           }
+          break;
         }
-        break;
       }
     }
+
     return result;
   }
 

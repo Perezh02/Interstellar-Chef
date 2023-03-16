@@ -30,7 +30,12 @@ public class View {
         System.out.println("\n                                                                                                     Press Enter To Continue                                                ");
     }
 
-
+    public void printGameIntro(){
+        clearScreen();
+        System.out.println("                                                                      Welcome to InterstellarChef, where you can embark on a culinary journey across the cosmos!\n"
+            + "                                                       As a spaceship sous chef, you must travel near and far to gather the most rare and delectable ingredients in the universe.\n"
+            + "                                                                                        Only then can you complete your dish and feed the crew!\n");
+    }
 
 }
 

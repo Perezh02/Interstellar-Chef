@@ -1,13 +1,13 @@
 package com.interstellarchef.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Location {
 
   private String name;
   private String description;
-  private String[] exitDirection;
-  private String[] exitLocation;
+  private HashMap<String, String> exits; //direction, exit to
   private List<String> items;
 
 }

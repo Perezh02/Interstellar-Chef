@@ -1,10 +1,30 @@
 package com.interstellarchef.controller;
 
+import static com.interstellarchef.view.View.clearScreen;
 import com.interstellarchef.view.View;
 import java.util.Locale;
 import java.util.Scanner;
 
 public class GameController {
+
+ public GameController(){
+   runGameIntro();
+   startGame();
+ }
+
+  public void startGame(){
+    clearScreen();
+    System.out.println("Would you like to start a new game? Yes or no");
+    String input;
+    Scanner scan = new Scanner(System.in);
+    input = scan.nextLine().toLowerCase();
+    if(input.equals("yes")){
+      playGame();
+    }else{
+      quitGame();
+    }
+
+  }
 
   public void quitGame(){
     String quitGame;
@@ -27,7 +47,7 @@ public class GameController {
     return input;
   }
 
-  public void playGame(){
+  public void runGameIntro(){
 
     View viewInstance = new View();
     viewInstance.printStartBanner();
@@ -41,5 +61,9 @@ public class GameController {
     viewInstance.printGameIntro();
   }
 
+  public void playGame(){
+
+    System.out.println("The game start! Enjoy!");
+  }
 
 }

@@ -1,7 +1,6 @@
 package com.interstellarchef.controller;
 
 import static com.interstellarchef.view.View.clearScreen;
-
 import com.google.gson.Gson;
 import com.interstellarchef.model.Character;
 import com.interstellarchef.model.Game;
@@ -9,10 +8,9 @@ import com.interstellarchef.model.GameText;
 import com.interstellarchef.model.Item;
 import com.interstellarchef.model.Location;
 import com.interstellarchef.view.View;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Scanner;
+
+import java.io.InputStreamReader;
+import java.util.*;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -107,8 +105,8 @@ public class GameController {
     this.game = new Game(testLocationA, inventory, new Location[]{testLocationA, testLocationB});
     TextParser parser = new TextParser(this);
     while(true){
-      parser.promptUserAction();
-      clearScreen();
+        clearScreen();
+        parser.promptUserAction();
     }
 
 
@@ -117,7 +115,9 @@ public class GameController {
   public void setUpGameText(){
     Gson gson = new Gson();
 
-    try (Reader reader = new FileReader("src/main/resources/json/gametext.json")) {
+    try (Reader reader = new InputStreamReader(getClass()
+                    .getClassLoader()
+                    .getResourceAsStream("gametext.json"))) {
 
       this.gameText = gson.fromJson(reader,GameText.class);
 

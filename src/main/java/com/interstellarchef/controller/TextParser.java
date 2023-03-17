@@ -20,9 +20,9 @@ public class TextParser {
     boolean valid = false;
     String currentAction;
     String currentNoun;
-    System.out.println("What would you like to do?"); //todo: load from json
 
     while(!valid){
+      System.out.println("What would you like to do?"); //todo: load from json
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
       currentAction = inputArray[0];
@@ -38,9 +38,7 @@ public class TextParser {
                       "\t\tuse/utilize/apply <Item Name>: item disappears from your inventory once you use it\n" +
                       "\t\thelp: Displays a list of valid commands\n" +
                       "\t\tquit: ends the game\n" +
-                      "****************************************************************************************************\n" +
-                      "\n" +
-                      "What would you like to do? ";
+                      "****************************************************************************************************\n";
               System.out.println(helpInfo);
           } else {
               System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json

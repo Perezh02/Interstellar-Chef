@@ -35,6 +35,8 @@ public class TextParser {
           if (inputArray[0].equalsIgnoreCase(gameText.getHelpKeyWord())) {
               String helpInfo = gameText.getHelpMessage();
               System.out.println(helpInfo);
+          } else if(currentAction.equalsIgnoreCase("quit")){
+            continue;
           } else {
               System.out.println(gameText.getMissingWordMessage());
           }

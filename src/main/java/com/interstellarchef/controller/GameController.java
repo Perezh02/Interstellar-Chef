@@ -37,20 +37,25 @@ public class GameController {
     if(input.equals(gameText.getAffirmative())){
       playGame();
     }else{
-      quitGame();
+      quitGame(false);
     }
 
   }
 
-  public void quitGame(){
+  public void quitGame(boolean ask) {
     String quitGame;
-
-    System.out.println(gameText.getConfirmQuitMessage());
-    quitGame = getUserInput();
-    if(quitGame.equals(gameText.getAffirmative())){
-      System.out.println(gameText.getGoodbyeMessage());
-      System.exit(0);
+    if (ask) {
+      System.out.println(gameText.getConfirmQuitMessage());
+      quitGame = getUserInput();
+    } else {
+      quitGame = "yes";
     }
+      if (quitGame.equals(gameText.getAffirmative())) {
+        System.out.println(gameText.getGoodbyeMessage());
+        System.exit(0);
+      } else {
+        System.out.println("It's our honor you choose to stay with us");
+      }
   }
 
   public String getUserInput(){
@@ -58,7 +63,7 @@ public class GameController {
     Scanner scan = new Scanner(System.in);
     input = scan.nextLine().toLowerCase();
     if(input.equals(gameText.getQuitKeyWord())){
-      quitGame();
+      quitGame(true);
     }
     return input;
   }
@@ -99,7 +104,7 @@ public class GameController {
     exitsB.put("south","room");
     Location testLocationB = new Location("kitchen", "nice room", exitsB, itemList, new Character[0]);
     Location inventory = new Location(new String(" "), new String(" "), new HashMap<String, String>(), new LinkedList<>(), new Character[0]);
-    Game game = new Game(testLocationA, inventory, new Location[]{testLocationA, testLocationB});
+    this.game = new Game(testLocationA, inventory, new Location[]{testLocationA, testLocationB});
     TextParser parser = new TextParser(this);
     while(true){
       parser.promptUserAction();

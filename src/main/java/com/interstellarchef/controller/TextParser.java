@@ -23,9 +23,17 @@ public class TextParser {
     boolean valid = false;
     String currentAction;
     String currentNoun;
-
+    String playerStatusDivider = "****************************************************************************************************";
+    String playerCurrentLocation = String.format("Current Location: %s", game.getCurrentLocation().getName());
+    String playerAvailableExits = String.format("Available Exits: %s", game.getCurrentLocation().printExits());
+    String currentRoomItems = String.format("Items in current location: %s", game.getCurrentLocation().printItems());
     while(!valid){
       System.out.println(gameText.getPromptActionMessage());
+      System.out.println(playerStatusDivider);
+      System.out.println(playerCurrentLocation);
+      System.out.println(playerAvailableExits);
+      System.out.println(currentRoomItems);
+      System.out.println(playerStatusDivider);
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
       currentAction = inputArray[0];
@@ -115,7 +123,6 @@ public class TextParser {
 
     return result;
   }
-
 
 
 }

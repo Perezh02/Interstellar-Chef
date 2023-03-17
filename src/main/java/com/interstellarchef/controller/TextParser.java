@@ -22,7 +22,7 @@ public class TextParser {
     String currentNoun;
 
     while(!valid){
-      System.out.println("What would you like to do?"); //todo: load from json
+      System.out.println("What would you like to do? Enter 'help' for valid actions."); //todo: load from json
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
       currentAction = inputArray[0];

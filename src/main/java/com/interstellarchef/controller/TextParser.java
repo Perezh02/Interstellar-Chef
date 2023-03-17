@@ -20,8 +20,16 @@ public class TextParser {
     boolean valid = false;
     String currentAction;
     String currentNoun;
-
+    String playerStatusDivider = "****************************************************************************************************";
+    String playerCurrentLocation = String.format("Current Location: %s", game.getCurrentLocation().getName());
+    String playerAvailableExits = String.format("Available Exits: %s", game.getCurrentLocation().printExits());
+    String currentRoomItems = String.format("Items in current location: %s", game.getCurrentLocation().printItems());
     while(!valid){
+      System.out.println(playerStatusDivider);
+      System.out.println(playerCurrentLocation);
+      System.out.println(playerAvailableExits);
+      System.out.println(currentRoomItems);
+      System.out.println(playerStatusDivider);
       System.out.println("What would you like to do? Enter 'help' for valid actions."); //todo: load from json
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
@@ -112,7 +120,6 @@ public class TextParser {
 
     return result;
   }
-
 
 
 }

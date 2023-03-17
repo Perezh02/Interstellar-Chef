@@ -59,4 +59,32 @@ public class Location {
   public void setCharacters(Character[] characters) {
     this.characters = characters;
   }
+
+  public String printItems() {
+    StringBuilder itemsString = new StringBuilder();
+    for (Item item : items) {
+      itemsString.append(item.getName());
+      if (items.size() > 1) {
+        itemsString.append(", ");
+      } else if (items.size() == 0) {
+        return "none";
+      }
+    }
+    return itemsString.toString();
+  }
+
+  public String printExits(){
+    StringBuilder exitString = new StringBuilder();
+    for (String key : exits.keySet()) {
+      exitString.append(key);
+      exitString.append(": ");
+      exitString.append(exits.get(key));
+      if (exits.size() > 1) {
+        exitString.append(", ");
+      } else if (exits.size() == 0) {
+        return "none";
+      }
+    }
+    return exitString.toString();
+  }
 }

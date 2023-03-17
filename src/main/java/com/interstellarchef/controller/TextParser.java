@@ -1,0 +1,104 @@
+package com.interstellarchef.controller;
+
+import com.interstellarchef.model.Character;
+import com.interstellarchef.model.Game;
+import com.interstellarchef.model.Item;
+
+public class TextParser {
+
+  //todo: when JSON files created, take values and printed strings below from the JSON file
+  private final GameController gameController;
+  private final Game game;
+
+  TextParser(GameController gameController, Game game){
+    this.gameController = gameController;
+    this.game = game;
+  }
+
+
+  public void promptUserAction(){
+    boolean valid = false;
+    String currentAction;
+    String currentNoun;
+    System.out.println("What would you like to do?"); //todo: load from json
+
+    while(!valid){
+      String input = gameController.getUserInput();
+      String[] inputArray = input.split(" ", 2);
+      currentAction = inputArray[0];
+
+      //check if input greater than 1 word, else continue
+      if(inputArray.length == 1) {
+        System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
+        continue;
+      }
+
+      //check noun and action
+      currentNoun = checkInput(currentAction, inputArray[1]);
+
+      //if noun not valid, continue
+      if(currentNoun.equals("")) {
+        System.out.println("You can't do that! Try again."); //todo: load from json
+      } else {
+        valid = true;
+        //todo: remove after all testing
+        System.out.println(currentAction + " " + currentNoun + " is a valid input");
+      }
+    }
+
+  }
+
+  private String checkInput(String action, String noun){
+    String result = "";
+
+    //check directions
+    if (action.equalsIgnoreCase("go")){ //todo: include synonyms and load from json
+      for (String direction : game.getCurrentLocation().getExits().keySet()){
+        if(noun.equalsIgnoreCase(direction)){
+          return direction;
+        }
+      }
+    }
+
+    //check characters
+    if (action.equalsIgnoreCase("talk") || action.equalsIgnoreCase("look")) { //todo: include synonyms and load from json
+      for(Character character: game.getCurrentLocation().getCharacters()){
+        if(noun.equalsIgnoreCase(character.getName())){
+          return character.getName();
+        }
+      }
+    }
+
+    //check items in current room
+    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {//todo: include synonyms and load from json
+      for(Item item: game.getCurrentLocation().getItems()){
+        if(noun.equalsIgnoreCase(item.getName())){
+          for (String allowedAction : item.getActionResponse().keySet()) {
+            //checks if action can be performed on item
+            if (action.equalsIgnoreCase(allowedAction)){
+              return item.getName();
+            }
+          }
+        }
+      }
+    }
+
+    //check items in inventory
+    for(Item item: game.getInventory().getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        for (String allowedAction : item.getActionResponse().keySet()) {
+          //checks if action can be performed on item
+          if (action.equalsIgnoreCase(allowedAction)){
+            result = item.getName();
+            break;
+          }
+          break;
+        }
+      }
+    }
+
+    return result;
+  }
+
+
+}

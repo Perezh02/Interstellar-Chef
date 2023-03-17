@@ -29,8 +29,23 @@ public class TextParser {
 
       //check if input greater than 1 word, else continue
       if(inputArray.length == 1) {
-        System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
-        continue;
+          if (inputArray[0].equalsIgnoreCase("help")) {
+              String helpInfo = "*********************************************** HELP ***********************************************\n" +
+                      "\t\tDirection options: North, South, West, East, Up & Down\n" +
+                      "\t\tgo/walk/run/climb <Direction>: Moves character in selected direction\n" +
+                      "\t\tget/grab/take <Item Name>: Adds item to Player's Inventory\n" +
+                      "\t\tlook/inspect/examine <Item Name>: Investigates Item\n" +
+                      "\t\tuse/utilize/apply <Item Name>: item disappears from your inventory once you use it\n" +
+                      "\t\thelp: Displays a list of valid commands\n" +
+                      "\t\tquit: ends the game\n" +
+                      "****************************************************************************************************\n" +
+                      "\n" +
+                      "What would you like to do? ";
+              System.out.println(helpInfo);
+          } else {
+              System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
+          }
+          continue;
       }
 
       //check noun and action

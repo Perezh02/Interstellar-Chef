@@ -29,19 +29,24 @@ public class GameController {
     if(input.equals("yes")){
       playGame();
     }else{
-      quitGame();
+      quitGame(false);
     }
 
   }
 
-  public void quitGame(){
+  public void quitGame(boolean ask){
     String quitGame;
-
-    System.out.println("Are you sure you want to quit this game? Yes or No ");
-    quitGame = getUserInput();
+    if(ask){
+      System.out.println("Are you sure you want to quit this game? Yes or No ");
+      quitGame = getUserInput();
+    }else{
+      quitGame = "yes";
+    }
     if(quitGame.equals("yes")){
       System.out.println("We really don't want to say Goodbye to you");
       System.exit(0);
+    }else{
+      System.out.println("It's our honor you choose to stay with us");
     }
   }
 
@@ -50,7 +55,7 @@ public class GameController {
     Scanner scan = new Scanner(System.in);
     input = scan.nextLine().toLowerCase();
     if(input.equals("quit")){
-      quitGame();
+      quitGame(true);
     }
     return input;
   }
@@ -73,13 +78,20 @@ public class GameController {
 
     //todo: The following is for testing TextParser. Replace after json functionality is completed.
     HashMap<String, String> actionResponse = new HashMap<>();
+    HashMap<String, String> chefActionResponse = new HashMap<>();
+    chefActionResponse.put("look","Pizza");
+    Item testChefItem = new Item("knife","Meat Chop", chefActionResponse);
+    List<Item> itemChefList = new LinkedList<>();
+    itemChefList.add(testChefItem);
+    Character characters = new Character("chef", "Cooking food", chefActionResponse, itemChefList);
+    Character[] testCharacters = new Character[]{characters};
     actionResponse.put("look","a cool rock");
     Item testItem = new Item("rock","a cool rock", actionResponse);
     List<Item> itemList = new LinkedList<>();
     itemList.add(testItem);
     HashMap<String, String> exitsA = new HashMap<>();
     exitsA.put("north","kitchen");
-    Location testLocationA = new Location("room", "nice room", exitsA, itemList, new Character[0]);
+    Location testLocationA = new Location("room", "nice room", exitsA, new LinkedList<>(), testCharacters);
     HashMap<String, String> exitsB = new HashMap<>();
     exitsB.put("south","room");
     Location testLocationB = new Location("kitchen", "nice room", exitsB, itemList, new Character[0]);

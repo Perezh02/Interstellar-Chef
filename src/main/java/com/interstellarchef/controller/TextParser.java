@@ -48,6 +48,8 @@ public class TextParser {
                       "\t\tquit: ends the game\n" +
                       "****************************************************************************************************\n";
               System.out.println(helpInfo);
+          } else if(currentAction.equalsIgnoreCase("quit")){
+            continue;
           } else {
               System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
           }
@@ -82,16 +84,22 @@ public class TextParser {
     }
 
     //check characters
-    if (action.equalsIgnoreCase("talk") || action.equalsIgnoreCase("look")) { //todo: include synonyms and load from json
+    if (action.equalsIgnoreCase("talk")) { //todo: include synonyms and load from json
       for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
-          return character.getName();
+            return character.getName();
         }
       }
     }
 
+
+    //look item, location, character
+    if(action.equalsIgnoreCase("look")) {
+      return game.look(noun);
+    }
+
     //check items in current room
-    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {//todo: include synonyms and load from json
+    if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){
         if(noun.equalsIgnoreCase(item.getName())){
           for (String allowedAction : item.getActionResponse().keySet()) {

@@ -89,12 +89,18 @@ public class TextParser {
           for (String allowedAction : item.getActionResponse().keySet()) {
             //checks if action can be performed on item
             if (action.equalsIgnoreCase(allowedAction)){
+              if (action.equalsIgnoreCase("look")) {
+                System.out.println("Description : " + item.getDescription());
+              }
               return item.getName();
             }
           }
         }
       }
     }
+
+
+
 
     //check items in inventory
     for(Item item: game.getInventory().getItems()){

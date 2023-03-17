@@ -40,6 +40,8 @@ public class TextParser {
                       "\t\tquit: ends the game\n" +
                       "****************************************************************************************************\n";
               System.out.println(helpInfo);
+          } else if(currentAction.equalsIgnoreCase("quit")){
+            continue;
           } else {
               System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
           }

@@ -11,6 +11,15 @@ public class Location {
   private List<Item> items;
   private Character[] characters;
 
+  public Location(String name, String description, HashMap<String,String> exits, List<Item> items, Character[] characters) {
+    this.name = name;
+    this.description = description;
+    this.exits = exits;
+    this.items = items;
+    this.characters = characters;
+  }
+
+
   public String getName() {
     return name;
   }

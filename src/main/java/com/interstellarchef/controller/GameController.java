@@ -1,7 +1,15 @@
 package com.interstellarchef.controller;
 
 import static com.interstellarchef.view.View.clearScreen;
+
+import com.interstellarchef.model.Character;
+import com.interstellarchef.model.Game;
+import com.interstellarchef.model.Item;
+import com.interstellarchef.model.Location;
 import com.interstellarchef.view.View;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -63,7 +71,20 @@ public class GameController {
 
   public void playGame(){
 
-    System.out.println("The game start! Enjoy!");
+    //todo: The following is for testing TextParser. Replace after json functionality is completed.
+    HashMap<String, String> actionResponse = new HashMap<>();
+    actionResponse.put("look","a cool rock");
+    Item testItem = new Item("rock","a cool rock", actionResponse);
+    List<Item> itemList = new LinkedList<>();
+    itemList.add(testItem);
+    HashMap<String, String> exits = new HashMap<>();
+    exits.put("north","kitchen");
+    Location testLocation = new Location("room", "nice room", exits, itemList, new Character[0]);
+    Location inventory = new Location(new String(" "), new String(" "), new HashMap<String, String>(), new LinkedList<>(), new Character[0]);
+    Game game = new Game(testLocation, inventory);
+    TextParser parser = new TextParser(this, game);
+    parser.promptUserAction();
+
   }
 
 }

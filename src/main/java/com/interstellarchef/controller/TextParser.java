@@ -41,9 +41,11 @@ public class TextParser {
         System.out.println("You can't do that! Try again."); //todo: load from json
       } else {
         valid = true;
+        //todo: remove after all testing
+        System.out.println(currentAction + " " + currentNoun + " is a valid input");
       }
-
     }
+
   }
 
   private String checkInput(String action, String noun){
@@ -68,7 +70,7 @@ public class TextParser {
     }
 
     //check items in current room
-    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {
+    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){
         if(noun.equalsIgnoreCase(item.getName())){
           for (String allowedAction : item.getActionResponse().keySet()) {

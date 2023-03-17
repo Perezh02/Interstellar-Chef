@@ -8,6 +8,13 @@ public class Game {
   Item currentRecipe;
   List<String> completedRecipes;
 
+  public Game(Location currentLocation, Location inventory) {
+    this.currentLocation = currentLocation;
+    this.inventory = inventory;
+    this.currentRecipe = currentRecipe;
+    this.completedRecipes = completedRecipes;
+  }
+
   public Location getCurrentLocation() {
     return currentLocation;
   }

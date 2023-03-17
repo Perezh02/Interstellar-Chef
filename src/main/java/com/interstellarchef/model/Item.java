@@ -8,6 +8,13 @@ public class Item {
   private String description;
   private HashMap<String,String> actionResponse; //action, text printed in response to action
 
+  public Item(String name, String description,
+      HashMap<String, String> actionResponse) {
+    this.name = name;
+    this.description = description;
+    this.actionResponse = actionResponse;
+  }
+
   public String getName() {
     return name;
   }

@@ -2,6 +2,7 @@ package com.interstellarchef.controller;
 
 import com.interstellarchef.model.Character;
 import com.interstellarchef.model.Game;
+import com.interstellarchef.model.GameText;
 import com.interstellarchef.model.Item;
 
 public class TextParser {
@@ -9,10 +10,12 @@ public class TextParser {
   //todo: when JSON files created, take values and printed strings below from the JSON file
   private final GameController gameController;
   private final Game game;
+  private final GameText gameText;
 
-  TextParser(GameController gameController, Game game){
+  TextParser(GameController gameController){
     this.gameController = gameController;
-    this.game = game;
+    this.game = gameController.getGame();
+    this.gameText = gameController.getGameText();
   }
 
 
@@ -22,26 +25,18 @@ public class TextParser {
     String currentNoun;
 
     while(!valid){
-      System.out.println("What would you like to do? Enter 'help' for valid actions."); //todo: load from json
+      System.out.println(gameText.getPromptActionMessage());
       String input = gameController.getUserInput();
       String[] inputArray = input.split(" ", 2);
       currentAction = inputArray[0];
 
       //check if input greater than 1 word, else continue
       if(inputArray.length == 1) {
-          if (inputArray[0].equalsIgnoreCase("help")) {
-              String helpInfo = "*********************************************** HELP ***********************************************\n" +
-                      "\t\tDirection options: North, South, West, East, Up & Down\n" +
-                      "\t\tgo/walk/run/climb <Direction>: Moves character in selected direction\n" +
-                      "\t\tget/grab/take <Item Name>: Adds item to Player's Inventory\n" +
-                      "\t\tlook/inspect/examine <Item Name>: Investigates Item\n" +
-                      "\t\tuse/utilize/apply <Item Name>: item disappears from your inventory once you use it\n" +
-                      "\t\thelp: Displays a list of valid commands\n" +
-                      "\t\tquit: ends the game\n" +
-                      "****************************************************************************************************\n";
+          if (inputArray[0].equalsIgnoreCase(gameText.getHelpKeyWord())) {
+              String helpInfo = gameText.getHelpMessage();
               System.out.println(helpInfo);
           } else {
-              System.out.println("Looks like you forgot a word! Please try again."); //todo: load from json
+              System.out.println(gameText.getMissingWordMessage());
           }
           continue;
       }
@@ -51,7 +46,7 @@ public class TextParser {
 
       //if noun not valid, continue
       if(currentNoun.equals("")) {
-        System.out.println("You can't do that! Try again."); //todo: load from json
+        System.out.println(gameText.getInvalidActionMessage());
       } else {
         valid = true;
       }

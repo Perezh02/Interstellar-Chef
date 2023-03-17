@@ -108,6 +108,7 @@ public class GameController {
     TextParser parser = new TextParser(this);
     while(true){
       parser.promptUserAction();
+      clearScreen();
     }
 
 

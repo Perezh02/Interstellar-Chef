@@ -15,6 +15,10 @@ public class GameText {
   private String promptActionMessage;
   private String missingWordMessage;
   private String invalidActionMessage;
+  private String dividerBar;
+  private String currentLocationWidget;
+  private String availableExitWidget;
+  private String roomItemsWidget;
 
   public String getGameBanner() {
     return gameBanner;
@@ -126,5 +130,37 @@ public class GameText {
 
   public void setInvalidActionMessage(String invalidActionMessage) {
     this.invalidActionMessage = invalidActionMessage;
+  }
+
+  public String getDividerBar() {
+    return dividerBar;
+  }
+
+  public void setDividerBar(String dividerBar) {
+    this.dividerBar = dividerBar;
+  }
+
+  public String getCurrentLocationWidget() {
+    return currentLocationWidget;
+  }
+
+  public void setCurrentLocationWidget(String currentLocationWidget) {
+    this.currentLocationWidget = currentLocationWidget;
+  }
+
+  public String getAvailableExitWidget() {
+    return availableExitWidget;
+  }
+
+  public void setAvailableExitWidget(String availableExitWidget) {
+    this.availableExitWidget = availableExitWidget;
+  }
+
+  public String getRoomItemsWidget() {
+    return roomItemsWidget;
+  }
+
+  public void setRoomItemsWidget(String roomItemsWidget) {
+    this.roomItemsWidget = roomItemsWidget;
   }
 }

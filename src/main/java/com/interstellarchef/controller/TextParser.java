@@ -74,21 +74,22 @@ public class TextParser {
     }
 
     //check characters
-    if (action.equalsIgnoreCase("talk") || action.equalsIgnoreCase("look")) { //todo: include synonyms and load from json
+    if (action.equalsIgnoreCase("talk")) { //todo: include synonyms and load from json
       for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
-          return character.getName();
+            return character.getName();
         }
       }
     }
 
-    //print out description when player use look command.
-    if (action.equalsIgnoreCase("look")) {
-      game.look(noun);
+
+    //look item, location, character
+    if(action.equalsIgnoreCase("look")) {
+      return game.look(noun);
     }
 
     //check items in current room
-    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {//todo: include synonyms and load from json
+    if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){
         if(noun.equalsIgnoreCase(item.getName())){
           for (String allowedAction : item.getActionResponse().keySet()) {

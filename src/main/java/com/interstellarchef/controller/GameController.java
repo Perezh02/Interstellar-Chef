@@ -10,8 +10,10 @@ import com.interstellarchef.view.View;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
 
 public class GameController {
 
@@ -92,5 +94,21 @@ public class GameController {
 
 
   }
+
+//  public void setUpGame(){
+//    Gson gson = new Gson();
+//
+//    try (Reader reader = new FileReader("c:\\projects\\staff.json")) {
+//
+//      // Convert JSON File to Java Object
+////      Staff staff = gson.fromJson(reader, Staff.class);
+//
+//      // print staff object
+////      System.out.println(staff);
+//
+//    } catch (IOException e) {
+//      e.printStackTrace();
+//    }
+//  }
 
 }

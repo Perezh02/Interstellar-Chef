@@ -82,6 +82,11 @@ public class TextParser {
       }
     }
 
+    //print out description when player use look command.
+    if (action.equalsIgnoreCase("look")) {
+      game.look(noun);
+    }
+
     //check items in current room
     if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){
@@ -89,18 +94,12 @@ public class TextParser {
           for (String allowedAction : item.getActionResponse().keySet()) {
             //checks if action can be performed on item
             if (action.equalsIgnoreCase(allowedAction)){
-              if (action.equalsIgnoreCase("look")) {
-                System.out.println("Description : " + item.getDescription());
-              }
               return item.getName();
             }
           }
         }
       }
     }
-
-
-
 
     //check items in inventory
     for(Item item: game.getInventory().getItems()){

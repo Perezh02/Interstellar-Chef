@@ -68,12 +68,14 @@ public class TextParser {
     }
 
     //check items in current room
-    for(Item item: game.getCurrentLocation().getItems()){
-      if(noun.equalsIgnoreCase(item.getName())){
-        for (String allowedAction : item.getActionResponse().keySet()) {
-          //checks if action can be performed on item
-          if (action.equalsIgnoreCase(allowedAction)){
-            return item.getName();
+    if (action.equalsIgnoreCase("grab") || action.equalsIgnoreCase("look")) {
+      for(Item item: game.getCurrentLocation().getItems()){
+        if(noun.equalsIgnoreCase(item.getName())){
+          for (String allowedAction : item.getActionResponse().keySet()) {
+            //checks if action can be performed on item
+            if (action.equalsIgnoreCase(allowedAction)){
+              return item.getName();
+            }
           }
         }
       }

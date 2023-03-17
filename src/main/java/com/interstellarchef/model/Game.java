@@ -25,6 +25,30 @@ public class Game {
     }
   }
 
+  public String look(String noun) {
+
+    if(noun.equalsIgnoreCase(currentLocation.getName())) {
+      System.out.println(currentLocation.getDescription());
+      return currentLocation.getDescription();
+    }
+
+    for(Character character: currentLocation.getCharacters()) {
+      if (noun.equalsIgnoreCase(character.getName())) {
+        //print out character description
+        System.out.println(character.getDescription());
+        return character.getName();
+      }
+    }
+
+    for(Item item: currentLocation.getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        System.out.println(item.getDescription());
+        return item.getDescription();
+      }
+    }
+    return "";
+  }
+
   public Location getCurrentLocation() {
     return currentLocation;
   }

@@ -46,7 +46,7 @@ public class Game {
         return item.getDescription();
       }
     }
-    return null;
+    return "";
   }
 
   public Location getCurrentLocation() {

@@ -9,6 +9,14 @@ public class Character {
   private HashMap<String,String> actionResponse; //action, text printed in response to action
   private List<Item> items;
 
+  public Character(String name, String description,
+      HashMap<String, String> actionResponse, List<Item> items) {
+    this.name = name;
+    this.description = description;
+    this.actionResponse = actionResponse;
+    this.items = items;
+  }
+
   public String getName() {
     return name;
   }

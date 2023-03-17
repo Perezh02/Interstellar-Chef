@@ -7,12 +7,22 @@ public class Game {
   Location inventory;
   Item currentRecipe;
   List<String> completedRecipes;
+  Location[] gameLocations;
 
-  public Game(Location currentLocation, Location inventory) {
+  public Game(Location currentLocation, Location inventory, Location[] locations) {
     this.currentLocation = currentLocation;
     this.inventory = inventory;
-    this.currentRecipe = currentRecipe;
-    this.completedRecipes = completedRecipes;
+    this.gameLocations = locations;
+  }
+
+  public void changeCurrentLocation(String locationDirection){
+    String nextLocationName = currentLocation.getExits().get(locationDirection);
+    for(Location location : gameLocations){
+      if(location.getName().equalsIgnoreCase(nextLocationName)){
+        setCurrentLocation(location);
+        System.out.println("You are now in the " + location.getName() + ".");
+      }
+    }
   }
 
   public Location getCurrentLocation() {

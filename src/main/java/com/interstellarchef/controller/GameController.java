@@ -77,13 +77,19 @@ public class GameController {
     Item testItem = new Item("rock","a cool rock", actionResponse);
     List<Item> itemList = new LinkedList<>();
     itemList.add(testItem);
-    HashMap<String, String> exits = new HashMap<>();
-    exits.put("north","kitchen");
-    Location testLocation = new Location("room", "nice room", exits, itemList, new Character[0]);
+    HashMap<String, String> exitsA = new HashMap<>();
+    exitsA.put("north","kitchen");
+    Location testLocationA = new Location("room", "nice room", exitsA, itemList, new Character[0]);
+    HashMap<String, String> exitsB = new HashMap<>();
+    exitsB.put("south","room");
+    Location testLocationB = new Location("kitchen", "nice room", exitsB, itemList, new Character[0]);
     Location inventory = new Location(new String(" "), new String(" "), new HashMap<String, String>(), new LinkedList<>(), new Character[0]);
-    Game game = new Game(testLocation, inventory);
+    Game game = new Game(testLocationA, inventory, new Location[]{testLocationA, testLocationB});
     TextParser parser = new TextParser(this, game);
-    parser.promptUserAction();
+    while(true){
+      parser.promptUserAction();
+    }
+
 
   }
 

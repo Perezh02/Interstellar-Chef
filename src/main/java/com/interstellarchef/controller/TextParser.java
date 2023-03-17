@@ -41,8 +41,6 @@ public class TextParser {
         System.out.println("You can't do that! Try again."); //todo: load from json
       } else {
         valid = true;
-        //todo: remove after all testing
-        System.out.println(currentAction + " " + currentNoun + " is a valid input");
       }
     }
 
@@ -55,6 +53,8 @@ public class TextParser {
     if (action.equalsIgnoreCase("go")){ //todo: include synonyms and load from json
       for (String direction : game.getCurrentLocation().getExits().keySet()){
         if(noun.equalsIgnoreCase(direction)){
+          //change current location
+          game.changeCurrentLocation(direction);
           return direction;
         }
       }
@@ -99,6 +99,7 @@ public class TextParser {
 
     return result;
   }
+
 
 
 }

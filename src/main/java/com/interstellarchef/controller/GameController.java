@@ -22,6 +22,8 @@ public class GameController {
 
  public GameController(){
    setUpGameText();
+   // ToDo: make set up game conditional based on user input
+   setUpGame();
    runGameIntro();
    startGame();
  }
@@ -81,9 +83,6 @@ public class GameController {
   }
 
   public void playGame(){
-
-    //todo: set up files from json, and set this.game
-
     TextParser parser = new TextParser(this);
     while(true){
         clearScreen();
@@ -93,8 +92,6 @@ public class GameController {
           input = getUserInput();
         }
     }
-
-
   }
 
   public void setUpGameText(){
@@ -110,6 +107,23 @@ public class GameController {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  public void setUpGame(){
+     Gson gson = new Gson();
+     Location[] locations = new Location[38];
+
+      //noinspection ConstantConditions
+      try (Reader reader = new InputStreamReader(getClass()
+              .getClassLoader()
+              .getResourceAsStream("locations.json"))) {
+          
+          locations = gson.fromJson(reader,Location[].class);
+
+      } catch (IOException e) {
+          e.printStackTrace();
+      }
+      this.game = new Game(locations[0], locations[1], locations);
   }
 
   public Game getGame() {

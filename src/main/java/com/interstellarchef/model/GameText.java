@@ -4,6 +4,7 @@ public class GameText {
   private String gameBanner;
   private String greeting;
   private String gameIntro;
+  private String pressEnterMessageCentered;
   private String pressEnterMessage;
   private String newGameMessage;
   private String affirmative;
@@ -40,16 +41,24 @@ public class GameText {
     return gameIntro;
   }
 
+  public void setGameIntro(String gameIntro) {
+    this.gameIntro = gameIntro;
+  }
+
+  public String getPressEnterMessageCentered() {
+    return pressEnterMessageCentered;
+  }
+
+  public void setPressEnterMessageCentered(String pressEnterMessageCentered) {
+    this.pressEnterMessageCentered = pressEnterMessageCentered;
+  }
+
   public String getPressEnterMessage() {
     return pressEnterMessage;
   }
 
   public void setPressEnterMessage(String pressEnterMessage) {
     this.pressEnterMessage = pressEnterMessage;
-  }
-
-  public void setGameIntro(String gameIntro) {
-    this.gameIntro = gameIntro;
   }
 
   public String getNewGameMessage() {

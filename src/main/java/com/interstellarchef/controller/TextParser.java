@@ -59,6 +59,7 @@ public class TextParser {
         System.out.println(gameText.getInvalidActionMessage());
       } else {
         valid = true;
+        System.out.println(gameText.getPressEnterMessage());
       }
     }
 

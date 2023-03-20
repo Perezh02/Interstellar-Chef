@@ -1,0 +1,398 @@
+[
+  {
+    "name":"Living Quarters",
+    "description": "There are people sleeping here, and you can hear snoring.",
+    "exits": {
+      "east": "Sector 2"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Inventory",
+    "description": "The players current inventory of items",
+    "exits": {
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name":"South Sky Bridge",
+  "description": "As you walk into the Sky Bridge, the airlock shuts behind you. \nYou see spacesuits prepared for use.",
+  "exits": {
+    "north": "Sector 1",
+    "south": "Floating Garden"
+  },
+  "items": [],
+  "characters": []
+  },
+  {
+    "name": "Sector 1",
+    "description": "There are people passing by, with the gym to the west \n& pressurized gardens to the east, and sector 2 to the north, south sky bridge to the south.",
+    "exits": {
+      "north": "Sector 2",
+      "south": "South Sky Bridge",
+      "east": "Pressurized Gardens",
+      "west": "Gym"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Pressurized Garden",
+    "description": "The space is filled with edible and medicinal plants. \nYou see a gardener watering some vegetables.",
+    "exits": {
+      "west": "Sector 1"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Gym",
+    "description": "A fitness fanatic is doing pull-ups nearby. \nThe weight racks look secure, but you never feel certain…",
+    "exits":{
+      "east": "Sector 1"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Sector 2",
+    "description": "There are people passing by, with the Living quarters to the west, \nbathrooms to the east, sector 1 to the south, and mess hall to the north.",
+    "exits": {
+      "north": "Mess Hall",
+      "south": "Sector 1",
+      "east": "Bathrooms",
+      "west": "Living Quarters"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Bathrooms",
+    "description": "Looks like a normal bathroom.",
+    "exits":{},
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Mess Hall",
+    "description": "There are people eating, with the kitchen to the east, \nsector 3 to the north, sector 2 to the south, and nothing to the west.",
+    "exits":{
+      "north": "Sector 3",
+      "south": "Sector 2",
+      "east": "Kitchen"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Kitchen",
+    "description":"The Head Chef is calling out orders to other Kitchen staff, \nand has a recipe for you to gather ingredients and cook for Mess Hall diners tonight. \nThe Mess Hall is to the west, and nothing else surrounds the Kitchen.",
+    "exits":{},
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Sector 3",
+    "description": "There are people walking by, you see something that looks like a door on the floor \nwhich you’d like to check out sometime, with the Information Center to the west, \nthe Medical Bay to the East, Mess Hall to the south, and sector 4 to the north. ",
+    "exits":{
+      "north": "Sector 4",
+      "south": "Mess Hall",
+      "east": "Medical Bay",
+      "west": "Information Center"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Bilge",
+    "description": "It’s an interesting space, lots of under the table trading going on, maybe you could find something interesting here? You can exit (up) to go back to Sector 3.",
+    "exits":{
+      "up": "Sector 3"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Information Center",
+    "description": "The Information Center is the place to get information on almost anything you’d be curious about. The information center liaison is just the person to talk to in order to check out a GPS for use on the discovery pod. With Sector 3 to the east, nothing else surrounds the Information Center.",
+    "exits": {
+      "east": "Sector 3"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Medical Bay",
+    "description": "There don’t seem to be any patients today. You see a lab tech sweeping the deck. Maybe they know where some ingredients are",
+    "exits":{
+      "west": "Sector 3"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Sector 4",
+    "description":"There are lots of important people walking by. Better get through here quickly.",
+    "exits":{
+      "north": "North Sky Bridge",
+      "south": "Sector 3"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Command Center",
+    "description": "This door is locked.",
+    "exits":{},
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Engineering Spaces",
+    "description": "This door is locked",
+    "exits":{},
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Sky Bridge",
+    "description": "As you walk into the Sky Bridge, the airlock shuts behind you. You see spacesuits prepared for use and a Pod Technician taking logs. The Pod Technician might know which planet the ingredient you seek could be on, why don’t we ask him?",
+    "exits":{
+      "north": "Discovery Pod",
+      "south": "Sector 4"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "Discovery Pod",
+    "description":"The doorway to discovery! The discovery pod is your ticket to exploring the many planets this section of the Milky Way has to offer. You’re able to use the GPS to navigate to one of the 5 planets (relatively to the ship)",
+    "exits":{
+      "south": "North Sky Bridge"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Volcano Planet",
+    "description": "This quadrant is home a shiny space rock, maybe it can be traded for something else of value?",
+    "exits": {
+      "south": "South Volcano Planet",
+      "west": "West Volcano Planet",
+      "east": "East Volcano Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "South Volcano Planet",
+    "description": "A fiery landscape",
+    "exits":{
+      "north": "North Volcano Planet",
+      "west": "West Volcano Planet",
+      "east": "East Volcano Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "West Volcano Planet",
+    "description": "",
+    "exits":{
+      "north": "North Volcano Planet",
+      "south": "South Volcano Planet",
+      "east": "East Volcano Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "East Volcano Planet",
+    "description": "",
+    "exits":{
+      "north": "North Volcano Planet",
+      "south": "South Volcano Planet",
+      "west": "West Volcano Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Rainforest Planet",
+    "description":"",
+    "exits":{
+      "south": "South Rainforest Planet",
+      "west": "West Rainforest Planet",
+      "east": "North Rainforest Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "South Rainforest Planet",
+    "description":"",
+    "exits":{
+      "north":"North Rainforest Planet",
+      "west": "West Rainforest Planet",
+      "east": "East Rainforest Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "West Rainforest Planet",
+    "description":"",
+    "exits":{
+      "north":"North Rainforest Planet",
+      "south": "South Rainforest Planet",
+      "east": "East Rainforest Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "East Rainforest Planet",
+    "description": "",
+    "exits":{
+      "north":"North Rainforest Planet",
+      "south": "South Rainforest Planet",
+      "west": "West Rainforest Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Snow Planet",
+    "description": "Super chilly place and you always feel you are ice bucket challenging. Nothing is here except cold wind. ",
+    "exits":{
+      "north":"South Snow Planet",
+      "west": "West Snow Planet",
+      "east": "East Snow Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "South Snow Planet",
+    "description":"Good place to go skating in case you feel bored. There’s nothing to see here except snow as far the eye can see. There are more quadrants to the North, West & East.",
+    "exits":{
+      "north":"North Snow Planet",
+      "west": "West Snow Planet",
+      "east": "East Snow Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "West Snow Planet",
+    "description": "Living here for a long time can help you become a figure skating player since you have nothing to do except skating.",
+    "exits":{
+      "north":"North Snow Planet",
+      "south": "South Snow Planet",
+      "east": "East Snow Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "East Snow Planet",
+    "description":"Nothing much to this planet other than snow and ice. There are more quadrants to the North, South & West. ",
+    "exits":{
+      "north":"North Snow Planet",
+      "south": "South Snow Planet",
+      "west": "West Snow Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Swamp Planet",
+    "description": " Nothing here except a spacewalker. There are other quadrants to the South, West & East",
+    "exits":{
+      "north":"North Swamp Planet",
+      "south": "South Swamp Planet",
+      "west": "West Swamp Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "South Swamp Planet",
+    "description":"There are other quadrants to the North, West & East. The weather on this planet is humid, and the swamp is a mystery.",
+    "exits":{
+      "north":"North Swamp Planet",
+      "west": "West Swamp Planet",
+      "east": "East Swamp Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "West Swamp Planet",
+    "description": "Nothing here except an interesting fossil of a frog. There are more quadrants to the North, South & East.",
+    "exits":{
+      "north":"North Swamp Planet",
+      "west": "South Swamp Planet",
+      "east": "East Swamp Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "East Swamp Planet",
+    "description": "",
+    "exits":{
+      "north": "North Swamp Planet",
+      "west": "West Swamp Planet",
+      "east": "East Swamp Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "North Desert Planet",
+    "description": "",
+    "exits":{
+      "south": "South Desert Planet",
+      "west": "West Desert Planet",
+      "east": "East Desert Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "South Desert Planet",
+    "description": "",
+    "exits":{
+      "north": "North Desert Planet",
+      "west": "West Desert Planet",
+      "east": "East Desert Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "West Desert Planet",
+    "description": "",
+    "exits":{
+      "north": "North Desert Planet",
+      "south": "South Desert Planet",
+      "east": "East Desert Planet"
+    },
+    "items": [],
+    "characters": []
+  },
+  {
+    "name": "East Desert Planet",
+    "description": "",
+    "exits":{
+      "north": "North Desert Planet",
+      "south": "South Desert Planet",
+      "west": "West Desert Planet"
+    },
+    "items": [],
+    "characters": []
+  }
+]

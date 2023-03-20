@@ -100,7 +100,8 @@ public class GameController {
   public void setUpGameText(){
     Gson gson = new Gson();
 
-    try (Reader reader = new InputStreamReader(getClass()
+      //noinspection ConstantConditions
+      try (Reader reader = new InputStreamReader(getClass()
                     .getClassLoader()
                     .getResourceAsStream("gametext.json"))) {
 

@@ -27,7 +27,7 @@ public class GameController {
  }
 
   public void startGame(){
-    clearScreen();
+    //clearScreen();
     System.out.println(gameText.getNewGameMessage());
     String input;
     Scanner scan = new Scanner(System.in);
@@ -107,6 +107,10 @@ public class GameController {
     while(true){
         clearScreen();
         parser.promptUserAction();
+        String input = getUserInput();
+        while(!input.equals("")){
+          input = getUserInput();
+        }
     }
 
 

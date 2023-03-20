@@ -82,27 +82,8 @@ public class GameController {
 
   public void playGame(){
 
-    //todo: The following is for testing TextParser. Replace after json functionality is completed.
-    HashMap<String, String> actionResponse = new HashMap<>();
-    HashMap<String, String> chefActionResponse = new HashMap<>();
-    chefActionResponse.put("look","Pizza");
-    Item testChefItem = new Item("knife","Meat Chop", chefActionResponse);
-    List<Item> itemChefList = new LinkedList<>();
-    itemChefList.add(testChefItem);
-    Character characters = new Character("chef", "Cooking food", chefActionResponse, itemChefList);
-    Character[] testCharacters = new Character[]{characters};
-    actionResponse.put("look","a cool rock");
-    Item testItem = new Item("rock","a cool rock", actionResponse);
-    List<Item> itemList = new LinkedList<>();
-    itemList.add(testItem);
-    HashMap<String, String> exitsA = new HashMap<>();
-    exitsA.put("north","kitchen");
-    Location testLocationA = new Location("room", "nice room", exitsA, new LinkedList<>(), testCharacters);
-    HashMap<String, String> exitsB = new HashMap<>();
-    exitsB.put("south","room");
-    Location testLocationB = new Location("kitchen", "nice room", exitsB, itemList, new Character[0]);
-    Location inventory = new Location(new String(" "), new String(" "), new HashMap<String, String>(), new LinkedList<>(), new Character[0]);
-    this.game = new Game(testLocationA, inventory, new Location[]{testLocationA, testLocationB});
+    //todo: set up files from json, and set this.game
+
     TextParser parser = new TextParser(this);
     while(true){
         clearScreen();

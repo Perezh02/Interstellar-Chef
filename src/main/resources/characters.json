@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Gardener",
+    "description": "They seem friendly, but they have a lot of dirt on their hands.",
+    "actionResponse": {"look":"They seem friendly, but they have a lot of dirt on their hands.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Fitness Fanatic",
+    "description": "They're really buff!",
+    "actionResponse": {"look":"They're really buff!","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Cadet",
+    "description": "They seem young to be wearing a military uniform.",
+    "actionResponse": {"look":"They seem young to be wearing a military uniform.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Head Chef",
+    "description": "The Head Chef is wearing a white chef uniform and a big floppy hat.",
+    "actionResponse": {"look":"The Head Chef is wearing a white chef uniform and a big floppy hat.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Shadowy Figure",
+    "description": "The shadows prevent you from getting a clear look at their face.",
+    "actionResponse": {"look":"The shadows prevent you from getting a clear look at their face.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Information Center Liaison",
+    "description": "They look like they might have some useful information.",
+    "actionResponse": {"look":"They look like they might have some useful information.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Lab Technician",
+    "description": "They seem bored.",
+    "actionResponse": {"look":"They seem bored.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Pod Technician",
+    "description": "Their tool belt looks heavy.",
+    "actionResponse": {"look":"Their tool belt looks heavy.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Random Alien",
+    "description": "They don't seem very interested in you.",
+    "actionResponse": {"look":"They don't seem very interested in you.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Random Creature",
+    "description": "They don't look very friendly...",
+    "actionResponse": {"look":"They don't look very friendly...","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Spacewalker Felix",
+    "description": "You don't see a pod anywhere, how did they get here?",
+    "actionResponse": {"look":"You don't see a pod anywhere, how did they get here?","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Desert Alien",
+    "description": "They seem to be handling the heat just fine.",
+    "actionResponse": {"look":"They seem to be handling the heat just fine.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Spacewalker Sam",
+    "description": "Their spacesuit is definitely too long for them.",
+    "actionResponse": {"look":"Their spacesuit is definitely too long for them.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Spacewalker Nyckolle",
+    "description": "They love talking about recipes!",
+    "actionResponse": {"look":"They love talking about recipes!","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Spacewalker Kun",
+    "description": "They might be interested in trading.",
+    "actionResponse": {"look":"They might be interested in trading.","talk": ""},
+    "items": []
+  },
+  {
+    "name": "Spacewalker Jasper",
+    "description": "They're always hanging out in the floating garden.",
+    "actionResponse": {"look":"They're always hanging out in the floating garden.","talk": ""},
+    "items": []
+  }
+    ]

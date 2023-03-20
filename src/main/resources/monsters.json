@@ -1,0 +1,32 @@
+[
+  {
+  "name": "Lava Monster",
+  "description": "They probably don't ever get cold.",
+  "actionResponse": {"look":"They probably don't ever get cold.","talk": ""},
+  "items": []
+},
+  {
+  "name": "Vine Monster",
+  "description": "How many vines does it have? Too many to count.",
+  "actionResponse": {"look":"How many vines does it have? Too many to count.","talk": ""},
+  "items": []
+},
+  {
+  "name": "Ice Monster",
+  "description": "They look like they could freeze you solid.",
+  "actionResponse": {"look":"They look like they could freeze you solid.","talk": ""},
+  "items": []
+},
+  {
+  "name": "Swamp Monster",
+  "description": "You see the monster's eyes peeking out from the swamp.",
+  "actionResponse": {"look":"You see the monster's eyes peeking out from the swamp water.","talk": ""},
+  "items": []
+},
+  {
+  "name": "Sand Monster",
+  "description": "It's hard to tell where the sand starts and the sand monster ends.",
+  "actionResponse": {"look":"It's hard to tell where the sand starts and the sand monster ends.","talk": ""},
+  "items": []
+}
+]

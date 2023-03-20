@@ -1,227 +1,91 @@
 [
   {
     "name": "Spacesuit",
-    "description": "must equip before going to the floating garden or discovery pod",
+    "description": "You must equip this before going to the floating garden or discovery pod.",
     "actionResponse": {
-      "look": "The spacesuit should be worn in out space",
-      "get": "get a white spacesuit",
-      "use": "Your spacesuit is put on now"
-    }
-  },
-  {
-    "name": "Milk",
-    "description": "This milk must be plant-based",
-    "actionResponse": {
-      "look": "There are goat milk and soy milk",
-      "get": "get a tasty goat milk",
-      "use": "milk is ready for use"
-    }
-  },
-  {
-    "name": "Butter",
-    "description": "This is a good source of calories",
-    "actionResponse": {
-      "look": " the most ubiquitous, versatile, and downright delicious ingredients on this planet",
-      "get": "Animal Farm butter got",
-      "use": "Butter is melting"
+      "look": "You must equip this before going to the floating garden or discovery pod.",
+      "get": "You put the spacesuit in your inventory.",
+      "use": "You put the spacesuit on."
     }
   },
   {
     "name": "Uniform",
-    "description": "a uniform given to members of the galley staff",
+    "description": "A uniform given to members of the galley staff",
     "actionResponse": {
-      "look": "We still have 3 types uniforms for your selections",
-      "get": "a staff uniform is ready ",
-      "use": "wearing staff uniform"
-    }
-  },
-  {
-    "name": "Tortillas",
-    "description": "given by the Cadet, as he had an extra bag from the commissary",
-    "actionResponse": {
-      "look": "These Tortillas can be used as a base for tacos or a wrap for sandwiches.",
-      "get": "Pick up the bag of Tortillas",
-      "use": "You now have a Tortilla in your hand"
-    }
-  },
-  {
-    "name": "Recipe",
-    "description": "(must interact with Chef), snacks (These look tasty.)",
-    "actionResponse": {
-      "look": "This recipe combines spicy curry dressing with tender tofu and juicy lamb to create a mouth-watering noodle salad that is perfect for lunch or dinner!",
-      "get": "Gather all the ingredients and cooking utensils listed above before beginning.",
-      "use": "Follow the instructions above to make a delicious and healthy Spicy Tofu Noodle Salad."
-    }
-  },
-  {
-    "name": "Noodles",
-    "description": "can’t make spaghetti without the noodles",
-    "actionResponse": {
-      "look": "These noodles are spicy and flavorful",
-      "get": "Gather all the ingredients before starting to cook",
-      "use": "Serve hot and enjoy!"
-    }
-  },
-  {
-    "name": "GPS",
-    "description": "a device that can be used to track your location and navigate",
-    "actionResponse": {
-      "look": "The GPS shows your current location and provides directions to your destination.",
-      "get": "You grab the GPS device and power it on.",
-      "use": "The GPS device guides you to your destination with turn-by-turn directions."
-    }
-  },
-  {
-    "name": "Tofu",
-    "description": "This will be good with some curry powder.",
-    "actionResponse": {
-      "look": "This dish is made with tofu, which is a plant-based protein made from soybeans.",
-      "get": "Get some firm tofu from the grocery store.",
-      "use": "Cut the tofu into small cubes and use it in the stir-fry."
-    }
-  }
-  {
-    "name": "Key",
-    "description": "Can open one specific door",
-    "actionResponse": {
-      "look": "The key appears to be quite old and well-worn. It's unclear what it might unlock.",
-      "get": "You pick up the key, which feels surprisingly heavy in your hand.",
-      "use": "You try the key in several different locks, but none of them seem to fit. It's possible that it's meant for a very specific lock."
+      "look": "A uniform given to members of the galley staff",
+      "get": "You put the uniform in your inventory.",
+      "use": "You put on the uniform. Very fancy!"
     }
   },
   {
     "name": "Pepper",
     "description": "Wonder how old this is…",
     "actionResponse": {
-      "look": "Pepper is a black or white spice commonly used to add flavor to food.",
-      "get": "You pick up the pepper shaker and add a dash of it to your dish.",
-      "use": "You sprinkle some pepper on your food to add some extra flavor."
+      "look": "Wonder how old this is…",
+      "get": "You put the pepper shaker in your inventory for later",
+      "use": ""
     }
+  },{
+  "name": "Snacks",
+  "description": "These look tasty.",
+  "actionResponse": {
+    "look": "Pepper is a black or white spice commonly used to add flavor to food.",
+    "get": "You put the snacks in your inventory for later.",
+    "use": ""
   }
+},
   {
     "name": "Rock",
     "description": "shiny space rock",
     "actionResponse": {
       "look": "A Rock might be laid on the mountain",
-      "get": "A obsidian is ready for you",
-      "use": "obsidian is utilized"
+      "get": "You put the rock in your inventory. It's heavier than it looks!",
+      "use": ""
     }
   },
   {
-    "name": "Meatballs",
-    "description": "The lava monster packs some heat, but also knows how to cook some killer Martian Meatballs- exactly what you need for your recipe!",
+    "name": "Giant Snail Shell",
+    "description": "There’s no one living here anymore!",
     "actionResponse": {
-      "look": "You can get 3 types of meatballs",
-      "get": "delicious HUVUDROLL chicken meatballs was selected",
-      "use": "Please enjoy your chicken meatballs"
+      "look": "There’s no one living here anymore!",
+      "get": "You put the giant snail shell in your inventory. Ew, slimy!",
+      "use": ""
     }
   },
   {
-    "name": "Shell",
-    "description": "giant snail shell, there’s no one living here anymore!",
+    "name": "Snowflake Crystal",
+    "description": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
     "actionResponse": {
-      "look": "searching available shell...",
-      "get": "One giant snail shell was selected",
-      "use": "You can use giant snail shell for any recipe"
+      "look": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
+      "get": "As you pick up the crystal, you feel a surge of power flow through your body. You put the crystal in your inventory.",
+      "use": ""
     }
   },
   {
-    "name": "Curry",
-    "description": "Curry is perfect for cold weather.",
+    "name": "Frog Fossil",
+    "description": "You can see the frog's skeleton in the rock.",
     "actionResponse": {
-      "look": "This curry can be used at any of India cuisine",
-      "get": "get spicy chicken curry",
-      "use": "A fruity aromatic white with no oak or tannin will harmonize best with the subtle spiciness in the chicken curry"
+      "look": "You can see the frog's skeleton in the rock.",
+      "get": "You put the fossil in your inventory.",
+      "use": ""
     }
   },
   {
-    "name": "Crystal",
-    "description": "a body that is formed by the solidification of a chemical element, a compound, or a mixture and has a regularly repeating internal arrangement of its atoms and often external plane faces",
+    "name": "Lightning Glass",
+    "description": "It shines in the light.",
     "actionResponse": {
-      "look": "The crystal glows with an otherworldly light and seems to hum faintly with magical energy. It's clear that this is no ordinary crystal.",
-      "get": "As you pick up the crystal, you feel a surge of power flow through your body. This crystal could be very useful in the right hands.",
-      "use": "You channel your magical energy into the crystal, causing it to glow brighter and emit a powerful burst of energy. The crystal seems to amplify your magical abilities and could be a valuable tool for any wizard or sorcerer."
-    }
-  },
-  {
-    "name": "Fish",
-    "description": "space fish",
-    "actionResponse": {
-      "look": "You needs some special space fish",
-      "get": "Get a golden space fish",
-      "use": "Fish filet is frying"
-    }
-  },
-  {
-    "name": "Frog",
-    "description": "A stone frog",
-    "actionResponse": {
-      "look": "There is not much stone frog here",
-      "get": "Catch a stone frog in outside",
-      "use": "Stone frog is using"
-    }
-  },
-  {
-    "name": "Glass",
-    "description": "an inorganic solid material that is usually transparent or translucent as well as hard, brittle, and impervious to the natural elements",
-    "actionResponse": {
-      "look": "There might not be too much glass here ",
-      "get": "Found two types of glasses",
-      "use": "The glass container is making"
-    }
-  },
-  {
-    "name": "Powder ",
-    "description": "baking powder, desc: Does this mean baking powder is made of sand?",
-    "actionResponse": {
-      "look": "The powder appears to be finely ground and of high quality. It could likely be used as a powerful explosive if handled carefully.",
-      "get": "You carefully scoop up some of the powder into a small container, being careful not to spill any.",
-      "use": "You carefully place the powder in a pile and light a fuse. After a brief moment, the powder explodes with a powerful force, causing a loud boom and sending debris flying in all directions. It's best to handle this powder with caution."
+      "look": "It shines in the light.",
+      "get": "You carefully pick up the glass and put it in your inventory.",
+      "use": ""
     }
   },
   {
     "name": "Flour",
-    "description": "flying saucer flour, desc: A small satchel of flour is peeking out from the greenery",
+    "description": "A small satchel of flour that makes your hands powdery.",
     "actionResponse": {
-      "look": "The flour is a fine white powder, and appears to be of high quality. It would be perfect for baking.",
-      "get": "You scoop up some flour into a bag, being careful not to spill any.",
-      "use": "You mix the flour with other ingredients and knead it into dough. After baking it in the oven, you are left with a delicious loaf of bread. The flour seems to have worked perfectly for this recipe."
-    }
-  },
-  {
-    "name": "Sauce",
-    "description": "A rich and flavorful tomato sauce, perfect for pasta or as a base for other dishes.",
-    "actionResponse": {
-      "look": "The tomato sauce is a vibrant red color and has visible chunks of tomato and herbs. It looks and smells delicious.",
-      "get": "You spoon some of the tomato sauce onto your plate, relishing the aroma and the texture of the chunks of tomato. It's clear that this is a high-quality sauce, made with fresh ingredients.",
-      "use": "You mix the tomato sauce with some pasta, creating a classic and satisfying meal. The sauce would also be great as a base for pizza, or as a topping for meat dishes. This tomato sauce is a versatile ingredient that should be a staple in any kitchen."
-    }
-  },
-  {
-    "name": "Lamb",
-    "description": "A succulent roast lamb, perfectly seasoned and ready to be enjoyed.",
-    "actionResponse": {
-      "look": "The lamb is perfectly browned on the outside and juicy on the inside. The seasoning is aromatic and tantalizing, making your mouth water just looking at it.",
-      "get": "You carefully slice a piece of the lamb, savoring the aroma and the tenderness of the meat. It's clear that this is a high-quality roast, cooked to perfection.",
-      "use": "You enjoy the lamb with your friends and family, relishing the rich flavor and the satisfaction of a meal well-prepared. This roast lamb would make a great centerpiece for any special occasion or holiday feast."
-    }
-  },
-  {
-    "name": "Rice",
-    "description": "A fragrant and flavorful rice that pairs well with many dishes.",
-    "actionResponse": {
-      "look": "The rice grains are slender and slightly curved, with a distinctive aroma that is both nutty and floral. This is a high-quality rice that will elevate any meal.",
-      "get": "You scoop up a handful of rice, admiring the way it shimmers in the light. This is a rice that is both beautiful and delicious.",
-      "use": "You cook the rice to perfection, enjoying the aroma and the delicate flavor. This rice is versatile and can be used in a wide variety of dishes, from savory curries to sweet rice puddings. It's no wonder that basmati rice is so beloved by cooks and foodies alike."
-    }
-  },
-  {
-    "name": "Salad",
-    "description": "A refreshing Greek salad with feta cheese, olives, and fresh vegetables.",
-    "actionResponse": {
-      "look": "The salad is a colorful mix of crisp lettuce, juicy tomatoes, crunchy cucumbers, tangy feta cheese, and briny Kalamata olives. The aroma of fresh herbs and olive oil is mouth-watering.",
-      "get": "As you take a bite of the salad, the flavors explode in your mouth. The freshness of the vegetables, the saltiness of the cheese, and the tanginess of the dressing all come together in perfect harmony.",
-      "use": "The Greek salad is perfect for a light lunch or as a side dish for a Mediterranean-inspired meal. It's a healthy and delicious way to get your daily dose of vegetables, and the flavors are sure to please even the pickiest of eaters."
+      "look": "A small satchel of flour that makes your hands powdery.",
+      "get": "You put the flour in your inventory for later.",
+      "use": ""
     }
   }
 ]

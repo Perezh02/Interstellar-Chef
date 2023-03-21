@@ -73,6 +73,17 @@ public class Game {
     return "";
   }
 
+  public String drop(String noun){
+    for(Item item: inventory.getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        inventory.removeItem(item);
+        System.out.println(item.getActionResponse().get("drop"));
+        currentLocation.addItem(item);
+        return item.getName();
+      }
+    }
+    return "";
+  }
 
   public Location getCurrentLocation() {
     return currentLocation;

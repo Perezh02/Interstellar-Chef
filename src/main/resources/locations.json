@@ -12,7 +12,8 @@
         "actionResponse": {
           "look": "A uniform given to members of the galley staff",
           "get": "You put the uniform in your inventory.",
-          "use": "You put on the uniform. Very fancy!"
+          "use": "You put on the uniform. Very fancy!",
+          "drop": "You drop the uniform on the ground."
         }
       }
     ],
@@ -42,7 +43,8 @@
         "actionResponse": {
           "look": "You must equip this before going to the floating garden or discovery pod.",
           "get": "You put the spacesuit in your inventory.",
-          "use": "You put the spacesuit on."
+          "use": "You put the spacesuit on.",
+          "drop": "You take off the spacesuit and leave it on the ground."
         }
       }
     ],
@@ -84,7 +86,8 @@
             "actionResponse": {
               "look": "This Milk must be plant-based.",
               "get": "You put the Milk in your inventory for later. Hope it doesn't spill...",
-              "use": ""
+              "use": "",
+              "drop": "You drop the Milk on the ground. It splatters a little."
             }
           }
         ],
@@ -115,7 +118,8 @@
             "actionResponse": {
               "look": "This is a good source of calories.",
               "get": "You put the Butter in your inventory for later. What if it melts?",
-              "use": ""
+              "use": "",
+              "drop": "You drop the Butter on the ground. It's now out of your inventory."
             }
           }
         ],
@@ -169,7 +173,8 @@
             "actionResponse": {
               "look": "These look nice and fresh.",
               "get": "You put the Tortillas in your inventory for later.",
-              "use": ""
+              "use": "",
+              "drop": "You drop the Tortillas on the ground."
             }
           }
         ],
@@ -191,7 +196,8 @@
         "actionResponse": {
           "look": "These look tasty.",
           "get": "You put the snacks in your inventory for later.",
-          "use": ""
+          "use": "",
+          "drop": "You drop the snacks on the ground."
         }
       }
     ],
@@ -290,7 +296,8 @@
             "actionResponse": {
               "look": "Can’t make spaghetti without the noodles!",
               "get": "You put the noodles in your inventory.",
-              "use": ""
+              "use": "",
+              "drop": "You drop the noodles on the ground."
             }
           }
         ],
@@ -321,7 +328,8 @@
             "actionResponse": {
               "look": "A device that can be used to track your location and navigate.",
               "get": "You put the GPS in your inventory.",
-              "use": ""
+              "use": "",
+              "drop": "You drop the GPS on the ground."
             }
           }
         ],
@@ -352,7 +360,8 @@
             "actionResponse": {
               "look": "This will be good with some curry powder.",
               "get": "You put the tofu in your inventory for later.",
-              "use": ""
+              "use": "",
+              "drop": "You drop the Tofu on the ground."
             }
           }
         ],
@@ -402,7 +411,8 @@
         "actionResponse": {
           "look": "You must equip this before going to the floating garden or discovery pod.",
           "get": "You put the spacesuit in your inventory.",
-          "use": "You put the spacesuit on."
+          "use": "You put the spacesuit on.",
+          "drop": "You drop the spacesuit on the ground."
         }
       }
     ],
@@ -421,7 +431,8 @@
             "actionResponse": {
               "look": "This doesn't appear to be a door key.",
               "get": "You pick up the key, which feels surprisingly heavy in your hand.",
-              "use": ""
+              "use": "",
+              "drop": "Your key was dropped. You are losing some access with key drop."
             }
           }
         ],
@@ -443,7 +454,8 @@
         "actionResponse": {
           "look": "Wonder how old this is…",
           "get": "You put the pepper shaker in your inventory for later",
-          "use": ""
+          "use": "",
+          "drop": "Sorry to see you drop pepper. How can people cook lamb or beef without pepper."
         }
       }
     ],
@@ -465,7 +477,8 @@
         "actionResponse": {
           "look": "shiny space rock",
           "get": "You put the rock in your inventory. It's heavier than it looks!",
-          "use": ""
+          "use": "",
+          "drop": "Space rock drop down. A small earthquack would occur."
         }
       }
     ],
@@ -531,7 +544,8 @@
           "actionResponse": {
             "look": "You're too afraid to ask what these are made of.",
             "get": "You put the meatballs in your inventory.",
-            "use": ""
+            "use": "",
+            "drop": "Meatballs drops from your pocket. "
           }
         }
       ],
@@ -609,7 +623,8 @@
         "actionResponse": {
           "look": "There’s no one living here anymore!",
           "get": "You put the giant snail shell in your inventory. Ew, slimy!",
-          "use": ""
+          "use": "",
+          "drop": "You must be regret if you drom my cute giant snail shell."
         }
       }
     ],
@@ -655,7 +670,8 @@
         "actionResponse": {
           "look": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
           "get": "As you pick up the crystal, you feel a surge of power flow through your body. \nYou put the crystal in your inventory.",
-          "use": ""
+          "use": "",
+          "drop": "Idiot, you won't believe how much you just dropped."
         }
       }
     ],
@@ -686,7 +702,8 @@
           "actionResponse": {
             "look": "Curry is perfect for cold weather.",
             "get": "You put the Curry Powder in your inventory for later.",
-            "use": ""
+            "use": "",
+            "drop": "Are you crazy? You just drop cosmic curry powder."
           }
         }
       ],
@@ -740,7 +757,8 @@
           "actionResponse": {
             "look": "This space fish lives on land.",
             "get": "You put the fish in your inventory for later.",
-            "use": ""
+            "use": "",
+            "drop": "Oh, my heart breaks, you dropped this precious fish"
           }
         }
       ]
@@ -761,7 +779,8 @@
         "actionResponse": {
           "look": "You can see the frog's skeleton in the rock.",
           "get": "You put the fossil in your inventory.",
-          "use": ""
+          "use": "",
+          "drop": "Wait, how can we finish the lab research after you dropped the frog fossil"
         }
       }
     ],
@@ -807,7 +826,8 @@
         "actionResponse": {
           "look": "It shines in the light.",
           "get": "You carefully pick up the glass and put it in your inventory.",
-          "use": ""
+          "use": "",
+          "drop": "Our world will never have light"
         }
       }
     ],
@@ -849,7 +869,8 @@
           "actionResponse": {
             "look": "Does this mean baking powder is made of sand?",
             "get": "You carefully scoop up some of the powder into a small container, being careful not to spill any. You put it in your inventory for later.",
-            "use": ""
+            "use": "",
+            "drop": "I guess your oven doesn't work"
           }
         }
       ],
@@ -881,7 +902,8 @@
         "actionResponse": {
           "look": "A small satchel of flour that makes your hands powdery.",
           "get": "You put the flour in your inventory for later.",
-          "use": ""
+          "use": "",
+          "drop": "Please let me say goodbye to any bread ever"
         }
       }
     ],
@@ -900,7 +922,8 @@
             "actionResponse": {
               "look": "A rich and flavorful tomato sauce, perfect for pasta or as a base for other dishes.",
               "get": "You put the tomato sauce in your inventory. ",
-              "use": ""
+              "use": "",
+              "drop": "You have make me lost the awesome memory about french-fry."
             }
           }
         ],
@@ -920,7 +943,8 @@
             "actionResponse": {
               "look": "It has some spice to it, but would go great with seafood!",
               "get": "You put the salsa in your inventory.",
-              "use": ""
+              "use": "",
+              "drop": "I appreciate you dropped this Salsa."
             }
           }
         ],
@@ -940,7 +964,8 @@
             "actionResponse": {
               "look": "Several lamb chops, ready to be cooked.",
               "get": "You put the lamb chops in your inventory.",
-              "use": ""
+              "use": "",
+              "drop": "Oh no!!!, That is my favorite lamb chops, you are killing me."
             }
           }
         ],
@@ -960,7 +985,8 @@
             "actionResponse": {
               "look": "A fragrant and flavorful rice that pairs well with many dishes.",
               "get": "You scoop up a handful of rice, admiring the way it shimmers in the light. You put the rice in your inventory.",
-              "use": "You cook the rice to perfection, enjoying the aroma and the delicate flavor."
+              "use": "You cook the rice to perfection, enjoying the aroma and the delicate flavor.",
+              "drop": "This is not good new for asian people."
             }
           }
         ],

@@ -100,6 +100,10 @@ public class TextParser {
       return game.get(noun);
     }
 
+    //drop item
+    if(action.equalsIgnoreCase("drop")) {
+      return game.drop(noun);
+    }
 
     //check items in current room
     if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json

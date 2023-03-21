@@ -4,14 +4,15 @@ import java.util.List;
 
 public class Game {
   Location currentLocation;
-  Location inventory;
+
+  Player player;
   Item currentRecipe;
   List<String> completedRecipes;
   Location[] gameLocations;
 
-  public Game(Location currentLocation, Location inventory, Location[] locations) {
+  public Game(Location currentLocation, Player player, Location[] locations) {
     this.currentLocation = currentLocation;
-    this.inventory = inventory;
+    this.player = player;
     this.gameLocations = locations;
   }
 
@@ -27,16 +28,16 @@ public class Game {
 
   public String look(String noun) {
 
-    if(noun.equalsIgnoreCase(inventory.getName())){
-      System.out.println(inventory.getDescription());
-      if (inventory.getItems().size() == 0){
+    if(noun.equalsIgnoreCase(player.getInventory().getName())){
+      System.out.println(player.getInventory().getDescription());
+      if (player.getInventory().getItems().size() == 0){
         System.out.println("Nothing.");
       } else {
-        for (Item item: inventory.getItems()){
+        for (Item item: player.getInventory().getItems()){
           System.out.println(item.getName());
         }
       }
-      return inventory.getDescription();
+      return player.getInventory().getDescription();
     }
 
     if(noun.equalsIgnoreCase(currentLocation.getName())) {
@@ -64,7 +65,7 @@ public class Game {
   public String get(String noun){
     for(Item item: currentLocation.getItems()){
       if(noun.equalsIgnoreCase(item.getName())){
-        inventory.addItem(item);
+        player.getInventory().addItem(item);
         System.out.println(item.getActionResponse().get("get"));
         currentLocation.removeItem(item);
         return item.getName();
@@ -74,9 +75,9 @@ public class Game {
   }
 
   public String drop(String noun){
-    for(Item item: inventory.getItems()){
+    for(Item item: player.getInventory().getItems()){
       if(noun.equalsIgnoreCase(item.getName())){
-        inventory.removeItem(item);
+        player.getInventory().removeItem(item);
         System.out.println(item.getActionResponse().get("drop"));
         currentLocation.addItem(item);
         return item.getName();
@@ -91,14 +92,6 @@ public class Game {
 
   public void setCurrentLocation(Location currentLocation) {
     this.currentLocation = currentLocation;
-  }
-
-  public Location getInventory() {
-    return inventory;
-  }
-
-  public void setInventory(Location inventory) {
-    this.inventory = inventory;
   }
 
   public Item getCurrentRecipe() {
@@ -116,4 +109,12 @@ public class Game {
   public void setCompletedRecipes(List<String> completedRecipes) {
     this.completedRecipes = completedRecipes;
   }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
 }

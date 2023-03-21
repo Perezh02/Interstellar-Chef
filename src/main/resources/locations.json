@@ -12,7 +12,7 @@
         "actionResponse": {
           "look": "A uniform given to members of the galley staff",
           "get": "You put the uniform in your inventory.",
-          "use": "You put on the uniform. Very fancy!",
+          "equip": "You put on the uniform. Very fancy!",
           "drop": "You drop the uniform on the ground."
         }
       }
@@ -43,7 +43,7 @@
         "actionResponse": {
           "look": "You must equip this before going to the floating garden or discovery pod.",
           "get": "You put the spacesuit in your inventory.",
-          "use": "You put the spacesuit on.",
+          "equip": "You put the spacesuit on.",
           "drop": "You take off the spacesuit and leave it on the ground."
         }
       }
@@ -411,7 +411,7 @@
         "actionResponse": {
           "look": "You must equip this before going to the floating garden or discovery pod.",
           "get": "You put the spacesuit in your inventory.",
-          "use": "You put the spacesuit on.",
+          "equip": "You put the spacesuit on.",
           "drop": "You drop the spacesuit on the ground."
         }
       }

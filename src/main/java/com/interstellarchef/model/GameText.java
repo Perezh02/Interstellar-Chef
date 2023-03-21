@@ -20,6 +20,9 @@ public class GameText {
   private String currentLocationWidget;
   private String availableExitWidget;
   private String roomItemsWidget;
+  private String roomCharactersWidget;
+
+  private String equippedItemWidget;
 
   public String getGameBanner() {
     return gameBanner;
@@ -171,5 +174,21 @@ public class GameText {
 
   public void setRoomItemsWidget(String roomItemsWidget) {
     this.roomItemsWidget = roomItemsWidget;
+  }
+
+  public String getRoomCharactersWidget() {
+    return roomCharactersWidget;
+  }
+
+  public void setRoomCharactersWidget(String roomCharactersWidget) {
+    this.roomCharactersWidget = roomCharactersWidget;
+  }
+
+  public String getEquippedItemWidget() {
+    return equippedItemWidget;
+  }
+
+  public void setEquippedItemWidget(String equippedItemWidget) {
+    this.equippedItemWidget = equippedItemWidget;
   }
 }

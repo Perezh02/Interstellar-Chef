@@ -27,7 +27,6 @@
     "items": [],
     "characters": [],
     "monster": null
-
   },
   {
     "name": "South Sky Bridge",
@@ -451,15 +450,17 @@
       "west": "West Volcano Planet",
       "east": "East Volcano Planet"
     },
-    "items": {
-      "name": "Space Rock",
-      "description": "shiny space rock",
-      "actionResponse": {
-        "look": "shiny space rock",
-        "get": "You put the rock in your inventory. It's heavier than it looks!",
-        "use": ""
+    "items": [
+      {
+        "name": "Space Rock",
+        "description": "shiny space rock",
+        "actionResponse": {
+          "look": "shiny space rock",
+          "get": "You put the rock in your inventory. It's heavier than it looks!",
+          "use": ""
+        }
       }
-    },
+    ],
     "characters": [],
     "monster": null
   },

@@ -27,6 +27,17 @@ public class Game {
 
   public String look(String noun) {
 
+    if(noun.equalsIgnoreCase(inventory.getName())){
+      System.out.println(inventory.getDescription());
+      if (inventory.getItems().size() == 0){
+        System.out.println("Nothing.");
+      } else {
+        for (Item item: inventory.getItems()){
+          System.out.println(item.getName());
+        }
+      }
+    }
+
     if(noun.equalsIgnoreCase(currentLocation.getName())) {
       System.out.println(currentLocation.getDescription());
       return currentLocation.getDescription();

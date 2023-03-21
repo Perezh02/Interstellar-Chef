@@ -21,7 +21,7 @@
   },
   {
     "name": "Inventory",
-    "description": "The players current inventory of items",
+    "description": "You open your inventory and look inside. You have:",
     "exits": {
     },
     "items": [],

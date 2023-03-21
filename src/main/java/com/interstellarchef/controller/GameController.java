@@ -111,7 +111,7 @@ public class GameController {
 
   public void setUpGame(){
      Gson gson = new Gson();
-     Location[] locations = new Location[38];
+     Location[] locations = new Location[40];
 
       //noinspection ConstantConditions
       try (Reader reader = new InputStreamReader(getClass()

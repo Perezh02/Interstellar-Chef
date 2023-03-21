@@ -49,6 +49,19 @@ public class Game {
     return "";
   }
 
+  public String get(String noun){
+    for(Item item: currentLocation.getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        inventory.addItem(item);
+        System.out.println(item.getActionResponse().get("get"));
+        currentLocation.removeItem(item);
+        return item.getName();
+      }
+    }
+    return "";
+  }
+
+
   public Location getCurrentLocation() {
     return currentLocation;
   }

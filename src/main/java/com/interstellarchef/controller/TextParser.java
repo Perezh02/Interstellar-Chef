@@ -94,6 +94,12 @@ public class TextParser {
       return game.look(noun);
     }
 
+    //get item
+    if(action.equalsIgnoreCase("get")) {
+      return game.get(noun);
+    }
+
+
     //check items in current room
     if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){

@@ -36,6 +36,7 @@ public class Game {
           System.out.println(item.getName());
         }
       }
+      return inventory.getDescription();
     }
 
     if(noun.equalsIgnoreCase(currentLocation.getName())) {

@@ -1,7 +1,7 @@
 [
   {
     "name": "Living Quarters",
-    "description": "There are people sleeping here, and you can hear snoring.",
+    "description": "There are people sleeping here, and you can hear snoring",
     "exits": {
       "east": "Sector 2"
     },
@@ -30,7 +30,7 @@
   },
   {
     "name": "South Sky Bridge",
-    "description": "As you walk into the Sky Bridge, the airlock shuts behind you. \nYou see spacesuits prepared for use.",
+    "description": "As you walk into the Sky Bridge, the airlock shuts behind you. \nYou see spacesuits prepared for use",
     "exits": {
       "north": "Sector 1",
       "south": "Floating Garden"
@@ -51,7 +51,7 @@
   },
   {
     "name": "Sector 1",
-    "description": "There are people passing by, with the gym to the west \n& pressurized gardens to the east, and sector 2 to the north, south sky bridge to the south.",
+    "description": "There are people passing by, with the gym to the west, pressurized gardens to the east, \nsector 2 to the north, and south sky bridge to the south.",
     "exits": {
       "north": "Sector 2",
       "south": "South Sky Bridge",
@@ -203,45 +203,45 @@
         "items": [
           {
             "name": "Space Spaghetti Recipe",
-            "description": "You better gather these ingredients for the Chef! You need: Noodles, Martian Meatballs, Tomato Sauce",
+            "description": "You better gather these ingredients for the Chef! \nYou need: Noodles, Martian Meatballs, Tomato Sauce",
             "actionResponse": {
-              "look": "You better gather these ingredients for the Chef! You need: Noodles, Martian Meatballs, Tomato Sauce",
+              "look": "You better gather these ingredients for the Chef! \nYou need: Noodles, Martian Meatballs, Tomato Sauce",
               "get": "You put the recipe into your inventory",
               "use": ""
             }
           },
           {
             "name": "Lunar Lamb Recipe",
-            "description": "You better gather these ingredients for the Chef! You need: Butter, Pepper, Lunar Lamb Chops",
+            "description": "You better gather these ingredients for the Chef! \nYou need: Butter, Pepper, Lunar Lamb Chops",
             "actionResponse": {
-              "look": "You better gather these ingredients for the Chef! You need: Butter, Pepper, Lunar Lamb Chops",
+              "look": "You better gather these ingredients for the Chef! \nYou need: Butter, Pepper, Lunar Lamb Chops",
               "get": "You put the recipe into your inventory",
               "use": ""
             }
           },
           {
             "name": "Cosmic Curry Recipe",
-            "description": "You better gather these ingredients for the Chef! You need: Rice, Tofu, Cosmic Curry Powder",
+            "description": "You better gather these ingredients for the Chef! \nYou need: Rice, Tofu, Cosmic Curry Powder",
             "actionResponse": {
-              "look": "You better gather these ingredients for the Chef! You need: Rice, Tofu, Cosmic Curry Powder",
+              "look": "You better gather these ingredients for the Chef! \nYou need: Rice, Tofu, Cosmic Curry Powder",
               "get": "You put the recipe into your inventory",
               "use": ""
             }
           },
           {
             "name": "Terrestrial Fish Tacos Recipe",
-            "description": "You better gather these ingredients for the Chef! You need: Tortillas, Terrestrial Space Fish, Salsa",
+            "description": "You better gather these ingredients for the Chef! \nYou need: Tortillas, Terrestrial Space Fish, Salsa",
             "actionResponse": {
-              "look": "You better gather these ingredients for the Chef! You need: Tortillas, Terrestrial Space Fish, Salsa",
+              "look": "You better gather these ingredients for the Chef! \nYou need: Tortillas, Terrestrial Space Fish, Salsa",
               "get": "You put the recipe into your inventory",
               "use": ""
             }
           },
           {
             "name": "Planetary Pancakes Recipe",
-            "description": "You better gather these ingredients for the Chef! You need: Flying Saucer Flour, Milk, Baking Powder",
+            "description": "You better gather these ingredients for the Chef! \nYou need: Flying Saucer Flour, Milk, Baking Powder",
             "actionResponse": {
-              "look": "You better gather these ingredients for the Chef! You need: Flying Saucer Flour, Milk, Baking Powder",
+              "look": "You better gather these ingredients for the Chef! \nYou need: Flying Saucer Flour, Milk, Baking Powder",
               "get": "You put the recipe into your inventory",
               "use": ""
             }
@@ -266,7 +266,7 @@
   },
   {
     "name": "Bilge",
-    "description": "It’s an interesting space, lots of under the table trading going on, maybe you could find something interesting here? You can exit (up) to go back to Sector 3.",
+    "description": "It’s an interesting space, lots of under the table trading going on, \nmaybe you could find something interesting here? \nYou can exit (up) to go back to Sector 3.",
     "exits": {
       "up": "Sector 3"
     },
@@ -296,7 +296,7 @@
   },
   {
     "name": "Information Center",
-    "description": "The Information Center is the place to get information on almost anything you’d be curious about. The information center liaison is just the person to talk to in order to check out a GPS for use on the discovery pod. With Sector 3 to the east, nothing else surrounds the Information Center.",
+    "description": "The Information Center is the place to get information on almost anything you’d be curious about. \nThe information center liaison is just the person to talk to in order to check out a GPS for use on the discovery pod. \nWith Sector 3 to the east, nothing else surrounds the Information Center.",
     "exits": {
       "east": "Sector 3"
     },
@@ -326,7 +326,7 @@
   },
   {
     "name": "Medical Bay",
-    "description": "There don’t seem to be any patients today. You see a lab tech sweeping the deck. Maybe they know where some ingredients are",
+    "description": "There don’t seem to be any patients today. You see a lab tech sweeping the deck. \nMaybe they know where some ingredients are",
     "exits": {
       "west": "Sector 3"
     },
@@ -383,7 +383,7 @@
   },
   {
     "name": "North Sky Bridge",
-    "description": "As you walk into the Sky Bridge, the airlock shuts behind you. You see spacesuits prepared for use and a Pod Technician taking logs. The Pod Technician might know which planet the ingredient you seek could be on, why don’t we ask him?",
+    "description": "As you walk into the Sky Bridge, the airlock shuts behind you. \nYou see spacesuits prepared for use and a Pod Technician taking logs. \nThe Pod Technician might know which planet the ingredient you seek could be on, why don’t we ask him?",
     "exits": {
       "north": "Discovery Pod",
       "south": "Sector 4"
@@ -424,7 +424,7 @@
   },
   {
     "name": "Discovery Pod",
-    "description": "The doorway to discovery! The discovery pod is your ticket to exploring the many planets this section of the Milky Way has to offer. You’re able to use the GPS to navigate to one of the 5 planets (relatively to the ship)",
+    "description": "The doorway to discovery! \nThe discovery pod is your ticket to exploring the many planets this section of the Milky Way has to offer. \nYou’re able to use the GPS to navigate to one of the 5 planets (relatively to the ship)",
     "exits": {
       "south": "North Sky Bridge"
     },
@@ -466,7 +466,7 @@
   },
   {
     "name": "South Volcano Planet",
-    "description": "A fiery landscape",
+    "description": "This quadrant is just a fiery landscape. \nThere seems to be a random alien here as well.",
     "exits": {
       "north": "North Volcano Planet",
       "west": "West Volcano Planet",
@@ -488,7 +488,7 @@
   },
   {
     "name": "West Volcano Planet",
-    "description": "",
+    "description": "This quadrant is just...hot. \nNothing of interest here. Maybe the other quadrants will be interesting.",
     "exits": {
       "north": "North Volcano Planet",
       "south": "South Volcano Planet",
@@ -500,7 +500,7 @@
   },
   {
     "name": "East Volcano Planet",
-    "description": "",
+    "description": "A mysterious Lava Monster is lurking in this quadrant. \nMaybe they'll have something we could use?",
     "exits": {
       "north": "North Volcano Planet",
       "south": "South Volcano Planet",
@@ -530,7 +530,7 @@
   },
   {
     "name": "North Rainforest Planet",
-    "description": "",
+    "description": "A Vine Monster rules this quadrant. \nShould you take your chances and talk to them?",
     "exits": {
       "south": "South Rainforest Planet",
       "west": "West Rainforest Planet",
@@ -562,7 +562,7 @@
   },
   {
     "name": "West Rainforest Planet",
-    "description": "",
+    "description": "A Random Creature roams this quadrant. It continues to rain heavily.",
     "exits": {
       "north": "North Rainforest Planet",
       "south": "South Rainforest Planet",
@@ -584,7 +584,7 @@
   },
   {
     "name": "East Rainforest Planet",
-    "description": "",
+    "description": "This quadrant's main feature is a Giant Snail Shell. \nCan we even fit that on the Discovery Pod?!",
     "exits": {
       "north": "North Rainforest Planet",
       "south": "South Rainforest Planet",
@@ -606,7 +606,7 @@
   },
   {
     "name": "North Snow Planet",
-    "description": "Super chilly place and you always feel you are ice bucket challenging. Nothing is here except cold wind. ",
+    "description": "A super chilly place where ou always feel like you're doing the Ice Bucket Challenge. \nNothing here except cold wind.",
     "exits": {
       "north": "South Snow Planet",
       "west": "West Snow Planet",
@@ -618,7 +618,7 @@
   },
   {
     "name": "South Snow Planet",
-    "description": "Good place to go skating in case you feel bored. There’s nothing to see here except snow as far the eye can see. There are more quadrants to the North, West & East.",
+    "description": "Good place to go skating in case you feel bored. \nThere’s nothing to see here except snow as far the eye can see. \nThere are more quadrants to the North, West & East.",
     "exits": {
       "north": "North Snow Planet",
       "west": "West Snow Planet",
@@ -630,7 +630,7 @@
   },
   {
     "name": "West Snow Planet",
-    "description": "Living here for a long time can help you become a figure skating player since you have nothing to do except skating.",
+    "description": "Living here for a long time can help you become a great figure skater \nA sparkly object is on the ground nearby.",
     "exits": {
       "north": "North Snow Planet",
       "south": "South Snow Planet",
@@ -642,7 +642,7 @@
         "description": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
         "actionResponse": {
           "look": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
-          "get": "As you pick up the crystal, you feel a surge of power flow through your body. You put the crystal in your inventory.",
+          "get": "As you pick up the crystal, you feel a surge of power flow through your body. \nYou put the crystal in your inventory.",
           "use": ""
         }
       }
@@ -652,7 +652,7 @@
   },
   {
     "name": "East Snow Planet",
-    "description": "Nothing much to this planet other than snow and ice. There are more quadrants to the North, South & West. ",
+    "description": "An Ice Monster roams this quadrant, and might have something interesting.\nThere are more quadrants to the North, South & West. ",
     "exits": {
       "north": "North Snow Planet",
       "south": "South Snow Planet",
@@ -682,7 +682,7 @@
   },
   {
     "name": "North Swamp Planet",
-    "description": " Nothing here except a spacewalker. There are other quadrants to the South, West & East",
+    "description": "Nothing here except a space walker. There are other quadrants to the South, West & East",
     "exits": {
       "north": "North Swamp Planet",
       "south": "South Swamp Planet",
@@ -704,7 +704,7 @@
   },
   {
     "name": "South Swamp Planet",
-    "description": "There are other quadrants to the North, West & East. The weather on this planet is humid, and the swamp is a mystery.",
+    "description": "A Swamp Monster is guarding something. I wonder what they're guarding?  \nThe weather on this planet is humid, and the swamp is a mystery.",
     "exits": {
       "north": "North Swamp Planet",
       "west": "West Swamp Planet",

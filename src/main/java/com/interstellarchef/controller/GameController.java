@@ -2,11 +2,8 @@ package com.interstellarchef.controller;
 
 import static com.interstellarchef.view.View.clearScreen;
 import com.google.gson.Gson;
+import com.interstellarchef.model.*;
 import com.interstellarchef.model.Character;
-import com.interstellarchef.model.Game;
-import com.interstellarchef.model.GameText;
-import com.interstellarchef.model.Item;
-import com.interstellarchef.model.Location;
 import com.interstellarchef.view.View;
 
 import java.io.InputStreamReader;
@@ -123,7 +120,8 @@ public class GameController {
       } catch (IOException e) {
           e.printStackTrace();
       }
-      this.game = new Game(locations[0], locations[1], locations);
+      Player player = new Player(locations[1]);
+      this.game = new Game(locations[0], player, locations);
   }
 
   public Game getGame() {

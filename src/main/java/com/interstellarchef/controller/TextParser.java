@@ -83,7 +83,8 @@ public class TextParser {
     if (action.equalsIgnoreCase("talk")) { //todo: include synonyms and load from json
       for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
-            return character.getName();
+          character.talk();
+          return character.getName();
         }
       }
     }

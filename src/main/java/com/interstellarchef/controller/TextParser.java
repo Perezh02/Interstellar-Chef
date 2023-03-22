@@ -88,6 +88,7 @@ public class TextParser {
       for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
           character.talk();
+          character.giveItem(game.getPlayer());
           return character.getName();
         }
       }

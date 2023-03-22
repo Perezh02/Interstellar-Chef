@@ -114,6 +114,15 @@ public class TextParser {
       return game.getPlayer().equipItem(noun);
     }
 
+    //fly discovery pod
+    if(action.equalsIgnoreCase("fly")){
+      String output = game.prepareToFly();
+      if(output != "" && output != " "){
+        output = game.fly(gameController.getUserInput());
+      }
+      return output;
+    }
+
     //check items in current room
     if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
       for(Item item: game.getCurrentLocation().getItems()){

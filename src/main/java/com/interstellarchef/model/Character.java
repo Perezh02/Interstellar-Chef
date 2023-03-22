@@ -15,7 +15,15 @@ public class Character {
   public void talk(){
     String result = "";
     System.out.println(getActionResponse().get("talk"));
-    System.out.println(String.format(dialog.get(0), name));
+    if(("Random Alien".equalsIgnoreCase(this.getName())
+        || "Random Creature".equalsIgnoreCase(this.getName())
+        || "Spacewalker Felix".equalsIgnoreCase(this.getName())
+        || "Desert Alien".equalsIgnoreCase(this.getName())) ){
+      System.out.println(String.format(dialog.get((int)(Math.random()*10)), name));
+    }else{
+      System.out.println(String.format(dialog.get(0), name));
+    }
+
   }
 
   public void giveItem(Player player){

@@ -503,7 +503,18 @@
           "talk": "You greet the Random Alien in a common alien language."
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": [
+          "%s: Hello, Spacewalker, have you ever tried the local hot springs? They're great for relaxing after a long day of running away from lava.",
+          "%s: Hello, Spacewalker, I'm not saying I'm an expert on volcanoes, but I do have a PhD in lava dodging.",
+          "%s: Hello, Spacewalker, if you want to impress the locals, try eating a volcano pepper. Just don't come crying to me when your insides start to melt.",
+          "%s: Hello, Spacewalker, I'm convinced that the only reason the volcanoes on this planet erupt so often is because they're angry at us for being so delicious.",
+          "%s: Hello, Spacewalker, I once tried to ride a lava flow like a surfboard. It did not end well.",
+          "%s: Hello, Spacewalker, do you know what they call a group of aliens who live near a volcano? Toast.",
+          "%s: Hello, Spacewalker, I've always said that the key to survival on this planet is to have a good pair of running shoes and a healthy fear of molten rock.",
+          "%s: Hello, Spacewalker, some aliens come to this planet for the thrill of dodging lava. I'm just here for the marshmallows.",
+          "%s: Hello, Spacewalker, I heard a rumor that the volcanoes on this planet are actually giant alien barbecue grills. Just don't tell the humans.",
+          "%s: Hello, Spacewalker, if you ever need a place to stay, I've got a spare lava-proof igloo. It's not much, but it's home."
+        ]
       }
     ],
     "monster": null
@@ -603,7 +614,18 @@
           "talk": "You fearfully greet the Vine Monster"
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": [
+          "%s: Hello, Spacewalker, I don't always climb trees, but when I do, I fall out of them",
+          "%s: Hello, Spacewalker, Have you ever tried the local fruit? It's delicious! Except for the ones that are secretly trying to kill you.",
+          "%s: Hello, Spacewalker, I'm not saying I'm the king of the jungle, but I do have a really cool crown made of leaves and twigs.",
+          "%s: Hello, Spacewalker, I once tried to have a staring contest with a sloth. I lost, but it was worth it.",
+          "%s: Hello, Spacewalker, if you're ever lost in the rainforest, just follow the sound of my terrible singing. I promise, it won't lead you anywhere useful.",
+          "%s: Hello, Spacewalker, do you know why I'm always covered in mud? It's because I'm a master of disguise. Shh, don't tell anyone.",
+          "%s: Hello, Spacewalker, I heard that some Earthlings have a pet called a 'cat.' What's that? Is it delicious?",
+          "%s: Hello, Spacewalker, I'm not sure what's scarier - the giant snakes, or the tiny frogs that can kill you with a single touch.",
+          "%s: Hello, Spacewalker, if you need me, I'll be in my treehouse, playing video games and eating bugs. The good life.",
+          "%s: Hello, Spacewalker, I once challenged a chameleon to a game of hide-and-seek. It was a tie."
+        ]
       }
     ],
     "monster": null
@@ -728,7 +750,19 @@
           "talk": "You greet Spacewalker Felix"
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": [
+          "%s: Hello, Spacewalker, did you know that the mud here is so thick, even the mosquitoes have trouble flying through it?",
+          "%s: Hello, Spacewalker, I'm not afraid of the alligators here. It's the mosquitoes I'm worried about. They're the real predators.",
+          "%s: Hello, Spacewalker, I once saw a plant here that was so big, it tried to eat me. Luckily, I was too tough to digest.",
+          "%s: Hello, Spacewalker, if you need me, I'll be in my swamp hut, cooking up some 'gator gumbo. Want to try some?",
+          "%s: Hello, Spacewalker, I have a pet mosquito named Buzz. He's a real pain in the neck, but he's loyal.",
+          "%s: Hello, Spacewalker, I once tried to make a raft out of vines and leaves. It didn't work, but I ended up with a really cool hat.",
+          "%s: Hello, Spacewalker, the mosquitoes here are so big, they have landing strips for planes. No joke.",
+          "%s: Hello, Spacewalker, I once saw a frog here that was so big, it ate an alligator. Or maybe it was the other way around. I forget.",
+          "%s: Hello, Spacewalker, if you ever get lost in the swamp, just look for the giant neon sign that says 'Welcome to North Swamp Planet.' We spare no expense.",
+          "%s: Hello, Spacewalker, I once wrestled an alligator here. It was a draw, but I think he let me win."
+        ]
+
       }
     ],
     "monster": null
@@ -840,7 +874,18 @@
           "talk": "You greet the Desert Alien in the Desert Planet language."
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": [
+          "%s: Hello, Spacewalker, I don't always drink water, but when I do, I prefer it with a side of sand.",
+          "%s: Hello, Spacewalker, I tried to make a sandcastle once, but it just turned into a pile of sand. Oops!",
+          "%s: Hello, Spacewalker, I love a good sandstorm. It's like a giant, sandy hug.",
+          "%s: Hello, Spacewalker, Do you have any idea how hard it is to find a good cactus to hug around here?",
+          "%s: Hello, Spacewalker, I once met a space cowboy who tried to lasso a sand dune. He wasn't very good.",
+          "%s: Hello, Spacewalker, Why did the desert alien cross the road? To get to the sand dune on the other side!",
+          "%s: Hello, Spacewalker, My favorite pastime is playing hide-and-seek with the tumbleweeds.",
+          "%s: Hello, Spacewalker, Have you tried our local delicacy, the sand sandwich? It's just sand between two slices of sand.",
+          "%s: Hello, Spacewalker, I heard that Earthlings have something called 'ice cream.' Sounds terrifying.",
+          "%s: Hello, Spacewalker, I used to be a sand castle architect, but I got sandbagged by the competition."
+        ]
       }
     ],
     "monster": null

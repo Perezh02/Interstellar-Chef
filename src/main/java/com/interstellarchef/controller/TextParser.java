@@ -77,7 +77,11 @@ public class TextParser {
       for (String direction : game.getCurrentLocation().getExits().keySet()){
         if(noun.equalsIgnoreCase(direction)){
           //change current location
-          game.changeCurrentLocation(direction);
+          if (game.getCurrentLocation().getExits().get(direction).equalsIgnoreCase("Floating Garden")  && (game.getPlayer().getEquippedItem() == null || !game.getPlayer().getEquippedItem().getName().equalsIgnoreCase("spacesuit"))){
+            System.out.println("You have to wear a Spacesuit to go out to the Floating Garden!");
+          } else {
+            game.changeCurrentLocation(direction);
+          }
           return direction;
         }
       }
@@ -88,7 +92,7 @@ public class TextParser {
       for(Character character: game.getCurrentLocation().getCharacters()){
         if(noun.equalsIgnoreCase(character.getName())){
           character.talk();
-          character.giveItem(game.getPlayer());
+          character.trade(game.getPlayer());
           return character.getName();
         }
       }
@@ -117,7 +121,7 @@ public class TextParser {
     //fly discovery pod
     if(action.equalsIgnoreCase("fly")){
       String output = game.prepareToFly();
-      if(output != "" && output != " "){
+      if(!output.equalsIgnoreCase("") && !output.equalsIgnoreCase(" ")){
         output = game.fly(gameController.getUserInput());
       }
       return output;

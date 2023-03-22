@@ -17,6 +17,16 @@ public class Character {
     System.out.println(String.format(dialog.get(0), name));
   }
 
+  public void giveItem(Player player){
+    if(items.size() >= 1){
+      System.out.println(name + ": Take this.");
+      System.out.println("You received " + items.get(0).getName());
+      player.getInventory().addItem(items.get(0));
+      items.remove(0);
+      System.out.println(items.get(0).getActionResponse().get("get"));
+    }
+  }
+
   public String getName() {
     return name;
   }

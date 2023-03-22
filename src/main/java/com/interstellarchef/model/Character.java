@@ -9,6 +9,7 @@ public class Character {
   private HashMap<String,String> actionResponse; //action, text printed in response to action
   private List<Item> items;
   private List<String> dialog;
+  private String desiredItem;
 
 
   public void talk(){
@@ -28,6 +29,26 @@ public class Character {
     }
   }
 
+  public void trade(Player player){
+    Item matchedItem = null;
+    if(items.size() == 0){
+      return;
+    } else if (desiredItem == null) {
+      giveItem(player);
+      dialog.remove(0);
+    }
+    for (Item item : player.getInventory().getItems()){
+      if(item.getName().equalsIgnoreCase(desiredItem)){
+        giveItem(player);
+        matchedItem = item;
+        break;
+      }
+    }
+    if(matchedItem != null){
+      player.getInventory().removeItem(matchedItem);
+      dialog.remove(0);
+    }
+  }
   public String getName() {
     return name;
   }

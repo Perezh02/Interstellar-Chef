@@ -44,7 +44,7 @@
           "look": "You must equip this before going to the floating garden or discovery pod.",
           "get": "You put the spacesuit in your inventory.",
           "equip": "You put the spacesuit on.",
-          "drop": "You take off the spacesuit and leave it on the ground."
+          "drop": "You leave the spacesuit on the ground."
         }
       }
     ],
@@ -91,7 +91,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Check this out! Plants are amazing, aren’t they?", "%s: What a lovely day for gardening!"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -123,7 +124,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: I always sneak into the kitchen for extra gains. Shh, don’t tell anyone!","%s: Whoa, that butter gave you killer biceps!!" ],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -178,7 +180,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Want these? I got an extra bag at the commissary.","%s: You can never have too many Tortillas."],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -256,7 +259,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Hello, Sous Chef, time to get to work!"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -268,7 +272,8 @@
       "north": "Sector 4",
       "south": "Mess Hall",
       "east": "Medical Bay",
-      "west": "Information Center"
+      "west": "Information Center",
+      "down": "Bilge"
     },
     "items": [],
     "characters": [],
@@ -301,7 +306,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Get me some Snacks and I'll give you a reward.","%s: Mmm... stolen Snacks always taste the best."],
+        "desiredItem": "Snacks"
       }
     ],
     "monster": null
@@ -333,7 +339,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Do you need a GPS? They can be used to navigate to the Volcano Planet, \nthe Rainforest Planet, the Snow Planet, the Swamp Planet and the Desert Planet.", "%s: Traveling to distant planets can be dangerous. Be careful!"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -365,7 +372,8 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Did you know the ship’s tofu is lab-grown","%s: Tofu is delicious, no matter where it came from." ],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -432,11 +440,12 @@
               "look": "This doesn't appear to be a door key.",
               "get": "You pick up the key, which feels surprisingly heavy in your hand.",
               "use": "",
-              "drop": "Your key was dropped. You are losing some access with key drop."
+              "drop": "Your key was dropped. How will you fly the Discovery Pod?"
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: You sure you know how to fly this thing? Make sure you use gps.","%s: Safe travels!"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -455,7 +464,7 @@
           "look": "Wonder how old this is…",
           "get": "You put the pepper shaker in your inventory for later",
           "use": "",
-          "drop": "Sorry to see you drop pepper. How can people cook lamb or beef without pepper."
+          "drop": "You drop the pepper on the ground. How can you cook lamb or beef without pepper?"
         }
       }
     ],
@@ -478,7 +487,7 @@
           "look": "shiny space rock",
           "get": "You put the rock in your inventory. It's heavier than it looks!",
           "use": "",
-          "drop": "Space rock drop down. A small earthquack would occur."
+          "drop": "You drop the heavy Space Rock on the ground. A small earthquake occurs."
         }
       }
     ],
@@ -503,7 +512,8 @@
           "talk": "You greet the Random Alien in a common alien language."
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Hello, Spacewalker"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -545,11 +555,12 @@
             "look": "You're too afraid to ask what these are made of.",
             "get": "You put the meatballs in your inventory.",
             "use": "",
-            "drop": "Meatballs drops from your pocket. "
+            "drop": "The Meatballs drop from your pocket. "
           }
         }
       ],
-      "dialog": ["%s: Hello, Spacewalker"]
+      "dialog": ["%s: Hello, Spacewalker"],
+      "desiredItem": null
     }
   },
   {
@@ -570,7 +581,8 @@
         "talk": "You fearfully greet the Vine Monster"
       },
       "items": [],
-      "dialog": ["%s: Hello, Spacewalker"]
+      "dialog": ["%s: Hello, Spacewalker"],
+      "desiredItem": null
     }
   },
   {
@@ -603,7 +615,8 @@
           "talk": "You fearfully greet the Vine Monster"
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Hello, Spacewalker"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -624,7 +637,7 @@
           "look": "There’s no one living here anymore!",
           "get": "You put the giant snail shell in your inventory. Ew, slimy!",
           "use": "",
-          "drop": "You must be regret if you drom my cute giant snail shell."
+          "drop": "You regretfully place the Giant Snail Shell on the ground."
         }
       }
     ],
@@ -671,7 +684,7 @@
           "look": "An oddity that won’t melt, but holds the same sparkle as a snowflake!",
           "get": "As you pick up the crystal, you feel a surge of power flow through your body. \nYou put the crystal in your inventory.",
           "use": "",
-          "drop": "Idiot, you won't believe how much you just dropped."
+          "drop": "You drop the crystal on the ground."
         }
       }
     ],
@@ -703,11 +716,12 @@
             "look": "Curry is perfect for cold weather.",
             "get": "You put the Curry Powder in your inventory for later.",
             "use": "",
-            "drop": "Are you crazy? You just drop cosmic curry powder."
+            "drop": "Are you crazy? You drop the delicious cosmic curry powder."
           }
         }
       ],
-      "dialog": ["%s: Hello, Spacewalker"]
+      "dialog": ["%s: Hello, Spacewalker"],
+      "desiredItem": null
     }
   },
   {
@@ -728,7 +742,8 @@
           "talk": "You greet Spacewalker Felix"
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Hello, Spacewalker"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -758,7 +773,7 @@
             "look": "This space fish lives on land.",
             "get": "You put the fish in your inventory for later.",
             "use": "",
-            "drop": "Oh, my heart breaks, you dropped this precious fish"
+            "drop": "You drop the fish on the ground. Luckily, it's a terrestrial fish!"
           }
         }
       ]
@@ -780,7 +795,7 @@
           "look": "You can see the frog's skeleton in the rock.",
           "get": "You put the fossil in your inventory.",
           "use": "",
-          "drop": "Wait, how can we finish the lab research after you dropped the frog fossil"
+          "drop": "You drop the frog fossil on the ground."
         }
       }
     ],
@@ -827,7 +842,7 @@
           "look": "It shines in the light.",
           "get": "You carefully pick up the glass and put it in your inventory.",
           "use": "",
-          "drop": "Our world will never have light"
+          "drop": "You carefully place the Lightning Glass on the ground."
         }
       }
     ],
@@ -840,7 +855,8 @@
           "talk": "You greet the Desert Alien in the Desert Planet language."
         },
         "items": [],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Hello, Spacewalker"],
+        "desiredItem": null
       }
     ],
     "monster": null
@@ -870,11 +886,12 @@
             "look": "Does this mean baking powder is made of sand?",
             "get": "You carefully scoop up some of the powder into a small container, being careful not to spill any. You put it in your inventory for later.",
             "use": "",
-            "drop": "I guess your oven doesn't work"
+            "drop": "You drop the baking powder on the ground. A cloud of baking powder rises up into the air."
           }
         }
       ],
-      "dialog": ["%s: Hello, Spacewalker"]
+      "dialog": ["%s: Hello, Spacewalker"],
+      "desiredItem": null
     }
   },
   {
@@ -890,7 +907,7 @@
     "monster": null
   },
   {
-    "name": "Floating Gardens",
+    "name": "Floating Garden",
     "description": "The floating gardens is the place to meet crewmates from other ships in the fleet! The ships have visited many different parts of the galaxy/universe and some folks might be willing to trade some tasty ingredients for some interesting planet artifacts!",
     "exits": {
       "north": "South Sky Bridge"
@@ -903,7 +920,7 @@
           "look": "A small satchel of flour that makes your hands powdery.",
           "get": "You put the flour in your inventory for later.",
           "use": "",
-          "drop": "Please let me say goodbye to any bread ever"
+          "drop": "You drop the flour on the ground."
         }
       }
     ],
@@ -923,11 +940,12 @@
               "look": "A rich and flavorful tomato sauce, perfect for pasta or as a base for other dishes.",
               "get": "You put the tomato sauce in your inventory. ",
               "use": "",
-              "drop": "You have make me lost the awesome memory about french-fry."
+              "drop": "You drop the tomato sauce on the ground. Splat!"
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Do you have any interesting fossils? I make the best spaghetti sauce, but I don’t give it to strangers for free.", "%s: If anyone asks, I'm not out here."],
+        "desiredItem": "Frog Fossil"
       },
       {
         "name": "Spacewalker Nyckolle",
@@ -944,11 +962,12 @@
               "look": "It has some spice to it, but would go great with seafood!",
               "get": "You put the salsa in your inventory.",
               "use": "",
-              "drop": "I appreciate you dropped this Salsa."
+              "drop": "You drop the salsa on the ground."
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Salsa is my jam! I’ll trade you some for something sparkly from the snow planet!", "%s: Have you looked at all the plants?"],
+        "desiredItem": "Snowflake Crystal"
       },
       {
         "name": "Spacewalker Kun",
@@ -965,11 +984,12 @@
               "look": "Several lamb chops, ready to be cooked.",
               "get": "You put the lamb chops in your inventory.",
               "use": "",
-              "drop": "Oh no!!!, That is my favorite lamb chops, you are killing me."
+              "drop": "You drop  the lamb chops."
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Have you been to the Volcano planet? I hear they have beautiful rocks there.", "%s: Did you end up cooking something nice?"],
+        "desiredItem": "Space Rock"
       },
       {
         "name": "Spacewalker Jasper",
@@ -986,11 +1006,12 @@
               "look": "A fragrant and flavorful rice that pairs well with many dishes.",
               "get": "You scoop up a handful of rice, admiring the way it shimmers in the light. You put the rice in your inventory.",
               "use": "You cook the rice to perfection, enjoying the aroma and the delicate flavor.",
-              "drop": "This is not good new for asian people."
+              "drop": "You drop the rice on the ground."
             }
           }
         ],
-        "dialog": ["%s: Hello, Spacewalker"]
+        "dialog": ["%s: Do you have any lightning glass? I have rice to trade.", "There's nothing like a spacewalk in the morning."],
+        "desiredItem": "Lightning Glass"
       }
     ],
     "monster": null

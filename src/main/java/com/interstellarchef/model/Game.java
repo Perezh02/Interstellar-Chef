@@ -5,12 +5,12 @@ import java.util.Random;
 import java.util.Locale;
 
 public class Game {
-  Location currentLocation;
+  private Location currentLocation;
 
-  Player player;
-  Item currentRecipe;
-  List<String> completedRecipes;
-  Location[] gameLocations;
+  private Player player;
+  private Item currentRecipe;
+  private List<String> completedRecipes;
+  private Location[] gameLocations;
 
   public Game(Location currentLocation, Player player, Location[] locations) {
     this.currentLocation = currentLocation;

@@ -1,5 +1,6 @@
 package com.interstellarchef.model;
 
+import com.interstellarchef.controller.GameController;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,15 +27,17 @@ public class Character {
 
   }
 
-  public void giveItem(Player player){
+  public boolean giveItem(Player player){
+    boolean gaveItem = false;
     if(items.size() >= 1){
       System.out.println(name + ": Take this.");
       System.out.println("You received " + items.get(0).getName());
       player.getInventory().addItem(items.get(0));
       System.out.println(items.get(0).getActionResponse().get("get"));
       items.remove(0);
-
+      gaveItem = true;
     }
+    return gaveItem;
   }
 
   public void trade(Player player){
@@ -57,6 +60,33 @@ public class Character {
       dialog.remove(0);
     }
   }
+
+  public void talkToChef(GameController gameController){
+    System.out.println(dialog.get(0));
+    boolean hasRecipe = false;
+    for (Item item : gameController.getGame().getPlayer().getInventory().getItems()){
+      if (item.getName().contains("Recipe")){
+        hasRecipe = true;
+        break;
+      }
+    }
+    if(hasRecipe){
+      //check if all ingredients in inventory
+
+      //if they have everything, congrats and ask if they want another recipe
+    } else {
+      boolean gaveItem = giveItem(gameController.getGame().getPlayer());
+      if(!gaveItem){
+        System.out.println("You've completed all of the recipes!");
+        System.out.println("Congratulations! I'm promoting you to Head Chef!");
+        System.out.println("...It's time for me to retire, anyway.");
+        System.out.println("You completed the entire game!");
+        System.exit(0);
+      }
+    }
+
+  }
+
   public String getName() {
     return name;
   }

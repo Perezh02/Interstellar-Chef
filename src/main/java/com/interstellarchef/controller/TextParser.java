@@ -95,6 +95,9 @@ public class TextParser {
         if (action.equalsIgnoreCase("talk")) {//todo: include synonyms and load from json
             for (Character character : game.getCurrentLocation().getCharacters()) {
                 if (noun.equalsIgnoreCase(character.getName())) {
+                    if(character.getName().equalsIgnoreCase("Head Chef")){
+                        //talk to chef
+                    }
                     character.talk();
                     character.trade(game.getPlayer());
                     return character.getName();
@@ -155,34 +158,6 @@ public class TextParser {
                 output = game.fly(gameController.getUserInput());
             }
             return output;
-        }
-
-        //check items in current room
-        if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
-            for (Item item : game.getCurrentLocation().getItems()) {
-                if (noun.equalsIgnoreCase(item.getName())) {
-                    for (String allowedAction : item.getActionResponse().keySet()) {
-                        //checks if action can be performed on item
-                        if (action.equalsIgnoreCase(allowedAction)) {
-                            return item.getName();
-                        }
-                    }
-                }
-            }
-        }
-
-        //check items in inventory
-        for (Item item : game.getPlayer().getInventory().getItems()) {
-            if (noun.equalsIgnoreCase(item.getName())) {
-                for (String allowedAction : item.getActionResponse().keySet()) {
-                    //checks if action can be performed on item
-                    if (action.equalsIgnoreCase(allowedAction)) {
-                        result = item.getName();
-                        break;
-                    }
-                    break;
-                }
-            }
         }
 
         return result;

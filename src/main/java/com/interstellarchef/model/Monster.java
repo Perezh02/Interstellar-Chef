@@ -20,6 +20,7 @@ public class Monster extends Character {
             if (userInput.equalsIgnoreCase(riddleAnswer)) {
                 if (gc.getGame().getCurrentLocation().getMonster().getItems().size() == 0) {
                     System.out.println("You fell into my trap! I don't actually have anything to give you~");
+                    riddles = new HashMap<>();
                 } else {
                     gc.getGame().getCurrentLocation().getMonster().giveItem(gc.getGame().getPlayer());
                     riddles = new HashMap<>();

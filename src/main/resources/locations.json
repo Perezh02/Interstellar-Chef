@@ -623,7 +623,7 @@
         "description": "They don't look very friendly...",
         "actionResponse": {
           "look": "They don't look very friendly...",
-          "talk": "You fearfully greet the Vine Monster"
+          "talk": "You fearfully greet the Random Creature"
         },
         "items": [],
         "dialog": [
@@ -1054,7 +1054,7 @@
             }
           }
         ],
-        "dialog": ["%s: Do you have any lightning glass? I have rice to trade.", "There's nothing like a spacewalk in the morning."],
+        "dialog": ["%s: Do you have any lightning glass? I have rice to trade.", "%s: There's nothing like a spacewalk in the morning."],
         "desiredItem": "Lightning Glass"
       }
     ],

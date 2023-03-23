@@ -29,7 +29,7 @@ public class TextParser {
         String currentRoomItems = String.format(gameText.getRoomItemsWidget(), game.getCurrentLocation().printItems());
         String currentRoomCharacters = String.format(gameText.getRoomCharactersWidget(), game.getCurrentLocation().printCharacters());
         String currentEquippedItem = String.format(gameText.getEquippedItemWidget(), game.getPlayer().printEquippedItem());
-//        String currentRoomMonster = String.format(gameText.getRoomMonsterWidget(), game.getCurrentLocation().getMonster().getName());
+        String currentRoomMonster = String.format(gameText.getRoomMonsterWidget(), (game.getCurrentLocation().getMonster() == null ? "none" : game.getCurrentLocation().getMonster().getName()));
         while (!valid) {
             System.out.println(playerStatusDivider);
             System.out.println(playerCurrentLocation);
@@ -37,7 +37,7 @@ public class TextParser {
             System.out.println(currentRoomItems);
             System.out.println(currentRoomCharacters);
             //ToDo: discuss how to print out monster....null pointer exception, because not all rooms have a monster and we didn't really handle null
-//            System.out.println(currentRoomMonster);
+            System.out.println(currentRoomMonster);
             System.out.println(currentEquippedItem);
             System.out.println(playerStatusDivider);
             System.out.println(gameText.getPromptActionMessage());
@@ -101,7 +101,7 @@ public class TextParser {
                 }
             }
             if (game.getCurrentLocation().getMonster().getName().equalsIgnoreCase(noun)) {
-                if(game.getCurrentLocation().getMonster().getItems() != null) {
+                if(game.getCurrentLocation().getMonster().getItems().size() != 0) {
                     System.out.println("Hello Spacewalker. If it's this item you want, a game you must play. \nWhat do you say? (yes/no)");
                     String output = game.readyForGameCheck(gameController.getUserInput());
                     if (output.equalsIgnoreCase("no")) {
@@ -117,11 +117,10 @@ public class TextParser {
                         } else {
                             System.out.println(chooseAHandGameResult);
                         }
-                    } else {
-                        System.out.println("Hello again Spacewalker, alas...you have already beat me at my game. \nEnjoy your prize, and safe travels!");
                     }
+                } else {
+                    System.out.println("Hello again Spacewalker, alas...you have already beat me at my game. \nEnjoy your prize, and safe travels!");
                 }
-
                 return game.getCurrentLocation().getMonster().getName();
             }
         }

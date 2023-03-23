@@ -1,6 +1,7 @@
 package com.interstellarchef.model;
 
 import com.interstellarchef.util.Recipe;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -9,7 +10,7 @@ public class Game {
   private Player player;
   private final Location[] gameLocations;
   private final Recipe[] gameRecipes;
-  private List<Recipe> completedRecipes;
+  private List<Recipe> completedRecipes = new LinkedList<>();
 
   public Game(Location currentLocation, Player player, Location[] locations, Recipe[] gameRecipes) {
     this.currentLocation = currentLocation;

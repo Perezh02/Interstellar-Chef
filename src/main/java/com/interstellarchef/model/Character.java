@@ -76,7 +76,14 @@ public class Character {
     if(currentRecipe != null){
       boolean recipeCompleted = true;
       for(Item item: currentRecipe.getIngredients()){
-        if (!gameController.getGame().getPlayer().getInventory().getItems().contains(item)){
+        boolean validItem = false;
+        for (Item inventoryItem : gameController.getGame().getPlayer().getInventory().getItems()){
+          if(item.getName().equalsIgnoreCase(inventoryItem.getName())){
+            validItem = true;
+            break;
+          }
+        }
+        if(!validItem){
           recipeCompleted = false;
           break;
         }
@@ -84,6 +91,7 @@ public class Character {
 
       if (recipeCompleted){
         System.out.printf("%s: Congratulations! You've completed %s.\n",name,currentRecipe.getName());
+        gameController.getGame().addCompletedRecipe(currentRecipe);
         if (gameController.getGame().getCompletedRecipes().size() < 5){
           System.out.printf("%s: Would you like to complete another recipe? (yes/no)\n", name);
           if(gameController.getUserInput().equalsIgnoreCase("yes")){

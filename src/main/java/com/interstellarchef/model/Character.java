@@ -28,17 +28,14 @@ public class Character {
 
   }
 
-  public boolean giveItem(Player player){
-    boolean gaveItem = false;
+  public void giveItem(Player player){
     if(items.size() >= 1){
       System.out.println(name + ": Take this.");
       System.out.println("You received " + items.get(0).getName());
       player.getInventory().addItem(items.get(0));
       System.out.println(items.get(0).getActionResponse().get("get"));
       items.remove(0);
-      gaveItem = true;
     }
-    return gaveItem;
   }
 
   public void trade(Player player){
@@ -91,6 +88,7 @@ public class Character {
           System.out.printf("%s: Would you like to complete another recipe? (yes/no)\n", name);
           if(gameController.getUserInput().equalsIgnoreCase("yes")){
             giveItem(gameController.getGame().getPlayer());
+            System.out.printf("%s: Gather all of the ingredients and bring them to me!\n", name);
           } else {
             System.out.println("Thanks for playing!");
             System.exit(0);
@@ -104,10 +102,11 @@ public class Character {
           System.exit(0);
         }
       } else {
-        System.out.println("Looks like you have more ingredients to find! Come back when you're done.");
+        System.out.printf("%s: Looks like you have more ingredients to find! Come back when you're done.%n", name);
       }
     } else {
       giveItem(gameController.getGame().getPlayer());
+      System.out.printf("%s: Gather all of the ingredients and bring them to me!\n", name);
     }
   }
 

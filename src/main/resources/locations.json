@@ -259,7 +259,7 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Sous Chef, time to get to work!"],
+        "dialog": ["%s: Hello, Sous Chef!"],
         "desiredItem": null
       }
     ],

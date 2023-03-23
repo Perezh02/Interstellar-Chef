@@ -101,12 +101,12 @@ public class TextParser {
                 }
             }
             if (game.getCurrentLocation().getMonster().getName().equalsIgnoreCase(noun)) {
-                if(game.getCurrentLocation().getMonster().getItems().size() != 0) {
+                if (game.getCurrentLocation().getMonster().getRiddles().size() > 0) {
+                    game.getCurrentLocation().getMonster().playRiddleGame(gameController);
+                } else if (game.getCurrentLocation().getMonster().getItems().size() != 0) {
                     System.out.println("Hello Spacewalker. If it's this item you want, a game you must play. \nWhat do you say? (yes/no)");
                     String output = game.readyForGameCheck(gameController.getUserInput());
-                    if (output.equalsIgnoreCase("no")) {
-                        System.out.println("Come back when you're ready");
-                    } else if (output.equalsIgnoreCase("yes")) {
+                    if (output.equalsIgnoreCase("yes")) {
                         System.out.println("I have something hidden in one of my hands. " +
                                 "\nIf you choose the correct hand (left/right) you can have the item you've come in search of!" +
                                 "\nGo ahead... choose a hand!");
@@ -117,6 +117,9 @@ public class TextParser {
                         } else {
                             System.out.println(chooseAHandGameResult);
                         }
+                    } else {
+                        // user types in anything other than yes @ ready check
+                        System.out.println("Come back when you're ready");
                     }
                 } else {
                     System.out.println("Hello again Spacewalker, alas...you have already beat me at my game. \nEnjoy your prize, and safe travels!");

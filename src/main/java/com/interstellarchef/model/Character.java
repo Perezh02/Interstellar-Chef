@@ -1,6 +1,7 @@
 package com.interstellarchef.model;
 
 import com.interstellarchef.controller.GameController;
+import com.interstellarchef.util.Recipe;
 import java.util.HashMap;
 import java.util.List;
 
@@ -20,9 +21,9 @@ public class Character {
         || "Random Creature".equalsIgnoreCase(this.getName())
         || "Spacewalker Felix".equalsIgnoreCase(this.getName())
         || "Desert Alien".equalsIgnoreCase(this.getName())) ){
-      System.out.println(String.format(dialog.get((int)(Math.random()*10)), name));
+      System.out.printf((dialog.get((int) (Math.random() * 10))) + "%n", name);
     }else{
-      System.out.println(String.format(dialog.get(0), name));
+      System.out.printf((dialog.get(0)) + "%n", name);
     }
 
   }
@@ -62,29 +63,52 @@ public class Character {
   }
 
   public void talkToChef(GameController gameController){
-    System.out.println(dialog.get(0));
-    boolean hasRecipe = false;
+    System.out.printf((dialog.get(0)) + "%n",name);
+    Recipe currentRecipe = null;
     for (Item item : gameController.getGame().getPlayer().getInventory().getItems()){
       if (item.getName().contains("Recipe")){
-        hasRecipe = true;
-        break;
+        for(Recipe recipe: gameController.getGame().getGameRecipes()){
+          if (item.getName().equalsIgnoreCase(recipe.getName())){
+            currentRecipe = recipe;
+            break;
+          }
+        }
       }
     }
-    if(hasRecipe){
-      //check if all ingredients in inventory
 
-      //if they have everything, congrats and ask if they want another recipe
+    if(currentRecipe != null){
+      boolean recipeCompleted = true;
+      for(Item item: currentRecipe.getIngredients()){
+        if (!gameController.getGame().getPlayer().getInventory().getItems().contains(item)){
+          recipeCompleted = false;
+          break;
+        }
+      }
+
+      if (recipeCompleted){
+        System.out.printf("%s: Congratulations! You've completed %s.\n",name,currentRecipe.getName());
+        if (gameController.getGame().getCompletedRecipes().size() < 5){
+          System.out.printf("%s: Would you like to complete another recipe? (yes/no)\n", name);
+          if(gameController.getUserInput().equalsIgnoreCase("yes")){
+            giveItem(gameController.getGame().getPlayer());
+          } else {
+            System.out.println("Thanks for playing!");
+            System.exit(0);
+          }
+
+        } else {
+          System.out.printf("%s: You've completed all of the recipes!%n",name);
+          System.out.printf("%s: Congratulations! I'm promoting you to Head Chef!%n",name);
+          System.out.printf("%s: ...It's time for me to retire, anyway.%n",name);
+          System.out.println("You completed the entire game!");
+          System.exit(0);
+        }
+      } else {
+        System.out.println("Looks like you have more ingredients to find! Come back when you're done.");
+      }
     } else {
-      boolean gaveItem = giveItem(gameController.getGame().getPlayer());
-      if(!gaveItem){
-        System.out.println("You've completed all of the recipes!");
-        System.out.println("Congratulations! I'm promoting you to Head Chef!");
-        System.out.println("...It's time for me to retire, anyway.");
-        System.out.println("You completed the entire game!");
-        System.exit(0);
-      }
+      giveItem(gameController.getGame().getPlayer());
     }
-
   }
 
   public String getName() {

@@ -975,7 +975,7 @@
     },
     "items": [
       {
-        "name": "Flour",
+        "name": "Flying Saucer Flour",
         "description": "A small satchel of flour that makes your hands powdery.",
         "actionResponse": {
           "look": "A small satchel of flour that makes your hands powdery.",

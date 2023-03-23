@@ -1,4 +1,4 @@
-package com.interstellarchef.model;
+package com.interstellarchef.util;
 
 public class GameText {
   private String gameBanner;

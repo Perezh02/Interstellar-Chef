@@ -2,8 +2,7 @@ package com.interstellarchef.controller;
 
 import com.interstellarchef.model.Character;
 import com.interstellarchef.model.Game;
-import com.interstellarchef.model.GameText;
-import com.interstellarchef.model.Item;
+import com.interstellarchef.util.GameText;
 
 public class TextParser {
 
@@ -92,14 +91,15 @@ public class TextParser {
 
 
         //check characters
-        if (action.equalsIgnoreCase("talk")) {//todo: include synonyms and load from json
+        if (action.equalsIgnoreCase("talk")) {
             for (Character character : game.getCurrentLocation().getCharacters()) {
                 if (noun.equalsIgnoreCase(character.getName())) {
                     if(character.getName().equalsIgnoreCase("Head Chef")){
-                        //talk to chef
+                        character.talkToChef(gameController);
+                    } else {
+                        character.talk();
+                        character.trade(game.getPlayer());
                     }
-                    character.talk();
-                    character.trade(game.getPlayer());
                     return character.getName();
                 }
             }

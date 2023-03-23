@@ -61,6 +61,13 @@ public class Game {
         return item.getDescription();
       }
     }
+
+    for(Item item: player.getInventory().getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        System.out.println(item.getDescription());
+        return item.getDescription();
+      }
+    }
     return "";
   }
 

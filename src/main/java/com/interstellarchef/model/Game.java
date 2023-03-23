@@ -1,6 +1,7 @@
 package com.interstellarchef.model;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Locale;
 
 public class Game {
@@ -144,6 +145,29 @@ public class Game {
       }
     }
     return result;
+  }
+
+  public String readyForGameCheck(String startDecision){
+    String ready = "";
+    if(startDecision.equalsIgnoreCase("yes")){
+      ready = "yes";
+    } else {
+      ready = "no";
+    }
+    return ready;
+  }
+
+  public String chooseAHandGame(String choice){
+    Random rand = new Random();
+    int upperbound = 2;
+    int int_random = rand.nextInt(upperbound);
+    String[] hands = new String[] {"left", "right"};
+    String correctHand = hands[int_random];
+    if (choice.equalsIgnoreCase(correctHand)){
+      return "winner";
+    } else {
+      return "Nice try, but not quite! Try again~";
+    }
   }
 
   public Location getCurrentLocation() {

@@ -30,9 +30,9 @@ public class Game {
 
   public String look(String noun) {
 
-    if(noun.equalsIgnoreCase(player.getInventory().getName())){
+    if(noun.equalsIgnoreCase(player.getInventory().getName())) {
       System.out.println(player.getInventory().getDescription());
-      if (player.getInventory().getItems().size() == 0){
+      if (player.getInventory().getItems().size() == 0) {
         System.out.println("Nothing.");
       } else {
         for (Item item: player.getInventory().getItems()){

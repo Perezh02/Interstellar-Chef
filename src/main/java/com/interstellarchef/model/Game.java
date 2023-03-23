@@ -1,21 +1,22 @@
 package com.interstellarchef.model;
 
+import com.interstellarchef.util.Recipe;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.Locale;
 
 public class Game {
-  Location currentLocation;
+  private Location currentLocation;
+  private Player player;
+  private final Location[] gameLocations;
+  private final Recipe[] gameRecipes;
+  private List<Recipe> completedRecipes = new LinkedList<>();
 
-  Player player;
-  Item currentRecipe;
-  List<String> completedRecipes;
-  Location[] gameLocations;
-
-  public Game(Location currentLocation, Player player, Location[] locations) {
+  public Game(Location currentLocation, Player player, Location[] locations, Recipe[] gameRecipes) {
     this.currentLocation = currentLocation;
     this.player = player;
     this.gameLocations = locations;
+    this.gameRecipes = gameRecipes;
   }
 
   public void changeCurrentLocation(String locationDirection){
@@ -56,6 +57,13 @@ public class Game {
     }
 
     for(Item item: currentLocation.getItems()){
+      if(noun.equalsIgnoreCase(item.getName())){
+        System.out.println(item.getDescription());
+        return item.getDescription();
+      }
+    }
+
+    for(Item item: player.getInventory().getItems()){
       if(noun.equalsIgnoreCase(item.getName())){
         System.out.println(item.getDescription());
         return item.getDescription();
@@ -178,22 +186,6 @@ public class Game {
     this.currentLocation = currentLocation;
   }
 
-  public Item getCurrentRecipe() {
-    return currentRecipe;
-  }
-
-  public void setCurrentRecipe(Item currentRecipe) {
-    this.currentRecipe = currentRecipe;
-  }
-
-  public List<String> getCompletedRecipes() {
-    return completedRecipes;
-  }
-
-  public void setCompletedRecipes(List<String> completedRecipes) {
-    this.completedRecipes = completedRecipes;
-  }
-
     public Player getPlayer() {
         return player;
     }
@@ -201,4 +193,23 @@ public class Game {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+  public Recipe[] getGameRecipes() {
+    return gameRecipes;
+  }
+
+  public Location[] getGameLocations() {
+    return gameLocations;
+  }
+
+  public List<Recipe> getCompletedRecipes() {
+    return completedRecipes;
+  }
+
+  public void setCompletedRecipes(List<Recipe> completedRecipes) {
+    this.completedRecipes = completedRecipes;
+  }
+  public void addCompletedRecipe(Recipe recipe){
+    this.completedRecipes.add(recipe);
+  }
 }

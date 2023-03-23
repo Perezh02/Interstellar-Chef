@@ -261,7 +261,7 @@
             }
           }
         ],
-        "dialog": ["%s: Hello, Sous Chef, time to get to work!", "%s: Hello, Sous Chef, There is a strange problem"],
+        "dialog": ["%s: Hello, Sous Chef!"],
         "desiredItem": null
       }
     ],
@@ -977,7 +977,7 @@
     },
     "items": [
       {
-        "name": "Flour",
+        "name": "Flying Saucer Flour",
         "description": "A small satchel of flour that makes your hands powdery.",
         "actionResponse": {
           "look": "A small satchel of flour that makes your hands powdery.",

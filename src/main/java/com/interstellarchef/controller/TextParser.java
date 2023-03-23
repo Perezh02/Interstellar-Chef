@@ -2,8 +2,7 @@ package com.interstellarchef.controller;
 
 import com.interstellarchef.model.Character;
 import com.interstellarchef.model.Game;
-import com.interstellarchef.model.GameText;
-import com.interstellarchef.model.Item;
+import com.interstellarchef.util.GameText;
 
 public class TextParser {
 
@@ -92,11 +91,15 @@ public class TextParser {
 
 
         //check characters
-        if (action.equalsIgnoreCase("talk")) {//todo: include synonyms and load from json
+        if (action.equalsIgnoreCase("talk")) {
             for (Character character : game.getCurrentLocation().getCharacters()) {
                 if (noun.equalsIgnoreCase(character.getName())) {
-                    character.talk();
-                    character.trade(game.getPlayer());
+                    if(character.getName().equalsIgnoreCase("Head Chef")){
+                        character.talkToChef(gameController);
+                    } else {
+                        character.talk();
+                        character.trade(game.getPlayer());
+                    }
                     return character.getName();
                 }
             }
@@ -155,34 +158,6 @@ public class TextParser {
                 output = game.fly(gameController.getUserInput());
             }
             return output;
-        }
-
-        //check items in current room
-        if (action.equalsIgnoreCase("grab")) {//todo: include synonyms and load from json
-            for (Item item : game.getCurrentLocation().getItems()) {
-                if (noun.equalsIgnoreCase(item.getName())) {
-                    for (String allowedAction : item.getActionResponse().keySet()) {
-                        //checks if action can be performed on item
-                        if (action.equalsIgnoreCase(allowedAction)) {
-                            return item.getName();
-                        }
-                    }
-                }
-            }
-        }
-
-        //check items in inventory
-        for (Item item : game.getPlayer().getInventory().getItems()) {
-            if (noun.equalsIgnoreCase(item.getName())) {
-                for (String allowedAction : item.getActionResponse().keySet()) {
-                    //checks if action can be performed on item
-                    if (action.equalsIgnoreCase(allowedAction)) {
-                        result = item.getName();
-                        break;
-                    }
-                    break;
-                }
-            }
         }
 
         return result;

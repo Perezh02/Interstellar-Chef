@@ -24,6 +24,8 @@ public class GameText {
 
   private String equippedItemWidget;
 
+  private String roomMonsterWidget;
+
   public String getGameBanner() {
     return gameBanner;
   }
@@ -190,5 +192,13 @@ public class GameText {
 
   public void setEquippedItemWidget(String equippedItemWidget) {
     this.equippedItemWidget = equippedItemWidget;
+  }
+
+  public String getRoomMonsterWidget() {
+    return roomMonsterWidget;
+  }
+
+  public void setRoomMonsterWidget(String roomMonstersWidget) {
+    this.roomMonsterWidget = roomMonstersWidget;
   }
 }

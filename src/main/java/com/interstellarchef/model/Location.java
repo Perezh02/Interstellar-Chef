@@ -66,6 +66,14 @@ public class Location {
         this.characters = characters;
     }
 
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
+
     public String printItems() {
         StringBuilder itemsString = new StringBuilder();
         if (items.size() == 0) {

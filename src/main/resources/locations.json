@@ -65,7 +65,7 @@
     "monster": null
   },
   {
-    "name": "Pressurized Garden",
+    "name": "Pressurized Gardens",
     "description": "The space is filled with edible and medicinal plants. \nYou see a gardener watering some vegetables.",
     "exits": {
       "west": "Sector 1"
@@ -146,7 +146,9 @@
   {
     "name": "Bathrooms",
     "description": "Looks like a normal bathroom.",
-    "exits": {},
+    "exits": {
+      "west": "Sector 2"
+    },
     "items": [],
     "characters": [],
     "monster": null
@@ -585,7 +587,7 @@
     "exits": {
       "south": "South Rainforest Planet",
       "west": "West Rainforest Planet",
-      "east": "North Rainforest Planet"
+      "east": "East Rainforest Planet"
     },
     "items": [],
     "characters": [],

@@ -554,6 +554,11 @@
     "monster": {
       "name": "Lava Monster",
       "description": "They probably don't ever get cold.",
+      "riddles": {
+        "I am hot and molten, and reside underneath the Earth's crust. \nWhat am I? " : "Magma",
+        "I am a type of lava flow. I appear smooth, and have a low viscosity. \nWhat is my name?": "Pahoehoe",
+        "I am a large crater caused by a volcanic explosion that collapses into a depression. \nWhat am I?": "Caldera"
+      },
       "actionResponse": {
         "look": "They probably don't ever get cold.",
         "talk": "You fearfully greet the Lava Monster"
@@ -587,6 +592,11 @@
     "monster": {
       "name": "Vine Monster",
       "description": "How many vines does it have? Too many to count.",
+      "riddles": {
+        "I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I?": "Jaguar",
+        "I am a furry creature with eight legs. \nI hide during the day and come out at night to hunt small birds and reptiles. \nWhat am I?": "Tarantula",
+        "I am a mammal. I can climb trees but I usually live on the forest floor. \nI am seven feet long from my nose to my tail. I eat termites and ants. \nWhat am I?": "Anteater"
+      },
       "actionResponse": {
         "look": "How many vines does it have? Too many to count.",
         "talk": "You fearfully greet the Vine Monster"
@@ -726,6 +736,7 @@
     "monster": {
       "name": "Ice Monster",
       "description": "They look like they could freeze you solid.",
+      "riddles": {},
       "actionResponse": {
         "look": "They look like they could freeze you solid.",
         "talk": "You fearfully greet the Ice Monster"
@@ -794,6 +805,7 @@
     "monster": {
       "name": "Swamp Monster",
       "description": "You see the monster's eyes peeking out from the swamp.",
+      "riddles": {},
       "actionResponse": {
         "look": "You see the monster's eyes peeking out from the swamp water.",
         "talk": "You fearfully greet the Swamp Monster"
@@ -918,6 +930,11 @@
     "monster": {
       "name": "Sand Monster",
       "description": "It's hard to tell where the sand starts and the sand monster ends.",
+      "riddles": {
+        "What is the name for a place where stars are born?": "Nebula",
+        "What is a name for a natural satellite?" : "Moon",
+        "I can have 1 or 2 humps, a very long neck, and am known for taking long treks across the desert. \nWhat am I?": "Camel"
+      },
       "actionResponse": {
         "look": "It's hard to tell where the sand starts and the sand monster ends.",
         "talk": ""

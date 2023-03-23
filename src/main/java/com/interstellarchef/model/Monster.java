@@ -18,8 +18,12 @@ public class Monster extends Character {
             String riddleAnswer = selectRiddle();
             String userInput = gc.getUserInput();
             if (userInput.equalsIgnoreCase(riddleAnswer)) {
-                gc.getGame().getCurrentLocation().getMonster().giveItem(gc.getGame().getPlayer());
-                riddles = new HashMap<>();
+                if (gc.getGame().getCurrentLocation().getMonster().getItems().size() == 0) {
+                    System.out.println("You fell into my trap! I don't actually have anything to give you~");
+                } else {
+                    gc.getGame().getCurrentLocation().getMonster().giveItem(gc.getGame().getPlayer());
+                    riddles = new HashMap<>();
+                }
             } else {
                 System.out.println("Nice try, but not quite! Maybe you'll solve the next riddle!");
             }

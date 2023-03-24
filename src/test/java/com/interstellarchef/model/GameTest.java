@@ -22,7 +22,7 @@ class GameTest {
     private Location location2;
     private Location location3;
     private Player player;
-    private GameController gameController = new GameController();
+
 
     @BeforeEach
     public void setUp() {
@@ -65,14 +65,6 @@ class GameTest {
     }
 
     @Test
-    void changeCurrentLocation() {
-    }
-
-    @Test
-    void look() {
-    }
-
-    @Test
     public void testGet() {
         // Call the get method with an item that is in the current location
         String itemName = game.get("Pepper");
@@ -94,64 +86,4 @@ class GameTest {
         assertEquals(itemName, "Martian Meatballs");
     }
 
-    @Test
-    void prepareToFly() {
-    }
-
-//    @Test
-//    void testFly() {
-//        String result = game.fly("North Volcano Planet", gameController);
-//        assertEquals("North Volcano Planet", result);
-//        assertEquals(location2, game.getCurrentLocation());
-//
-//        // Test flying back to Space Station
-//        result = game.fly("South Desert Planet", gameController );
-//        assertEquals("South Desert Planet", result);
-//        assertEquals(location3, game.getCurrentLocation());
-//
-//        // Test flying to an invalid location
-//        result = game.fly("Invalid Location", gameController);
-//        assertEquals("", result);
-//        assertEquals(location3, game.getCurrentLocation());
-//    }
-
-    @Test
-    void readyForGameCheck() {
-    }
-
-    @Test
-    void chooseAHandGame() {
-    }
-
-    @Test
-    void getCurrentLocation() {
-    }
-
-    @Test
-    void setCurrentLocation() {
-    }
-
-    @Test
-    void getCurrentRecipe() {
-    }
-
-    @Test
-    void setCurrentRecipe() {
-    }
-
-    @Test
-    void getCompletedRecipes() {
-    }
-
-    @Test
-    void setCompletedRecipes() {
-    }
-
-    @Test
-    void getPlayer() {
-    }
-
-    @Test
-    void setPlayer() {
-    }
 }

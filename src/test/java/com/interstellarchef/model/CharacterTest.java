@@ -59,7 +59,7 @@ class CharacterTest {
         character.setDesiredItem(desiredItem.getName());
         player.getInventory().addItem(desiredItem);
         character.trade(player);
-        Arrays.equals(characterInitialItems.toArray(), player.getInventory().getItems().toArray());
+        assertArrayEquals(characterInitialItems.toArray(), player.getInventory().getItems().toArray());
     }
 
 }

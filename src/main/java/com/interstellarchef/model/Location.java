@@ -13,7 +13,8 @@ public class Location {
 
     private Monster monster;
 
-    public Location(String name, String description, HashMap<String, String> exits, List<Item> items, Character[] characters) {
+    public Location(String name, String description, HashMap<String, String> exits,
+        List<Item> items, Character[] characters) {
         this.name = name;
         this.description = description;
         this.exits = exits;
@@ -56,6 +57,10 @@ public class Location {
 
     public void removeItem(Item item) {
         this.items.remove(item);
+    }
+
+    public void setItems(List<Item> items) {
+        this.items = items;
     }
 
     public Character[] getCharacters() {

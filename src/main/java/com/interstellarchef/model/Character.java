@@ -13,6 +13,19 @@ public class Character {
   private List<String> dialog;
   private String desiredItem;
 
+  public Character(){
+
+  }
+  public Character(String name, String description,
+      HashMap<String, String> actionResponse, List<Item> items,
+      List<String> dialog, String desiredItem) {
+    this.name = name;
+    this.description = description;
+    this.actionResponse = actionResponse;
+    this.items = items;
+    this.dialog = dialog;
+    this.desiredItem = desiredItem;
+  }
 
   public void talk(){
     String result = "";
@@ -174,5 +187,13 @@ public class Character {
 
   public void setItems(List<Item> items) {
     this.items = items;
+  }
+
+  public String getDesiredItem() {
+    return desiredItem;
+  }
+
+  public void setDesiredItem(String desiredItem) {
+    this.desiredItem = desiredItem;
   }
 }

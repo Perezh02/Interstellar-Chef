@@ -74,23 +74,11 @@ public class Character {
     }
 
     if(currentRecipe != null){
-      boolean recipeCompleted = true;
-      for(Item item: currentRecipe.getIngredients()){
-        boolean validItem = false;
-        for (Item inventoryItem : gameController.getGame().getPlayer().getInventory().getItems()){
-          if(item.getName().equalsIgnoreCase(inventoryItem.getName())){
-            validItem = true;
-            break;
-          }
-        }
-        if(!validItem){
-          recipeCompleted = false;
-          break;
-        }
-      }
+      boolean recipeCompleted = checkItems(false, currentRecipe, gameController);
 
       if (recipeCompleted){
         System.out.printf("%s: Congratulations! You've completed %s.\n",name,currentRecipe.getName());
+        checkItems(true, currentRecipe, gameController);
         gameController.getGame().addCompletedRecipe(currentRecipe);
         if (gameController.getGame().getCompletedRecipes().size() < 5){
           System.out.printf("%s: Would you like to complete another recipe? (yes/no)\n", name);
@@ -116,6 +104,36 @@ public class Character {
       giveItem(gameController.getGame().getPlayer());
       System.out.printf("%s: Gather all of the ingredients and bring them to me!\n", name);
     }
+  }
+
+  private boolean checkItems(boolean removeItems, Recipe currentRecipe, GameController gameController){
+    boolean recipeCompleted = true;
+    Item itemToRemove = null;
+    for(Item item: currentRecipe.getIngredients()) {
+      boolean validItem = false;
+      for (Item inventoryItem : gameController.getGame().getPlayer().getInventory().getItems()) {
+        if (item.getName().equalsIgnoreCase(inventoryItem.getName())) {
+          validItem = true;
+          if(removeItems){
+            itemToRemove = inventoryItem;
+          }
+          break;
+        } else if (item.getName().equalsIgnoreCase(currentRecipe.getName())){
+          if(removeItems){
+            itemToRemove = inventoryItem;
+          }
+        }
+      }
+      if (!validItem) {
+        recipeCompleted = false;
+        break;
+      }
+      if(itemToRemove != null){
+        gameController.getGame().getPlayer().getInventory().removeItem(itemToRemove);
+        itemToRemove = null;
+      }
+    }
+    return recipeCompleted;
   }
 
   public String getName() {

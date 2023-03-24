@@ -69,6 +69,11 @@ public class Game {
         return item.getDescription();
       }
     }
+
+    if(noun.equalsIgnoreCase(currentLocation.getMonster().getName())){
+      System.out.println(currentLocation.getMonster().getDescription());
+      return currentLocation.getMonster().getName();
+    }
     return "";
   }
 

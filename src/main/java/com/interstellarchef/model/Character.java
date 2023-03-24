@@ -118,15 +118,23 @@ public class Character {
             itemToRemove = inventoryItem;
           }
           break;
-        } else if (item.getName().equalsIgnoreCase(currentRecipe.getName())){
-          if(removeItems){
-            itemToRemove = inventoryItem;
-          }
         }
       }
       if (!validItem) {
         recipeCompleted = false;
         break;
+      }
+      if(itemToRemove != null){
+        gameController.getGame().getPlayer().getInventory().removeItem(itemToRemove);
+        itemToRemove = null;
+      }
+    }
+    if (recipeCompleted && removeItems){
+      for (Item inventoryItem : gameController.getGame().getPlayer().getInventory().getItems()){
+        if (inventoryItem.getName().equalsIgnoreCase(currentRecipe.getName())){
+          itemToRemove = inventoryItem;
+          break;
+        }
       }
       if(itemToRemove != null){
         gameController.getGame().getPlayer().getInventory().removeItem(itemToRemove);

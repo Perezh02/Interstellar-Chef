@@ -10,26 +10,26 @@ public class Monster extends Character {
     private HashMap<String, String> riddles;
 
     public String playRiddleGame(GameController gc) {
-        System.out.println("Hello Spacewalker, if it is this item you seek, a riddle you must solve." +
-                "\nIf your answer is correct, you can have the item you've come in search of!" +
-                "\nWhat do you say? Will you give it a go? (yes/no)");
+        System.out.printf("%1$s: Hello Spacewalker, if it is this item you seek, a riddle you must solve." +
+                "\n%1$s: If your answer is correct, you can have the item you've come in search of!" +
+                "\n%1$s: What do you say? Will you give it a go? (yes/no)\n",this.getName());
         String readyToPlay = gc.getGame().readyForGameCheck(gc.getUserInput());
         if (readyToPlay.equalsIgnoreCase("yes")) {
             String riddleAnswer = selectRiddle();
             String userInput = gc.getUserInput();
             if (userInput.equalsIgnoreCase(riddleAnswer)) {
                 if (gc.getGame().getCurrentLocation().getMonster().getItems().size() == 0) {
-                    System.out.println("You fell into my trap! I don't actually have anything to give you~");
+                    System.out.printf("%s: You fell into my trap! I don't actually have anything to give you~\n",this.getName());
                     riddles = new HashMap<>();
                 } else {
                     gc.getGame().getCurrentLocation().getMonster().giveItem(gc.getGame().getPlayer());
                     riddles = new HashMap<>();
                 }
             } else {
-                System.out.println("Nice try, but not quite! Maybe you'll solve the next riddle!");
+                System.out.printf("%s: Nice try, but not quite! Maybe you'll solve the next riddle!\n",this.getName());
             }
         } else {
-            System.out.println("Come back when you're ready");
+            System.out.printf("%s: Come back when you're ready\n",this.getName());
         }
         return gc.getGame().getCurrentLocation().getMonster().getName();
 

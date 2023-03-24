@@ -107,25 +107,25 @@ public class TextParser {
                 if (game.getCurrentLocation().getMonster().getRiddles().size() > 0) {
                     game.getCurrentLocation().getMonster().playRiddleGame(gameController);
                 } else if (game.getCurrentLocation().getMonster().getItems().size() != 0) {
-                    System.out.println("Hello Spacewalker. If it's this item you want, a game you must play. \nWhat do you say? (yes/no)");
+                    System.out.printf("%1$s: Hello Spacewalker. If it's this item you want, a game you must play. \n%1$s: What do you say? (yes/no)\n",game.getCurrentLocation().getMonster().getName());
                     String output = game.readyForGameCheck(gameController.getUserInput());
                     if (output.equalsIgnoreCase("yes")) {
-                        System.out.println("I have something hidden in one of my hands. " +
-                                "\nIf you choose the correct hand (left/right) you can have the item you've come in search of!" +
-                                "\nGo ahead... choose a hand!");
+                        System.out.printf("%1$s: I have something hidden in one of my hands. " +
+                                "\n%1$s: If you choose the correct hand (left/right) you can have the item you've come in search of!" +
+                                "\n%1$s: Go ahead... choose a hand!\n",game.getCurrentLocation().getMonster().getName());
                         String choice = gameController.getUserInput();
                         String chooseAHandGameResult = game.chooseAHandGame(choice);
                         if (chooseAHandGameResult.equalsIgnoreCase("winner")) {
                             game.getCurrentLocation().getMonster().giveItem(game.getPlayer());
                         } else {
-                            System.out.println(chooseAHandGameResult);
+                            System.out.printf("%1$s: " + chooseAHandGameResult,game.getCurrentLocation().getMonster().getName());
                         }
                     } else {
                         // user types in anything other than yes @ ready check
-                        System.out.println("Come back when you're ready");
+                        System.out.printf("%1$s: Come back when you're ready\n",game.getCurrentLocation().getMonster().getName());
                     }
                 } else {
-                    System.out.println("Hello again Spacewalker, alas...you have already beat me at my game. \nEnjoy your prize, and safe travels!");
+                    System.out.printf("%1$s: Hello again Spacewalker, alas...you have already beat me at my game. \n%1$s: Enjoy your prize, and safe travels!\n",game.getCurrentLocation().getMonster().getName());
                 }
                 return game.getCurrentLocation().getMonster().getName();
             }

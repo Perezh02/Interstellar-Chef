@@ -1,5 +1,6 @@
 package com.interstellarchef.model;
 
+import com.interstellarchef.controller.GameController;
 import com.interstellarchef.util.Recipe;
 import java.util.LinkedList;
 import java.util.List;
@@ -138,7 +139,7 @@ public class Game {
     return result;
   }
 
-  public String fly(String destinationName) {
+  public String fly(String destinationName, GameController gameController) {
     String result = "";
     if(!destinationName.toLowerCase().contains("planet") && !destinationName.toLowerCase().contains("home") ){
       return result;
@@ -146,6 +147,9 @@ public class Game {
     if (destinationName.toLowerCase().contains("home")){
       currentLocation = gameLocations[18]; //space pod
       System.out.println("You safely return home.");
+      gameController.getMusicPlayer().stop();
+      gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getHappySong());
+      gameController.getMusicPlayer().play();
       return gameLocations[18].getName();
     }
     for(Location location : gameLocations){
@@ -153,6 +157,9 @@ public class Game {
         currentLocation = location;
         System.out.println("You masterfully navigate the path to " + location.getName() +", marveling at the beauty of space.");
         System.out.println("You place the Discovery Pod in Discovery Mode. Now the 'fly Discovery Pod' command can be used from any location on a planet.");
+        gameController.getMusicPlayer().stop();
+        gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getScarySong());
+        gameController.getMusicPlayer().play();
         result = location.getName();
         break;
       }

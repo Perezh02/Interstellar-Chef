@@ -41,6 +41,17 @@ public class MusicPlayer {
     }
   }
 
+  public void volumeDown() {
+    if (volume != null) {
+      volume.setValue(-10f);
+    }
+  }
+
+  public void volumeUp(){
+    float newVolume = volume.getValue()+ 10f;
+    volume.setValue(Math.min(newVolume, volume.getMaximum()));
+  }
+
   public String getScarySong() {
     return scarySong;
   }

@@ -16,9 +16,9 @@ import java.io.Reader;
 
 public class GameController {
 
-  Game game;
-  GameText gameText;
-  MusicPlayer musicPlayer = new MusicPlayer();
+  private Game game;
+  private GameText gameText;
+  private MusicPlayer musicPlayer = new MusicPlayer();
 
   public GameController() {
     setUpGameText();

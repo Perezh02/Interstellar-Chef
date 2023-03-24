@@ -5,6 +5,7 @@ import static com.interstellarchef.view.View.clearScreen;
 import com.google.gson.Gson;
 import com.interstellarchef.model.*;
 import com.interstellarchef.util.GameText;
+import com.interstellarchef.util.MusicPlayer;
 import com.interstellarchef.util.Recipe;
 import com.interstellarchef.view.View;
 
@@ -15,13 +16,15 @@ import java.io.Reader;
 
 public class GameController {
 
-  Game game;
-  GameText gameText;
+  private Game game;
+  private GameText gameText;
+  private MusicPlayer musicPlayer = new MusicPlayer();
 
   public GameController() {
     setUpGameText();
     // ToDo: make set up game conditional based on user input
     setUpGame();
+    musicPlayer.play();
     runGameIntro();
     startGame();
   }
@@ -151,5 +154,13 @@ public class GameController {
 
   public void setGameText(GameText gameText) {
     this.gameText = gameText;
+  }
+
+  public MusicPlayer getMusicPlayer() {
+    return musicPlayer;
+  }
+
+  public void setMusicPlayer(MusicPlayer musicPlayer) {
+    this.musicPlayer = musicPlayer;
   }
 }

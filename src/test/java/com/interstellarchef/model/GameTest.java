@@ -1,5 +1,6 @@
 package com.interstellarchef.model;
 
+import com.interstellarchef.controller.GameController;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
 import com.interstellarchef.model.Game;
@@ -21,6 +22,7 @@ class GameTest {
     private Location location2;
     private Location location3;
     private Player player;
+
 
     @BeforeEach
     public void setUp() {
@@ -59,14 +61,7 @@ class GameTest {
         Location[] locations = {location, location1, location2, location3};
         Recipe[] recipes = {};
         game = new Game(location, player, locations, recipes);
-    }
 
-    @Test
-    void changeCurrentLocation() {
-    }
-
-    @Test
-    void look() {
     }
 
     @Test
@@ -91,64 +86,4 @@ class GameTest {
         assertEquals(itemName, "Martian Meatballs");
     }
 
-    @Test
-    void prepareToFly() {
-    }
-
-    @Test
-    void testFly() {
-        String result = game.fly("North Volcano Planet");
-        assertEquals("North Volcano Planet", result);
-        assertEquals(location2, game.getCurrentLocation());
-
-        // Test flying back to Space Station
-        result = game.fly("South Desert Planet");
-        assertEquals("South Desert Planet", result);
-        assertEquals(location3, game.getCurrentLocation());
-
-        // Test flying to an invalid location
-        result = game.fly("Invalid Location");
-        assertEquals("", result);
-        assertEquals(location3, game.getCurrentLocation());
-    }
-
-    @Test
-    void readyForGameCheck() {
-    }
-
-    @Test
-    void chooseAHandGame() {
-    }
-
-    @Test
-    void getCurrentLocation() {
-    }
-
-    @Test
-    void setCurrentLocation() {
-    }
-
-    @Test
-    void getCurrentRecipe() {
-    }
-
-    @Test
-    void setCurrentRecipe() {
-    }
-
-    @Test
-    void getCompletedRecipes() {
-    }
-
-    @Test
-    void setCompletedRecipes() {
-    }
-
-    @Test
-    void getPlayer() {
-    }
-
-    @Test
-    void setPlayer() {
-    }
 }

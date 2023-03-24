@@ -155,11 +155,22 @@ public class TextParser {
         if (action.equalsIgnoreCase("fly")) {
             String output = game.prepareToFly();
             if (!output.equalsIgnoreCase("") && !output.equalsIgnoreCase(" ")) {
-                output = game.fly(gameController.getUserInput());
+                output = game.fly(gameController.getUserInput(), gameController);
             }
             return output;
         }
-
+        if(action.equalsIgnoreCase("toggle")){
+            gameController.getMusicPlayer().toggleMusic();
+            return gameController.getMusicPlayer().getCurrentSong();
+        }
+        if(action.equalsIgnoreCase("volume")){
+            if(noun.trim().equalsIgnoreCase("up")){
+                gameController.getMusicPlayer().volumeUp();
+            }else{
+                gameController.getMusicPlayer().volumeDown();
+            }
+            return gameController.getMusicPlayer().getCurrentSong();
+        }
         return result;
     }
 

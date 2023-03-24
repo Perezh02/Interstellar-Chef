@@ -161,6 +161,7 @@ public class TextParser {
         }
         if(action.equalsIgnoreCase("toggle")){
             gameController.getMusicPlayer().toggleMusic();
+            return gameController.getMusicPlayer().getCurrentSong();
         }
         return result;
     }

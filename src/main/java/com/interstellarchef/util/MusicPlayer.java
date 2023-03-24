@@ -35,6 +35,7 @@ public class MusicPlayer {
   public void toggleMusic(){
     if(musicPlaying){
       stop();
+      musicPlaying = false;
     }else{
       play();
     }

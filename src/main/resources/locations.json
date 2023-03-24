@@ -555,7 +555,7 @@
     "characters": [],
     "monster": {
       "name": "Lava Monster",
-      "description": "They probably don't ever get cold.",
+      "description": "They probably don't ever get cold. You see Martian Meatballs sizzling in the lava.",
       "riddles": {
         "I am hot and molten, and reside underneath the Earth's crust. \nWhat am I? " : "Magma",
         "I am a type of lava flow. I appear smooth, and have a low viscosity. \nWhat is my name?": "Pahoehoe",
@@ -737,7 +737,7 @@
     "characters": [],
     "monster": {
       "name": "Ice Monster",
-      "description": "They look like they could freeze you solid.",
+      "description": "They look like they could freeze you solid. You see Cosmic Curry Powder sticking out the monster's coat.",
       "riddles": {},
       "actionResponse": {
         "look": "They look like they could freeze you solid.",
@@ -763,7 +763,7 @@
     "name": "North Swamp Planet",
     "description": "Nothing here except a space walker. There are other quadrants to the South, West & East",
     "exits": {
-      "north": "North Swamp Planet",
+      "east": "East Swamp Planet",
       "south": "South Swamp Planet",
       "west": "West Swamp Planet"
     },
@@ -806,7 +806,7 @@
     "characters": [],
     "monster": {
       "name": "Swamp Monster",
-      "description": "You see the monster's eyes peeking out from the swamp.",
+      "description": "You see the monster's eyes peeking out from the swamp. You see a Terrestrial Space Fish flopping in the monster's hand.",
       "riddles": {},
       "actionResponse": {
         "look": "You see the monster's eyes peeking out from the swamp water.",
@@ -831,7 +831,7 @@
     "description": "Nothing here except an interesting fossil of a frog. There are more quadrants to the North, South & East.",
     "exits": {
       "north": "North Swamp Planet",
-      "west": "South Swamp Planet",
+      "south": "South Swamp Planet",
       "east": "East Swamp Planet"
     },
     "items": [
@@ -855,7 +855,7 @@
     "exits": {
       "north": "North Swamp Planet",
       "west": "West Swamp Planet",
-      "east": "East Swamp Planet"
+      "south": "South Swamp Planet"
     },
     "items": [],
     "characters": [],
@@ -931,7 +931,7 @@
     "characters": [],
     "monster": {
       "name": "Sand Monster",
-      "description": "It's hard to tell where the sand starts and the sand monster ends.",
+      "description": "It's hard to tell where the sand starts and the sand monster ends. You see Baking Powder hidden in the dunes.",
       "riddles": {
         "What is the name for a place where stars are born?": "Nebula",
         "What is a name for a natural satellite?" : "Moon",

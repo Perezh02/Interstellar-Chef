@@ -103,7 +103,7 @@ public class TextParser {
                     return character.getName();
                 }
             }
-            if (game.getCurrentLocation().getMonster().getName().equalsIgnoreCase(noun)) {
+            if (game.getCurrentLocation().getMonster() != null && game.getCurrentLocation().getMonster().getName().equalsIgnoreCase(noun)) {
                 if (game.getCurrentLocation().getMonster().getRiddles().size() > 0) {
                     game.getCurrentLocation().getMonster().playRiddleGame(gameController);
                 } else if (game.getCurrentLocation().getMonster().getItems().size() != 0) {

@@ -71,7 +71,7 @@ public class Game {
       }
     }
 
-    if(noun.equalsIgnoreCase(currentLocation.getMonster().getName())){
+    if(currentLocation.getMonster() != null && noun.equalsIgnoreCase(currentLocation.getMonster().getName())){
       System.out.println(currentLocation.getMonster().getDescription());
       return currentLocation.getMonster().getName();
     }

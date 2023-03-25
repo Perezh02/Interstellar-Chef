@@ -152,7 +152,7 @@ public class TextParser {
         }
 
         //fly discovery pod
-        if (action.equalsIgnoreCase("fly")) {
+        if (action.equalsIgnoreCase("fly") && noun.trim().equalsIgnoreCase("discovery pod")) {
             String output = game.prepareToFly();
             if (!output.equalsIgnoreCase("") && !output.equalsIgnoreCase(" ")) {
                 output = game.fly(gameController.getUserInput(), gameController);

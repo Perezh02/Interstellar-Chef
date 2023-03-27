@@ -79,7 +79,6 @@ public class GameController {
       viewInstance.printStartBanner();
       input = getUserInput();
     }
-
     viewInstance.printGameIntro();
   }
 

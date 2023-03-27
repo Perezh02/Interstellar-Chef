@@ -58,9 +58,12 @@ public class Character {
     } else if (desiredItem == null) {
       giveItem(player);
       dialog.remove(0);
+      return;
     }
     for (Item item : player.getInventory().getItems()){
       if(item.getName().equalsIgnoreCase(desiredItem)){
+        System.out.println("You give the " + desiredItem + " to "+ name);
+        System.out.println(name + ": Thanks!");
         giveItem(player);
         matchedItem = item;
         break;

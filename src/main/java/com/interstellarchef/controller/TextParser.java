@@ -49,6 +49,7 @@ public class TextParser {
                 if (inputArray[0].equalsIgnoreCase(gameText.getHelpKeyWord())) {
                     String helpInfo = gameText.getHelpMessage();
                     System.out.println(helpInfo);
+                    System.out.println(gameText.getDividerBar());
                 } else if (currentAction.equalsIgnoreCase("quit")) {
                     continue;
                 } else {

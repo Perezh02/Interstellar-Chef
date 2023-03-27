@@ -18,6 +18,7 @@ public class MusicPlayer {
       clip.open(audioInput);
       clip.start();
       volume = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+      volume.setValue(-5f);
       musicPlaying = true;
       clip.loop(Clip.LOOP_CONTINUOUSLY);
     } catch (Exception e) {

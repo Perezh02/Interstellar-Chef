@@ -5,8 +5,6 @@ import com.interstellarchef.model.Game;
 import com.interstellarchef.util.GameText;
 
 public class TextParser {
-
-    //todo: when JSON files created, take values and printed strings below from the JSON file
     private final GameController gameController;
     private final Game game;
     private final GameText gameText;
@@ -35,7 +33,6 @@ public class TextParser {
             System.out.println(playerAvailableExits);
             System.out.println(currentRoomItems);
             System.out.println(currentRoomCharacters);
-            //ToDo: discuss how to print out monster....null pointer exception, because not all rooms have a monster and we didn't really handle null
             System.out.println(currentRoomMonster);
             System.out.println(currentEquippedItem);
             System.out.println(playerStatusDivider);
@@ -49,6 +46,7 @@ public class TextParser {
                 if (inputArray[0].equalsIgnoreCase(gameText.getHelpKeyWord())) {
                     String helpInfo = gameText.getHelpMessage();
                     System.out.println(helpInfo);
+                    System.out.println(gameText.getDividerBar());
                 } else if (currentAction.equalsIgnoreCase("quit")) {
                     continue;
                 } else {
@@ -75,7 +73,7 @@ public class TextParser {
         String result = "";
 
         //check directions
-        if (action.equalsIgnoreCase("go")) { //todo: include synonyms and load from json
+        if (action.equalsIgnoreCase("go")) { //todo: include synonyms
             for (String direction : game.getCurrentLocation().getExits().keySet()) {
                 if (noun.equalsIgnoreCase(direction)) {
                     //change current location

@@ -186,7 +186,7 @@ public class Game {
     if (choice.equalsIgnoreCase(correctHand)){
       return "winner";
     } else {
-      return "Nice try, but not quite! Try again~";
+      return "Nice try, but not quite! Try again~\n";
     }
   }
 

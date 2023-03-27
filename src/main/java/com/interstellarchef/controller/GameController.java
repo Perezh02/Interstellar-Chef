@@ -22,7 +22,6 @@ public class GameController {
 
   public GameController() {
     setUpGameText();
-    // ToDo: make set up game conditional based on user input
     setUpGame();
     musicPlayer.play();
     runGameIntro();
@@ -79,7 +78,6 @@ public class GameController {
       viewInstance.printStartBanner();
       input = getUserInput();
     }
-
     viewInstance.printGameIntro();
   }
 

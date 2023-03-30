@@ -11,17 +11,16 @@ public class KeyStrokeHandler extends JFrame implements KeyListener{
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-            this.getContentPane().removeAll();
-            this.repaint();
-            try {
-                GameFrame mainGUI = new GameFrame();
-                mainGUI.startMainGUI();
+            try{
+                this.getContentPane().removeAll();
+                this.repaint();
+                GameFrame gameFrame = new GameFrame();
+                gameFrame.startMainGUI();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
     }
-
 
 
     public void keyReleased(KeyEvent e) {
@@ -30,5 +29,6 @@ public class KeyStrokeHandler extends JFrame implements KeyListener{
     public void keyTyped(KeyEvent e) {
         System.out.println("keyTyped");
     }
+
 
 }

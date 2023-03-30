@@ -4,23 +4,25 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.basic.BasicArrowButton;
 
 public class GameFrame extends JFrame{
 
@@ -33,47 +35,36 @@ public class GameFrame extends JFrame{
     this.setTitle("Interstellar Chef");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(true);
-    this.setSize(900,750);
+    this.setSize(810,585);
     button = new JButton();
-    // Icon top left
-    // ImageIO Library
-
 
     try(InputStream imageStream = getClass().getClassLoader().getResourceAsStream("spaceship.png")) {
-      //noinspection ConstantConditions
       BufferedImage buffer = ImageIO.read(imageStream);
       this.setIconImage(buffer);
     }
   }
 
-  //SetBackgroundImage
-  //Jlabel -> icon into Jlabel -> Expand the image to fit into the panel
-
-
 
   public void introGUI() throws IOException {
 
+    JPanel panelBg = new JPanel();
     JPanel panelTop = new JPanel();
     JPanel panelCenter = new JPanel();
     JPanel panelBottom = new JPanel();
-
-    this.setLayout(new BorderLayout(0,0));
-
-    this.add(panelTop, BorderLayout.NORTH);
-    this.add(panelBottom, BorderLayout.SOUTH);
-    this.add(panelCenter, BorderLayout.CENTER);
+    panelBg.setBounds(0, 0, 800, 600);
+    panelTop.setBounds(0, 0, 800, 100);
+    panelCenter.setBounds(0, 100, 800, 400);
+    panelBottom.setBounds(0, 500, 800, 100);
 
     label1 = new JLabel();
     label1.setText("<html><u><b>INTERSTELLAR</b></u> <br>   C. H. E. F.</html>");
     label1.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
     label1.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
     label1.setForeground(new Color(209, 228, 255, 255));
-    label1.setFont(new Font("Monospaced", Font.PLAIN, 40));
+    label1.setFont(new Font("Monospaced", Font.PLAIN, 30));
     Icon introImage1 = new ImageIcon("src/main/resources/chef4.png");
     label1.setIcon(introImage1);
     label1.setIconTextGap(20);
-
-
 
     button.setText("CLICK HERE OR HIT ( ENTER ) TO START");
     button.setFocusable(false);
@@ -86,36 +77,64 @@ public class GameFrame extends JFrame{
     button.setBorder(BorderFactory.createEtchedBorder());
     button.setPreferredSize(new Dimension(300,30));
 
-    // Intro Center Image Panel
-    panelCenter.setBackground(new Color(0xFF000001, true));
-    panelCenter.setPreferredSize(new Dimension(500, 30));
-
     // read contents of inputStream into array of bites -> then create imageIcon for that bite instead.
     try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream("intro.gif")) {
       byte[] buffer = inputStream.readAllBytes();
       Icon introImage = new ImageIcon(buffer);
       JLabel introImageLabel = new JLabel();
       introImageLabel.setIcon(introImage);
-      panelCenter.add(introImageLabel);
+      panelBg.add(introImageLabel);
     }
-    // Intro Top Panel
-    panelTop.setBackground(new Color(0xFF3B6CBE, true));
-    panelTop.setPreferredSize(new Dimension(500, 150));
-    panelTop.add(label1);
-    panelTop.setBorder(new EmptyBorder(20,0,0,0));
-    // Intro Bottom Panel
-    panelBottom.setBackground(new Color(0xFF1C3660, true));
-    panelBottom.setPreferredSize(new Dimension(500, 100));
-    panelBottom.add(button);
-    panelBottom.setBorder(new EmptyBorder(20,0,0,0));
 
+    // Intro Top Panel
+    panelBg.setBackground(Color.BLACK);
+    panelCenter.setOpaque(false);
+
+    panelTop.setOpaque(false);
+    panelTop.add(label1);
+    panelTop.setBorder(new EmptyBorder(5,0,0,0));
+    // Intro Bottom Panel
+
+    panelBottom.setOpaque(false);
+    panelBottom.add(button);
+    panelBottom.setBorder(new EmptyBorder(10,0,0,0));
 
 //    this.getContentPane().add(new JPanelWithBackground("src/main/resources/circling.gif"));
 
-    // EventListener for keyStroke (set to Enter Only)
-    this.setVisible(true);
-    this.addKeyListener(new KeyStrokeHandler());
+    JLayeredPane layeredPane = new JLayeredPane();
+    layeredPane.setBounds(0,0,800,600);
 
+    layeredPane.add(panelBg,Integer.valueOf(0));
+    layeredPane.add(panelTop,Integer.valueOf(3));
+    layeredPane.add(panelBottom,Integer.valueOf(2));
+    layeredPane.add(panelCenter,Integer.valueOf(1));
+
+    this.add(layeredPane);
+    this.setVisible(true);
+
+    KeyListener listener = new KeyListener() {
+      @Override
+      public void keyTyped(KeyEvent e) {
+        System.out.println("key typed");
+      }
+      @Override
+      public void keyPressed(KeyEvent e) {
+          if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+            try{
+              getContentPane().removeAll();
+              repaint();
+              startMainGUI();
+            } catch (IOException ex) {
+              ex.printStackTrace();
+            }
+        }
+      }
+      @Override
+      public void keyReleased(KeyEvent e) {
+      }
+    };
+
+    this.addKeyListener(listener);
 
     button.addActionListener(e -> {
       try {
@@ -132,11 +151,7 @@ public class GameFrame extends JFrame{
 
 
 
-
-
-
   public void startMainGUI() throws IOException {
-
     JButton buttonHelp = new JButton();
     buttonHelp.setText("HELP");
     buttonHelp.setFocusable(false);
@@ -177,57 +192,32 @@ public class GameFrame extends JFrame{
     buttonQuit.setPreferredSize(new Dimension(150,30));
 
 
-
 //     Button Action Listener calling HelpDialog PopUp
     buttonHelp.addActionListener(e -> new HelpDialog(this).helpPopUp());
 
+    JPanel panelBg = new JPanel();
     JPanel panelTop = new JPanel();
-
-    JPanel panelRight = new JPanel();
-    JPanel panelBottom = new JPanel();
     JPanel panelMain = new JPanel();
-
-//    panelTop.setBackground(new Color(0xFFD8E7FF, true));
-    panelBottom.setBackground(new Color(0x7608849F, true));
-    panelMain.setBackground(new Color(0x5EA4A4));
-
-    panelTop.setPreferredSize(new Dimension(500, 35));
-
-    panelRight.setPreferredSize(new Dimension(300, 100));
-//    panelBottom.setPreferredSize(new Dimension(100, 50));
-    panelMain.setPreferredSize(new Dimension(100, 100));
-
-
-
-
-
-  // Setting margin for borderLayout
-    this.setLayout(new BorderLayout(10,10));
-    this.add(panelTop, BorderLayout.NORTH);
-    this.add(panelRight, BorderLayout.EAST);
-    this.add(panelMain, BorderLayout.CENTER);
-
-    // Adding GridLayout for center
-    panelRight.setLayout(new GridLayout(2,1, 10, 10));
+    JPanel panelTextInput = new JPanel();
     JPanel panelRightTop = new JPanel();
     JPanel panelRightBottom = new JPanel();
 
+    panelBg.setBounds(0, 0, 800, 600);
 
-    panelMain.setLayout(new BorderLayout());
-    JPanel panelMainTop = new JPanel();
-    JPanel panelMainBottom = new JPanel();
-    panelMain.add(panelMainTop, BorderLayout.CENTER);
-    panelMain.add(panelMainBottom, BorderLayout.SOUTH);
+    panelTop.setBounds(0, 0, 800, 50);
+    panelMain.setBounds(0, 50, 500, 450);
+    panelRightTop.setBounds(500, 50, 300, 300);
+    panelTextInput.setBounds(0, 500, 500, 50);
+    panelRightBottom.setBounds(500, 350, 300, 200);
 
-    panelMainTop.setPreferredSize(new Dimension(450,400));
-    panelMainTop.setBackground(new Color(211, 227, 255));
+    panelTop.setBorder(new EmptyBorder(5,0,0,0));
 
-    panelMainBottom.setBackground(new Color(156, 182, 206));
-    panelMainBottom.setPreferredSize(new Dimension(300,100));
-
+    panelTextInput.setBackground(new Color(0x6225B0C7, true));
+    panelRightTop.setBackground(new Color(0x9A6F9A));
+    panelRightBottom.setBackground(new Color(0xAD8EB688, true));
+    panelMain.setBackground(new Color(0xC8DEFF));
 
     JLabel gameDescriptionLabel = new JLabel();
-
     gameDescriptionLabel.setText("<html>"
         + "<h2>Hello Culinary Cosmonauts!</h2> <br>"
         +"Welcome aboard the International Chef Station, where we have one goal:<br><br>"
@@ -245,20 +235,32 @@ public class GameFrame extends JFrame{
         + "</html>");
 
     gameDescriptionLabel.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
-//    gameDescriptionLabel.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
-//    gameDescriptionLabel.setForeground(new Color(0, 0, 0, 255));
+    gameDescriptionLabel.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
+    gameDescriptionLabel.setForeground(new Color(0, 0, 0, 255));
     gameDescriptionLabel.setFont(new Font("Comic Sans", Font.PLAIN, 13));
 
-
-    panelMainTop.add(gameDescriptionLabel);
-
+    panelMain.add(gameDescriptionLabel);
 
 
+//    panelRightBottom.add(arrowEast);
+//    panelRightBottom.add(arrowNorth);
+//    panelRightBottom.add(arrowSouth);
 
 
-    // 2 Panels on the right side of screen
-//    panelRightTop.setBackground(new Color(0xAD116404, true));
-//    panelRightBottom.setBackground(new Color(0x5787B97E, true));
+//    ImageIcon icon = new ImageIcon("src/main/resources/bg11.jpg");
+//    JButton panelButton1 = new JButton(icon);
+//    ImageIcon icon2 = new ImageIcon("src/main/resources/bg11.jpg");
+//    JButton panelButton2 = new JButton(icon2);
+//    ImageIcon icon3 = new ImageIcon("src/main/resources/bg11.jpg");
+//    JButton panelButton3 = new JButton(icon3);
+//    ImageIcon icon4 = new ImageIcon("src/main/resources/bg11.jpg");
+//    JButton panelButton4 = new JButton(icon4);
+
+//    panelRightBottom.setLayout(new BorderLayout());
+//    panelRightBottom.add(panelButton1, BorderLayout.EAST);
+//    panelRightBottom.add(panelButton2, BorderLayout.WEST);
+//    panelRightBottom.add(panelButton3, BorderLayout.SOUTH);
+//    panelRightBottom.add(panelButton4, BorderLayout.NORTH);
 
     // Building direction buttons
     panelRightBottom.setLayout(new GridLayout(3,3));
@@ -301,23 +303,9 @@ public class GameFrame extends JFrame{
 
 
 
-
-    panelRight.add(panelRightTop);
-    panelRight.add(panelRightBottom);
-
-
-
-
     JLabel label2 = new JLabel();
-//    label2.setText("<html>Top Right corner. <br>Maybe show item/character, etc description (HELP)<html>");
     label2.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
     label2.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
-    label2.setForeground(new Color(19, 36, 63, 255));
-
-
-
-
-
 
     JTextArea inventoryTextArea = new JTextArea(10,27);
     inventoryTextArea.append("- Current Location: DATA FROM JSON\n" );
@@ -327,35 +315,26 @@ public class GameFrame extends JFrame{
     inventoryTextArea.append("- Monster in current location: DATA FROM JSON\n");
     inventoryTextArea.append("- Currently equipped item: DATA FROM JSON\n");
 
-
     inventoryTextArea.setLineWrap(true);
 
-
-
-
     panelRightTop.add(inventoryTextArea);
-
-
-
-//    Icon mainBottomImage = new ImageIcon("src/main/resources/outerspace3.gif");
-//    JLabel mainBottomImageLabel = new JLabel();
-//    mainBottomImageLabel.setIcon(mainBottomImage);
-//    panelTop.add(mainBottomImageLabel);
-
-
-//    JTextArea testField = new JTextArea();
-//
-//    System.out.println("hello");
-//    testField.append("hello");
-
-//
-//    panelTop.add(testField);
-
     panelTop.add(buttonHelp);
     panelTop.add(buttonSetting);
     panelTop.add(buttonQuit);
 
 
+
+    JLayeredPane layeredPane = new JLayeredPane();
+    layeredPane.setBounds(0,0,800,600);
+
+    layeredPane.add(panelBg,Integer.valueOf(0));
+    layeredPane.add(panelTop,Integer.valueOf(3));
+    layeredPane.add(panelMain,Integer.valueOf(4));
+    layeredPane.add(panelRightTop,Integer.valueOf(1));
+    layeredPane.add(panelRightBottom,Integer.valueOf(5));
+    layeredPane.add(panelTextInput,Integer.valueOf(2));
+
+    this.add(layeredPane);
     this.setVisible(true);
 
   }

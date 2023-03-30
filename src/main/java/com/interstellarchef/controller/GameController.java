@@ -34,7 +34,9 @@ public class GameController {
     String input;
     Scanner scan = new Scanner(System.in);
     input = scan.nextLine().toLowerCase();
-    if (input.equals(gameText.getAffirmative())) {
+    //This will remove any leading or trailing spaces from the user input before comparing it to the "Affirmative" value,
+    // which should prevent the game from crashing when the input includes a space.
+    if (input.trim().equals(gameText.getAffirmative())) {
       playGame();
     } else {
       quitGame(false);

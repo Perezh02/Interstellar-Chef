@@ -6,7 +6,7 @@ import javax.sound.sampled.*;
 public class MusicPlayer {
   private Clip clip;
   private FloatControl volume;
-  private boolean musicPlaying;
+  public static boolean musicPlaying;
   private String scarySong = "scarysong.wav";
   private String happySong = "happysong.wav";
   private String currentSong = happySong;
@@ -31,6 +31,10 @@ public class MusicPlayer {
       clip.stop();
       clip.close();
     }
+  }
+
+  public static boolean isMusicPlaying() {
+    return musicPlaying;
   }
 
   public void toggleMusic(){

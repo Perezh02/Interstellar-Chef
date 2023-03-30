@@ -1,6 +1,7 @@
 package com.interstellarchef.model;
 
 import com.interstellarchef.controller.GameController;
+import com.interstellarchef.util.MusicPlayer;
 import com.interstellarchef.util.Recipe;
 import java.util.LinkedList;
 import java.util.List;
@@ -147,21 +148,33 @@ public class Game {
     if (destinationName.toLowerCase().contains("home")){
       currentLocation = gameLocations[18]; //space pod
       System.out.println("You safely return home.");
-      gameController.getMusicPlayer().stop();
-      gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getHappySong());
-      gameController.getMusicPlayer().play();
-      return gameLocations[18].getName();
+      if (MusicPlayer.isMusicPlaying()) {
+        gameController.getMusicPlayer().stop();
+        gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getHappySong());
+        gameController.getMusicPlayer().play();
+        return gameLocations[18].getName();
+      } else {
+        gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getHappySong());
+        return gameLocations[18].getName();
+      }
+
     }
     for(Location location : gameLocations){
       if (location.getName().equalsIgnoreCase(destinationName)){
         currentLocation = location;
         System.out.println("You masterfully navigate the path to " + location.getName() +", marveling at the beauty of space.");
         System.out.println("You place the Discovery Pod in Discovery Mode. Now the 'fly Discovery Pod' command can be used from any location on a planet.");
-        gameController.getMusicPlayer().stop();
-        gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getScarySong());
-        gameController.getMusicPlayer().play();
-        result = location.getName();
-        break;
+        if (MusicPlayer.isMusicPlaying()) {
+          gameController.getMusicPlayer().stop();
+          gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getScarySong());
+          gameController.getMusicPlayer().play();
+          result = location.getName();
+          break;
+        } else {
+          gameController.getMusicPlayer().setCurrentSong(gameController.getMusicPlayer().getScarySong());
+          result = location.getName();
+          break;
+        }
       }
     }
     return result;

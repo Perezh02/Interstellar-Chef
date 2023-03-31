@@ -12,22 +12,16 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
 public class GameFrame extends JFrame{
 
   JLabel label1;
   JButton button;
-
+  JButton buttonMap;
+  JLabel timerLabel;
+  private int timerSeconds;
 
   protected GameFrame() throws IOException {
     this.setTitle("Interstellar Chef");
@@ -162,7 +156,7 @@ public class GameFrame extends JFrame{
     buttonQuit.setBorder(BorderFactory.createEmptyBorder());
     buttonQuit.setBackground(new Color(0xB45D5D));
     buttonQuit.setBorder(BorderFactory.createEtchedBorder());
-    buttonQuit.setPreferredSize(new Dimension(100,30));
+    buttonQuit.setPreferredSize(new Dimension(100, 30));
 
     JButton buttonHelp = new JButton();
     buttonHelp.setText("HELP");
@@ -175,7 +169,7 @@ public class GameFrame extends JFrame{
     buttonHelp.setBorder(BorderFactory.createEmptyBorder());
     buttonHelp.setBackground(new Color(0x5B90E5));
     buttonHelp.setBorder(BorderFactory.createEtchedBorder());
-    buttonHelp.setPreferredSize(new Dimension(100,30));
+    buttonHelp.setPreferredSize(new Dimension(100, 30));
 
     JButton buttonSetting = new JButton();
     buttonSetting.setText("SETTINGS");
@@ -188,7 +182,53 @@ public class GameFrame extends JFrame{
     buttonSetting.setBorder(BorderFactory.createEmptyBorder());
     buttonSetting.setBackground(new Color(0x5B90E5));
     buttonSetting.setBorder(BorderFactory.createEtchedBorder());
-    buttonSetting.setPreferredSize(new Dimension(100,30));
+    buttonSetting.setPreferredSize(new Dimension(100, 30));
+
+    JButton buttonMap = new JButton();
+    buttonMap.setText("MAP");
+    buttonMap.setFocusable(false);
+    buttonMap.setHorizontalAlignment(JButton.CENTER);
+    buttonMap.setVerticalAlignment(JButton.CENTER);
+    buttonMap.setFont(new Font("Comic Sans", Font.BOLD, 10));
+    buttonMap.setIconTextGap(5);
+    buttonMap.setForeground(Color.WHITE);
+    buttonMap.setBorder(BorderFactory.createEmptyBorder());
+    buttonMap.setBackground(new Color(0x5B90E5));
+    buttonMap.setBorder(BorderFactory.createEtchedBorder());
+    buttonMap.setPreferredSize(new Dimension(100, 30));
+
+    buttonMap.addActionListener(e -> {
+      JFrame mapFrame = new JFrame("Map");
+      ImageIcon mapImage = new ImageIcon("path/to/map/image.png");
+      JLabel mapLabel = new JLabel(mapImage);
+      mapFrame.add(mapLabel);
+      mapFrame.setSize(800, 600); // set size of the frame
+      mapFrame.setResizable(false); // prevent resizing
+      mapFrame.setLocationRelativeTo(null); // center the frame on the screen
+      mapFrame.setLocation(GameFrame.this.getX() + GameFrame.this.getWidth(), GameFrame.this.getY()); // set location to the right of the main frame
+      mapFrame.setVisible(true);
+    });
+
+    // create a custom font for the timer label
+    Font spaceFont = new Font("Arial", Font.BOLD, 25);
+    // create a custom color for the timer label
+    Color spaceColor = new Color(51, 0, 102); // dark blue
+
+    // create the timer label with the custom font and color
+    JLabel timerLabel = new JLabel("00:00");
+    timerLabel.setFont(spaceFont);
+    timerLabel.setForeground(spaceColor);
+
+    // create the timer object
+    Timer timer = new Timer(1000, e -> {
+      timerSeconds++;
+      int minutes = timerSeconds / 60;
+      int seconds = timerSeconds % 60;
+      String minutesStr = String.format("%02d", minutes);
+      String secondsStr = String.format("%02d", seconds);
+      timerLabel.setText(minutesStr + ":" + secondsStr);
+    });
+    timer.start();
 
 
 
@@ -389,7 +429,8 @@ public class GameFrame extends JFrame{
     panelTop.add(buttonHelp);
     panelTop.add(buttonSetting);
     panelTop.add(buttonQuit);
-
+    panelTop.add(buttonMap);
+    panelTop.add(timerLabel);
 
 
 
@@ -424,6 +465,7 @@ public class GameFrame extends JFrame{
 
     this.add(layeredPane);
     this.setVisible(true);
+
 
   }
 }

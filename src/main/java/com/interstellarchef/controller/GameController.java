@@ -23,7 +23,7 @@ public class GameController {
   public GameController() {
     setUpGameText();
     setUpGame();
-    musicPlayer.play();
+//    musicPlayer.play();
     runGameIntro();
     startGame();
   }

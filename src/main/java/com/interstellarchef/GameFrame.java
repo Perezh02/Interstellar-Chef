@@ -1,5 +1,7 @@
 package com.interstellarchef;
 
+import com.interstellarchef.controller.GameController;
+import com.interstellarchef.util.MusicPlayer;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -19,6 +21,9 @@ public class GameFrame extends JFrame{
 
   JLabel label1;
   JButton button;
+
+  MusicPlayer musicPlayer = new MusicPlayer();
+
   JButton buttonMap;
   JLabel timerLabel;
   private int timerSeconds;
@@ -29,6 +34,9 @@ public class GameFrame extends JFrame{
     this.setResizable(false);
     this.setSize(810,585);
     button = new JButton();
+
+    musicPlayer.play();
+
 
     try(InputStream imageStream = getClass().getClassLoader().getResourceAsStream("spaceship.png")) {
       BufferedImage buffer = ImageIO.read(imageStream);
@@ -235,6 +243,7 @@ public class GameFrame extends JFrame{
 
 //     Button Action Listener calling HelpDialog PopUp
     buttonHelp.addActionListener(e -> new HelpDialog(this).helpPopUp());
+    buttonSetting.addActionListener(e -> new SettingDialog(this).settingPopUp());
     buttonQuit.addActionListener(e -> System.exit(0));
 
 
@@ -465,7 +474,6 @@ public class GameFrame extends JFrame{
 
     this.add(layeredPane);
     this.setVisible(true);
-
 
   }
 }

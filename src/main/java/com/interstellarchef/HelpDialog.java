@@ -2,6 +2,7 @@ package com.interstellarchef;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
 import javax.swing.BorderFactory;
@@ -34,7 +35,7 @@ public class HelpDialog {
     helpDialog.add(panelTop, BorderLayout.NORTH);
     helpDialog.add(panelBottom, BorderLayout.SOUTH);
     helpDialog.add(panelCenter, BorderLayout.CENTER);
-    helpDialog.setSize(800, 550);
+    helpDialog.setSize(810, 585);
 
     label1 = new JLabel();
     label1.setText("<html>* H E L P *<br> </html>");
@@ -91,7 +92,39 @@ public class HelpDialog {
     panelBottom.add(buttonHelp);
     panelBottom.setBorder(new EmptyBorder(20, 0, 0, 0));
 
+//    helpDialog.add(this.buttons());
+    buttons();
     helpDialog.setVisible(true);
 
+
+
+
+
+
+
+
+
   }
+
+  public Component buttons() {
+    buttonHelp = new JButton();
+    buttonHelp.setText("CLICK TO CLOSE");
+    buttonHelp.setFocusable(false);
+    buttonHelp.setHorizontalAlignment(JButton.CENTER);
+    buttonHelp.setVerticalAlignment(JButton.CENTER);
+    buttonHelp.setFont(new Font("Comic Sans", Font.BOLD, 13));
+    buttonHelp.setForeground(Color.WHITE);
+    buttonHelp.setBorder(BorderFactory.createEmptyBorder());
+    buttonHelp.setBackground(new Color(0x365DA2));
+    buttonHelp.setBorder(BorderFactory.createEtchedBorder());
+    buttonHelp.setPreferredSize(new Dimension(300, 30));
+
+
+
+
+    return buttonHelp;
+  }
+
+
+
   }

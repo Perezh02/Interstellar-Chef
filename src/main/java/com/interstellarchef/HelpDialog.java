@@ -35,7 +35,12 @@ public class HelpDialog {
     helpDialog.add(panelTop, BorderLayout.NORTH);
     helpDialog.add(panelBottom, BorderLayout.SOUTH);
     helpDialog.add(panelCenter, BorderLayout.CENTER);
-    helpDialog.setSize(810, 585);
+    helpDialog.setSize(800, 600);
+
+
+    helpDialog.setLocationRelativeTo(null); // center the frame on the screen
+    helpDialog.setLocation(this.mainGUI.getX() + this.mainGUI.getWidth(), this.mainGUI.getY()); // set location to the right of the main frame
+
 
     label1 = new JLabel();
     label1.setText("<html>* H E L P *<br> </html>");
@@ -45,18 +50,18 @@ public class HelpDialog {
     label1.setFont(new Font("Comic Sans", Font.BOLD, 40));
 
     label2 = new JLabel();
-    label2.setText("<html> Direction options: <b>North, South, West, East, Up & Down</b> "
-        + "<br> <b>go</b> <Direction>: Moves character in selected direction "
-        + "<br> <b>get</b> <Item Name>: Adds item in the current location to Player's Inventory"
-        + "<br> <b>look</b> <Item/Location/Character/Monster Name>/Inventory: Investigates Item, Location, Character or Monster, or displays player's inventory"
-        + "<br> <b>equip</b> <Item Name>: item disappears from your inventory and is set as the player's equipped item"
-        + "<br> <b>drop</b> <Item Name>: item is dropped onto the floor of the current location"
-        + "<br> <b>talk</b> <Character Name>/<Monster Name>: Starts conversation with Character"
-        + "<br> <b>fly Discovery Pod</b>: Requires key, GPS and equipped spacesuit in Discovery Pod. Allows user to fly to other planets."
-        + "<br> <b>toggle music</b>: Allows player to toggle music on/off."
-        + "<br> <b>volume up/down</b>: Allows player to adjust music volume."
-        + "<br> <b>help</b>: Displays a list of valid commands"
-        + "<br> <b>quit</b>: prompts user if they would like to end the game"
+    label2.setText("<html> &nbsp;Direction options: <b>North, South, West, East, Up & Down</b> "
+        + "<br> &nbsp;<b>go</b> <Direction>: Moves character in selected direction "
+        + "<br> &nbsp;<b>get</b> <Item Name>: Adds item in the current location to Player's Inventory"
+        + "<br> &nbsp;<b>look</b> <Item/Location/Character/Monster Name>/Inventory: Investigates Item, Location, Character or Monster, or displays player's inventory"
+        + "<br> &nbsp;<b>equip</b> <Item Name>: item disappears from your inventory and is set as the player's equipped item"
+        + "<br> &nbsp;<b>drop</b> <Item Name>: item is dropped onto the floor of the current location"
+        + "<br> &nbsp;<b>talk</b> <Character Name>/<Monster Name>: Starts conversation with Character"
+        + "<br> &nbsp;<b>fly Discovery Pod</b>: Requires key, GPS and equipped spacesuit in Discovery Pod. Allows user to fly to other planets."
+        + "<br> &nbsp;<b>toggle music</b>: Allows player to toggle music on/off."
+        + "<br> &nbsp;<b>volume up/down</b>: Allows player to adjust music volume."
+        + "<br> &nbsp;<b>help</b>: Displays a list of valid commands"
+        + "<br> &nbsp;<b>quit</b>: prompts user if they would like to end the game"
         + "</html>");
     label2.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
     label2.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon

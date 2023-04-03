@@ -3,7 +3,7 @@ package com.interstellarchef.model;
 import java.util.HashMap;
 import java.util.List;
 
-public class Location {
+public class LocationOld {
 
     private String name;
     private String description;
@@ -13,7 +13,7 @@ public class Location {
 
     private Monster monster;
 
-    public Location(String name, String description, HashMap<String, String> exits,
+    public LocationOld(String name, String description, HashMap<String, String> exits,
         List<Item> items, Character[] characters) {
         this.name = name;
         this.description = description;

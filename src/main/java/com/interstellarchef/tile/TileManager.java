@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import javax.imageio.ImageIO;
 
 public class TileManager {
@@ -18,6 +19,7 @@ public class TileManager {
     public int[][] mapTileNum;
     ArrayList<String> fileNames = new ArrayList<>();
     ArrayList<String> collisionStatus =new ArrayList<>();
+    public int locationNumber;
 
     public TileManager(GamePanel gp) {
 
@@ -58,8 +60,16 @@ public class TileManager {
             e.printStackTrace();
         }
 
-
         loadMap("/maps/map.txt");
+    }
+
+    public int getLocationNumber() {
+        for (gp.maxWorldCol = 34; gp.maxWorldCol <= 43; gp.maxWorldCol++) {
+            for (gp.maxWorldRow = 58; gp.maxWorldRow <= 66; gp.maxWorldRow++) {
+                locationNumber = 1;
+            }
+        }
+        return locationNumber;
     }
 
 

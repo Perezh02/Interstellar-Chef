@@ -11,10 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class GameTest {
 
     private Game game;
-    private Location location;
-    private Location location1;
-    private Location location2;
-    private Location location3;
+    private LocationOld location;
+    private LocationOld location1;
+    private LocationOld location2;
+    private LocationOld location3;
     private PlayerOld player;
 
 
@@ -29,22 +29,22 @@ class GameTest {
         Item spacesuit = new Item("Spacesuit", "You must equip this before going to the floating garden.", new HashMap<String, String>());
 
         // Add the items to the current location
-        location = new Location("Discovery Pod",
+        location = new LocationOld("Discovery Pod",
             "The doorway to discovery!",
             new HashMap<>(), new ArrayList<>(), new Character[1]);
         location.addItem(pepper);
         location.addItem(spaceRock);
 
         //set up for fly method
-        location1 = new Location("West Swamp Planet", "Nothing here except an interesting fossil of a frog",
+        location1 = new LocationOld("West Swamp Planet", "Nothing here except an interesting fossil of a frog",
             new HashMap<>(), new ArrayList<>(), new Character[1]);
-        location2 = new Location("North Volcano Planet", "This quadrant is home a shiny space rock",
+        location2 = new LocationOld("North Volcano Planet", "This quadrant is home a shiny space rock",
             new HashMap<>(), new ArrayList<>(), new Character[1]);
-        location3 = new Location("South Desert Planet", "Might have glass",
+        location3 = new LocationOld("South Desert Planet", "Might have glass",
             new HashMap<>(), new ArrayList<>(), new Character[1]);
 
         // Create the player and add an item to their inventory
-        Location inventory = new Location("Inventory", "This is test inventory.",  new HashMap<>(), new ArrayList<>(), new Character[10]);
+        LocationOld inventory = new LocationOld("Inventory", "This is test inventory.",  new HashMap<>(), new ArrayList<>(), new Character[10]);
         inventory.addItem(meatballs);
         player = new PlayerOld(inventory);
         player.getInventory().addItem(key);
@@ -52,7 +52,7 @@ class GameTest {
         player.equipItem("spacesuit");
 
         // Create the game with the current location and player
-        Location[] locations = {location, location1, location2, location3};
+        LocationOld[] locations = {location, location1, location2, location3};
         Recipe[] recipes = {};
         game = new Game(location, player, locations, recipes);
 

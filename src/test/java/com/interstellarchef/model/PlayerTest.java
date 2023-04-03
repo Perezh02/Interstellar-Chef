@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    public static final Location EMPTY_INVENTORY = new Location(
+    public static final LocationOld EMPTY_INVENTORY = new LocationOld(
             "Empty Inventory",
             "This is an empty inventory",
             new HashMap<>(),
@@ -17,7 +17,7 @@ class PlayerTest {
             new Character[0]
     );
 
-    public static final Location NEW_INVENTORY = new Location(
+    public static final LocationOld NEW_INVENTORY = new LocationOld(
             "New Inventory",
             "This is the new inventory",
             new HashMap<>(),
@@ -41,7 +41,7 @@ class PlayerTest {
     );
 
     PlayerOld player;
-    Location inventory;
+    LocationOld inventory;
     List<Item> items;
 
     Item item;

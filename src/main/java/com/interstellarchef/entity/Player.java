@@ -1,11 +1,19 @@
 package com.interstellarchef.entity;
 
+import com.google.gson.Gson;
+import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
 import com.interstellarchef.gui.KeyHandler;
+import com.interstellarchef.location.Location;
+import com.interstellarchef.tile.Tile;
+import com.interstellarchef.tile.TileManager;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 
 public class Player extends Entity {
@@ -13,6 +21,8 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+    public String currentLocation;
+    TileManager tm;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -36,7 +46,6 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-
         worldX = gp.tileSize * 37;
         worldY = gp.tileSize * 61;
         speed = 4;
@@ -52,6 +61,13 @@ public class Player extends Entity {
         left2 = setup("/player/player_left_2");
         right1 = setup("/player/player_right_1");
         right2 = setup("/player/player_right_2");
+    }
+
+    public String getCurrentLocation() {
+        if (tm.locationNumber == Main.locations[0].getArea()) {
+            currentLocation = Main.locations[0].getName();
+        }
+        return currentLocation;
     }
 
     public void update() {

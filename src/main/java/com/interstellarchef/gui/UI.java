@@ -1,5 +1,8 @@
 package com.interstellarchef.gui;
 
+import com.interstellarchef.Main;
+import com.interstellarchef.location.Location;
+import com.interstellarchef.tile.TileManager;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
@@ -18,6 +21,7 @@ public class UI {
     public int commandNum = 0;
     public int titleScreenState = 0;
     public int gameScreenState = 0;
+    Location locations;
 
     public UI(GamePanel gp) {
         this.gp = gp;
@@ -35,11 +39,14 @@ public class UI {
         g2.setFont(arial_40);
         g2.setColor(Color.WHITE);
 
+        g2.drawString("Location: " + Main.locations[0].getName(), 50, 50);
+
+
         // TITLE STATE
         if (gp.gameState == gp.titleState) {
             drawTitleScreen();
         }
-        // PLAY STATE
+        // SETTINGS STATE
         if (gp.gameState == gp.settingsState) {
             drawSettingsScreen();
         }

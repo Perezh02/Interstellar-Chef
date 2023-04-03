@@ -112,7 +112,7 @@ public class GameController {
 
   public void setUpGame() {
     Gson gson = new Gson();
-    Location[] locations = new Location[40];
+    LocationOld[] locations = new LocationOld[40];
     Recipe[] recipes = new Recipe[5];
 
     //noinspection ConstantConditions
@@ -120,7 +120,7 @@ public class GameController {
         .getClassLoader()
         .getResourceAsStream("locations.json"))) {
 
-      locations = gson.fromJson(reader, Location[].class);
+      locations = gson.fromJson(reader, LocationOld[].class);
 
     } catch (IOException e) {
       e.printStackTrace();

@@ -2,23 +2,23 @@ package com.interstellarchef.model;
 
 public class PlayerOld {
     private Item equippedItem;
-    private Location inventory;
+    private LocationOld inventory;
 
-    public PlayerOld(Location inventory) {
+    public PlayerOld(LocationOld inventory) {
         this.inventory = inventory;
 
     }
 
-    public PlayerOld(Location inventory, Item equippedItem) {
+    public PlayerOld(LocationOld inventory, Item equippedItem) {
         this.inventory = inventory;
         this.equippedItem = equippedItem;
     }
 
-    public Location getInventory() {
+    public LocationOld getInventory() {
         return inventory;
     }
 
-    public void setInventory(Location inventory) {
+    public void setInventory(LocationOld inventory) {
         this.inventory = inventory;
     }
 

@@ -2,6 +2,7 @@
   {
     "name": "Living Quarters",
     "description": "There are people sleeping here, and you can hear snoring",
+    "area": 1,
     "exits": {
       "east": "Sector 2"
     },

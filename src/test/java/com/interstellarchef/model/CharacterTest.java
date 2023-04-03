@@ -13,7 +13,7 @@ class CharacterTest {
 
     PlayerOld player;
     Character character;
-    Location inventory;
+    LocationOld inventory;
     List<Item> items;
     HashMap<String, String> actionResponse = new HashMap<>(){{
         put("get","You put the object in your inventory.");
@@ -27,7 +27,7 @@ class CharacterTest {
         items = new LinkedList<>();
         items.add(item);
         character = new Character("Sam","",new HashMap<>(),items,dialog, null);
-        inventory = new Location("inventory","", new HashMap<>(), new LinkedList<>(), new Character[0]);
+        inventory = new LocationOld("inventory","", new HashMap<>(), new LinkedList<>(), new Character[0]);
         player = new PlayerOld(inventory);
     }
 

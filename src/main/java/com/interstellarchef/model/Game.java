@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Random;
 
 public class Game {
-  private Location currentLocation;
+  private LocationOld currentLocation;
   private PlayerOld player;
-  private final Location[] gameLocations;
+  private final LocationOld[] gameLocations;
   private final Recipe[] gameRecipes;
   private List<Recipe> completedRecipes = new LinkedList<>();
 
-  public Game(Location currentLocation, PlayerOld player, Location[] locations, Recipe[] gameRecipes) {
+  public Game(LocationOld currentLocation, PlayerOld player, LocationOld[] locations, Recipe[] gameRecipes) {
     this.currentLocation = currentLocation;
     this.player = player;
     this.gameLocations = locations;
@@ -23,7 +23,7 @@ public class Game {
 
   public void changeCurrentLocation(String locationDirection){
     String nextLocationName = currentLocation.getExits().get(locationDirection);
-    for(Location location : gameLocations){
+    for(LocationOld location : gameLocations){
       if(location.getName().equalsIgnoreCase(nextLocationName)){
         setCurrentLocation(location);
         System.out.println("You are now in the " + location.getName() + ".");
@@ -159,7 +159,7 @@ public class Game {
       }
 
     }
-    for(Location location : gameLocations){
+    for(LocationOld location : gameLocations){
       if (location.getName().equalsIgnoreCase(destinationName)){
         currentLocation = location;
         System.out.println("You masterfully navigate the path to " + location.getName() +", marveling at the beauty of space.");
@@ -203,11 +203,11 @@ public class Game {
     }
   }
 
-  public Location getCurrentLocation() {
+  public LocationOld getCurrentLocation() {
     return currentLocation;
   }
 
-  public void setCurrentLocation(Location currentLocation) {
+  public void setCurrentLocation(LocationOld currentLocation) {
     this.currentLocation = currentLocation;
   }
 
@@ -223,7 +223,7 @@ public class Game {
     return gameRecipes;
   }
 
-  public Location[] getGameLocations() {
+  public LocationOld[] getGameLocations() {
     return gameLocations;
   }
 

@@ -9,12 +9,12 @@ import java.util.Random;
 
 public class Game {
   private Location currentLocation;
-  private Player player;
+  private PlayerOld player;
   private final Location[] gameLocations;
   private final Recipe[] gameRecipes;
   private List<Recipe> completedRecipes = new LinkedList<>();
 
-  public Game(Location currentLocation, Player player, Location[] locations, Recipe[] gameRecipes) {
+  public Game(Location currentLocation, PlayerOld player, Location[] locations, Recipe[] gameRecipes) {
     this.currentLocation = currentLocation;
     this.player = player;
     this.gameLocations = locations;
@@ -211,11 +211,11 @@ public class Game {
     this.currentLocation = currentLocation;
   }
 
-    public Player getPlayer() {
+    public PlayerOld getPlayer() {
         return player;
     }
 
-    public void setPlayer(Player player) {
+    public void setPlayer(PlayerOld player) {
         this.player = player;
     }
 

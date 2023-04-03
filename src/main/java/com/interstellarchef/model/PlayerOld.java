@@ -1,15 +1,15 @@
 package com.interstellarchef.model;
 
-public class Player {
+public class PlayerOld {
     private Item equippedItem;
     private Location inventory;
 
-    public Player(Location inventory) {
+    public PlayerOld(Location inventory) {
         this.inventory = inventory;
 
     }
 
-    public Player (Location inventory, Item equippedItem) {
+    public PlayerOld(Location inventory, Item equippedItem) {
         this.inventory = inventory;
         this.equippedItem = equippedItem;
     }

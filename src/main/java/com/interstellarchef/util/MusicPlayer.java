@@ -7,8 +7,8 @@ public class MusicPlayer {
   private Clip clip;
   private FloatControl volume;
   public static boolean musicPlaying;
-  private String scarySong = "scarysong.wav";
-  private String happySong = "happysong.wav";
+  private String scarySong = "sound/scarysong.wav";
+  private String happySong = "sound/happysong.wav";
   private String currentSong = happySong;
 
   public void play() {

@@ -1,17 +1,11 @@
 package com.interstellarchef.model;
 
-import com.interstellarchef.controller.GameController;
 import java.util.ArrayList;
 import org.junit.jupiter.api.Test;
-import com.interstellarchef.model.Game;
-import com.interstellarchef.model.Location;
-import com.interstellarchef.model.Item;
-import com.interstellarchef.model.Player;
 import com.interstellarchef.util.Recipe;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import java.util.HashMap;
-import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
@@ -21,7 +15,7 @@ class GameTest {
     private Location location1;
     private Location location2;
     private Location location3;
-    private Player player;
+    private PlayerOld player;
 
 
     @BeforeEach
@@ -52,7 +46,7 @@ class GameTest {
         // Create the player and add an item to their inventory
         Location inventory = new Location("Inventory", "This is test inventory.",  new HashMap<>(), new ArrayList<>(), new Character[10]);
         inventory.addItem(meatballs);
-        player = new Player(inventory);
+        player = new PlayerOld(inventory);
         player.getInventory().addItem(key);
         player.getInventory().addItem(gps);
         player.equipItem("spacesuit");

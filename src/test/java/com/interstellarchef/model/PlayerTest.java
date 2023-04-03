@@ -40,7 +40,7 @@ class PlayerTest {
             ACTION_RESPONSE
     );
 
-    Player player;
+    PlayerOld player;
     Location inventory;
     List<Item> items;
 
@@ -51,7 +51,7 @@ class PlayerTest {
         items = new LinkedList<>();
         inventory = EMPTY_INVENTORY;
         item = INITIAL_EQUIPPED_ITEM;
-        player = new Player(inventory, item);
+        player = new PlayerOld(inventory, item);
     }
 
     @Test

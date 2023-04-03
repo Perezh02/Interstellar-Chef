@@ -136,7 +136,7 @@ public class GameController {
       e.printStackTrace();
     }
 
-    Player player = new Player(locations[1]);
+    PlayerOld player = new PlayerOld(locations[1]);
     this.game = new Game(locations[0], player, locations, recipes);
   }
 

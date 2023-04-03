@@ -1,9 +1,5 @@
 package com.interstellarchef.model;
 
-import com.interstellarchef.controller.GameController;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -15,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CharacterTest {
 
-    Player player;
+    PlayerOld player;
     Character character;
     Location inventory;
     List<Item> items;
@@ -32,7 +28,7 @@ class CharacterTest {
         items.add(item);
         character = new Character("Sam","",new HashMap<>(),items,dialog, null);
         inventory = new Location("inventory","", new HashMap<>(), new LinkedList<>(), new Character[0]);
-        player = new Player(inventory);
+        player = new PlayerOld(inventory);
     }
 
     //character gives item if they don't have a desired item for trade

@@ -41,7 +41,7 @@ public class Character {
 
   }
 
-  public void giveItem(Player player){
+  public void giveItem(PlayerOld player){
     if(items.size() >= 1){
       System.out.println(name + ": Take this.");
       System.out.println("You received " + items.get(0).getName());
@@ -51,7 +51,7 @@ public class Character {
     }
   }
 
-  public void trade(Player player){
+  public void trade(PlayerOld player){
     Item matchedItem = null;
     if(items.size() == 0){
       return;

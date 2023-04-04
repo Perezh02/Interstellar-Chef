@@ -16,7 +16,7 @@ import javax.swing.border.EmptyBorder;
 public class MapDialog {
   GameFrame mainGUI;
 
-  MapDialog(GameFrame mainGUI) {
+  public MapDialog(GameFrame mainGUI) {
     this.mainGUI = mainGUI;
   }
 

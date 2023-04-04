@@ -27,6 +27,7 @@ public class GameFrame extends JFrame{
   JLabel label1;
   JButton button;
   MusicPlayer musicPlayer = new MusicPlayer();
+  GamePanel gamePanel = new GamePanel();
 
   JButton buttonMap;
   JLabel timerLabel;
@@ -37,7 +38,7 @@ public class GameFrame extends JFrame{
 
 
 
-  protected GameFrame() throws IOException {
+  public GameFrame() throws IOException {
     this.setTitle("Interstellar Chef");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false);
@@ -318,7 +319,7 @@ public class GameFrame extends JFrame{
         }
 
 
-      GamePanel gamePanel = new GamePanel();
+//      GamePanel gamePanel = new GamePanel();
 
       JFrame window = new JFrame();
       window.setSize(new Dimension(800, 600));

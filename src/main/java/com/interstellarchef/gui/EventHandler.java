@@ -8,6 +8,10 @@ public class EventHandler {
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
 
+
+
+    public boolean isInPlanet;
+
     public EventHandler(GamePanel gp) {
         this.gp = gp;
 
@@ -101,22 +105,24 @@ public class EventHandler {
     }
 
     public void teleport(int col, int row, int gameState) {
+
         // FOREST PLANET
         if (hit(46, 12, "any")) {
+
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome to the Forest Planet!";
             gp.player.worldX = gp.tileSize * 18;
             gp.player.worldY = gp.tileSize * 12;
-            gp.stopMusic();
-            gp.playMusic(1);
+            isInPlanet = true;
+            musicHandler(1);
         }
         else if (hit(18, 11, "any")) {
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome home, chef!";
             gp.player.worldX = gp.tileSize * 50;
             gp.player.worldY = gp.tileSize * 14;
-            gp.stopMusic();
-            gp.playMusic(0);
+            isInPlanet = false;
+            musicHandler(0);
         }
         // SNOW PLANET
         else if (hit(54, 12, "any")) {
@@ -124,16 +130,16 @@ public class EventHandler {
             gp.ui.currentDialogue = "Welcome to the Snow Planet!";
             gp.player.worldX = gp.tileSize * 91;
             gp.player.worldY = gp.tileSize * 22;
-            gp.stopMusic();
-            gp.playMusic(1);
+            isInPlanet = true;
+            musicHandler(1);
         }
         else if (hit(92, 22, "any")) {
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome home, chef!";
             gp.player.worldX = gp.tileSize * 50;
             gp.player.worldY = gp.tileSize * 14;
-            gp.stopMusic();
-            gp.playMusic(0);
+            isInPlanet = false;
+            musicHandler(0);
         }
         // LAVA PLANET
         else if (hit(46, 16, "any")) {
@@ -141,16 +147,16 @@ public class EventHandler {
             gp.ui.currentDialogue = "Welcome to the Lava Planet!";
             gp.player.worldX = gp.tileSize * 17;
             gp.player.worldY = gp.tileSize * 92;
-            gp.stopMusic();
-            gp.playMusic(1);
+            isInPlanet = true;
+            musicHandler(1);
         }
         else if (hit(18, 92, "any")) {
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome home, chef!";
             gp.player.worldX = gp.tileSize * 50;
             gp.player.worldY = gp.tileSize * 14;
-            gp.stopMusic();
-            gp.playMusic(0);
+            isInPlanet = false;
+            musicHandler(0);
         }
         // DESERT PLANET
         else if (hit(54, 16, "any")) {
@@ -158,16 +164,30 @@ public class EventHandler {
             gp.ui.currentDialogue = "Welcome to the Desert Planet!";
             gp.player.worldX = gp.tileSize * 81;
             gp.player.worldY = gp.tileSize * 93;
-            gp.stopMusic();
-            gp.playMusic(1);
+            isInPlanet = true;
+            musicHandler(1);
         }
         else if (hit(80, 93, "any")) {
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome home, chef!";
             gp.player.worldX = gp.tileSize * 50;
             gp.player.worldY = gp.tileSize * 14;
-            gp.stopMusic();
-            gp.playMusic(0);
+            isInPlanet = false;
+            musicHandler(0);
         }
     }
+
+    public void musicHandler(int musicIndex) {
+        if (gp.isMusicPlaying()) {
+            gp.stopMusic();
+            gp.playMusic(musicIndex);
+        }
+    }
+
+    public boolean isInPlanet() {
+        return isInPlanet;
+    }
+
+
+
 }

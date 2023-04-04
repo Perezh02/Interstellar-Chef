@@ -87,15 +87,22 @@ public class SettingDialog {
     JButton toggleMusic = buttonLayout("Toggle Music", new Color(0x4FA99C), new Dimension(120, 100));
 
     volumeUpButton.addActionListener(e->{
-      mainGUI.musicPlayer.volumeUp();
+      mainGUI.gamePanel.musicIncrease();
     });
 
     volumeDownButton.addActionListener(e->{
-      mainGUI.musicPlayer.volumeDown();
+      mainGUI.gamePanel.musicDecrease();
     });
 
     toggleMusic.addActionListener(e-> {
-      mainGUI.musicPlayer.toggleMusic();
+      if (!mainGUI.gamePanel.isMusicPlaying()) {
+        if(mainGUI.gamePanel.eHandler.isInPlanet) {
+          mainGUI.gamePanel.playMusic(1);
+        } else {
+          mainGUI.gamePanel.playMusic(0);
+        }
+      }
+      mainGUI.gamePanel.toggleMusic();
     });
 
     panelCenter.add(volumeUpButton);

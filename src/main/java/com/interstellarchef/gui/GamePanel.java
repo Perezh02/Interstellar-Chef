@@ -64,7 +64,17 @@ public class GamePanel extends JPanel implements Runnable {
 
         aSetter.setObject();
         aSetter.setNPC();
-        musicPlaying = true;
+
+        if (!isMusicPlaying()) {
+            if (eHandler.isInPlanet) {
+            musicPlaying = true;
+            playMusic(1);
+            } else {
+                playMusic(0);
+                musicPlaying = true;
+            }
+        }
+
         gameState = titleState;
     }
 
@@ -178,6 +188,14 @@ public class GamePanel extends JPanel implements Runnable {
     public void playSE(int i) {
         se.setFile(i);
         se.play();
+    }
+
+    public void musicIncrease() {
+        music.volumeUp();
+    }
+
+    public void musicDecrease() {
+        music.volumeDown();
     }
 
 }

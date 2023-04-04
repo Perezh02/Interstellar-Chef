@@ -1,15 +1,21 @@
 package com.interstellarchef.tile;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.interstellarchef.gui.GamePanel;
 import com.interstellarchef.gui.UtilityTool;
+import com.interstellarchef.location.Location;
 import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import javax.imageio.ImageIO;
 
 public class TileManager {
@@ -17,9 +23,11 @@ public class TileManager {
     GamePanel gp;
     public Tile[] tile;
     public int[][] mapTileNum;
+    public int[][] locationNum;
+    public int[][] locationMap;
     ArrayList<String> fileNames = new ArrayList<>();
     ArrayList<String> collisionStatus =new ArrayList<>();
-    public int locationNumber;
+    public Map<Integer, String> areaNames;
 
     public TileManager(GamePanel gp) {
 
@@ -48,11 +56,12 @@ public class TileManager {
 
         try {
             String line2 = br.readLine();
-            String maxTile[] = line2.split(" ");
+            String[] maxTile = line2.split(" ");
 
             gp.maxWorldCol = maxTile.length;
             gp.maxWorldRow = maxTile.length;
             mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
+            locationMap = new int[gp.maxWorldCol][gp.maxWorldRow];
 
             br.close();
 
@@ -61,16 +70,76 @@ public class TileManager {
         }
 
         loadMap("/maps/map.txt");
+        areaNames = loadAreaNames("/maps/location.json");
+
+        assignLocation(34, 56, 11, 10, 1);
+        assignLocation(46, 57, 8, 11, 2);
+        assignLocation(55, 57, 7, 8, 3);
+        assignLocation(46, 69, 8, 13, 4);
+        assignLocation(34, 70, 11, 10, 5);
+        assignLocation(57, 70, 11, 10, 6);
+        assignLocation(44, 83, 13, 15, 7);
+        assignLocation(45, 45, 11, 11, 8);
+        assignLocation(56, 46, 11, 10, 9);
+        assignLocation(46, 34, 9, 10, 10);
+        assignLocation(36, 35, 11, 10, 11);
+        assignLocation(56, 35, 11, 10, 12);
+        assignLocation(39, 26, 6, 6, 13);
+        assignLocation(55, 26, 6, 6, 14);
+        assignLocation(46, 22, 8, 11, 15);
+        assignLocation(42, 9, 16, 12, 16);
+
+        assignLocation(4, 5, 16, 10, 17);
+        assignLocation(3, 83, 18, 13, 18);
+        assignLocation(77, 7, 18, 18, 19);
+        assignLocation(77, 83, 19, 14, 20);
+
     }
 
-    public int getLocationNumber() {
-        for (gp.maxWorldCol = 34; gp.maxWorldCol <= 43; gp.maxWorldCol++) {
-            for (gp.maxWorldRow = 58; gp.maxWorldRow <= 66; gp.maxWorldRow++) {
-                locationNumber = 1;
+    private Map<Integer, String> loadAreaNames(String fileName) {
+        Map<Integer, String> names = new HashMap<>();
+        try {
+            InputStream is = getClass().getResourceAsStream(fileName);
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            StringBuilder jsonText = new StringBuilder();
+            String line;
+            while ((line = br.readLine()) != null) {
+                jsonText.append(line);
+            }
+            br.close();
+
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<Location>>() {}.getType();
+            List<Location> areas = gson.fromJson(jsonText.toString(), listType);
+            for (Location area : areas) {
+                names.put(area.getArea(), area.getName());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return names;
+    }
+
+    public void assignLocation(int startX, int startY, int areaWidth, int areaHeight, int locationNumber) {
+        for (int x = startX; x < startX + areaWidth; x++) {
+            for (int y = startY; y < startY + areaHeight; y++) {
+                locationMap[x][y] = locationNumber;
             }
         }
-        return locationNumber;
     }
+
+    public String getLocationName(int locationNum) {
+        String location = areaNames.get(locationNum);
+        if (location != null) {
+            location = areaNames.get(locationNum);
+        } else {
+            location = "";
+        }
+        return location;
+    }
+
+
+
 
 
     public void getTileImage() {
@@ -97,7 +166,8 @@ public class TileManager {
 
         try {
             tile[index] = new Tile();
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/tiles/" + imagePath));
+            tile[index].image = ImageIO.read(
+                Objects.requireNonNull(getClass().getResourceAsStream("/tiles/" + imagePath)));
             tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
             tile[index].collision = collision;
 
@@ -136,6 +206,22 @@ public class TileManager {
 
         } catch (Exception e) {
 
+        }
+    }
+
+    public void assignLocationNumbers() {
+        // example of how you can assign location numbers based on mapTileNum array
+        for (int col = 0; col < gp.maxWorldCol; col++) {
+            for (int row = 0; row < gp.maxWorldRow; row++) {
+                int tileNum = mapTileNum[col][row];
+                if (tileNum == 1) {
+                    locationNum[col][row] = 1; // assign location number 1 to tiles with tileNum = 1
+                } else if (tileNum == 2) {
+                    locationNum[col][row] = 2; // assign location number 2 to tiles with tileNum = 2
+                } else {
+                    locationNum[col][row] = 0; // assign location number 0 to other tiles
+                }
+            }
         }
     }
 

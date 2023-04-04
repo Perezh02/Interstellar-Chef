@@ -1,0 +1,82 @@
+[
+  {
+    "area": 1,
+    "name": "Living Quarters"
+  },
+  {
+    "area": 2,
+    "name": "Sector 2"
+  },
+  {
+    "area": 3,
+    "name": "Bathroom"
+  },
+  {
+    "area": 4,
+    "name": "Sector 1"
+  },
+  {
+    "area": 5,
+    "name": "Gym"
+  },
+  {
+    "area": 6,
+    "name": "Pressurized Garden"
+  },
+  {
+    "area": 7,
+    "name": "Floating Garden"
+  },
+  {
+    "area": 8,
+    "name": "Mess Hall"
+  },
+  {
+    "area": 9,
+    "name": "Kitchen"
+  },
+  {
+    "area": 10,
+    "name": "Sector 3"
+  },
+  {
+    "area": 11,
+    "name": "Info. Center"
+  },
+  {
+    "area": 12,
+    "name": "Med Bay"
+  },
+  {
+    "area": 13,
+    "name": "Command Center"
+  },
+  {
+    "area": 14,
+    "name": "Engineering Spaces"
+  },
+  {
+    "area": 15,
+    "name": "Sector 4"
+  },
+  {
+    "area": 16,
+    "name": "Discovery Pod"
+  },
+  {
+    "area": 17,
+    "name": "Forest Planet"
+  },
+  {
+    "area": 18,
+    "name": "Lave Planet"
+  },
+  {
+    "area": 19,
+    "name": "Snow Planet"
+  },
+  {
+    "area": 20,
+    "name": "Desert Planet"
+  }
+]

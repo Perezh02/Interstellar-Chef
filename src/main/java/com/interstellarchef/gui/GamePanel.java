@@ -35,7 +35,7 @@ public class GamePanel extends JPanel implements Runnable {
     Sound se = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
-    public UI ui = new UI(this);
+    public UI ui = new UI(this, tileM);
     public EventHandler eHandler = new EventHandler(this);
     Thread gameThread;
 
@@ -51,7 +51,6 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
-    public final int settingsState = 4;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -65,9 +64,8 @@ public class GamePanel extends JPanel implements Runnable {
 
         aSetter.setObject();
         aSetter.setNPC();
-        playMusic(0);
         musicPlaying = true;
-        gameState = playState;
+        gameState = titleState;
     }
 
     public void startGameThread() {

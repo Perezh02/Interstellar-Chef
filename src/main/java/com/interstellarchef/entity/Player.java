@@ -21,8 +21,6 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
-    public String currentLocation;
-    TileManager tm;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -61,13 +59,6 @@ public class Player extends Entity {
         left2 = setup("/player/player_left_2");
         right1 = setup("/player/player_right_1");
         right2 = setup("/player/player_right_2");
-    }
-
-    public String getCurrentLocation() {
-        if (tm.locationNumber == Main.locations[0].getArea()) {
-            currentLocation = Main.locations[0].getName();
-        }
-        return currentLocation;
     }
 
     public void update() {

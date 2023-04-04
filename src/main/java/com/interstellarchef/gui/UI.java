@@ -1,7 +1,5 @@
 package com.interstellarchef.gui;
 
-import com.interstellarchef.Main;
-import com.interstellarchef.location.Location;
 import com.interstellarchef.tile.TileManager;
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -12,43 +10,42 @@ public class UI {
 
     GamePanel gp;
     Graphics2D g2;
+    TileManager tm;
     Font arial_40, arial_80B;
     public boolean messageOn = false;
     public String message = "";
-    int messageCounter = 0;
-    public boolean gameFinished = false;
     public String currentDialogue = "";
     public int commandNum = 0;
     public int titleScreenState = 0;
-    public int gameScreenState = 0;
-    Location locations;
 
-    public UI(GamePanel gp) {
+    public UI(GamePanel gp, TileManager tm) {
+        this.tm = tm;
         this.gp = gp;
 
         arial_40 = new Font("Arial", Font.PLAIN, 40);
         arial_80B = new Font("Arial", Font.BOLD, 80);
     }
 
+
     public void showMessage(String text) {
         message = text;
         messageOn = true;
     }
+
     public void draw(Graphics2D g2) {
         this.g2 = g2;
         g2.setFont(arial_40);
         g2.setColor(Color.WHITE);
 
-        g2.drawString("Location: " + Main.locations[0].getName(), 50, 50);
-
-
+        // PLAY STATE
+        if (gp.gameState == gp.playState) {
+            int currentLocationNum = gp.tileM.locationMap[gp.player.worldX / gp.tileSize][gp.player.worldY / gp.tileSize];
+            String locationName = gp.tileM.getLocationName(currentLocationNum);
+            g2.drawString(locationName, 50, 50);
+        }
         // TITLE STATE
         if (gp.gameState == gp.titleState) {
             drawTitleScreen();
-        }
-        // SETTINGS STATE
-        if (gp.gameState == gp.settingsState) {
-            drawSettingsScreen();
         }
         // PAUSE STATE
         if (gp.gameState == gp.pauseState) {
@@ -66,8 +63,8 @@ public class UI {
             g2.setColor(new Color(0, 0, 0));
             g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
             // TITLE NAME
-            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
-            String text = "Interstellar Chef";
+            g2.setFont(g2.getFont().deriveFont(Font.BOLD, 60F));
+            String text = "INTERSTELLAR CHEF";
             int x = getXforCenteredText(text);
             int y = gp.tileSize * 3;
 
@@ -95,63 +92,14 @@ public class UI {
                 g2.drawString(">", x - gp.tileSize, y);
             }
 
-            text = "SETTINGS";
-            x = getXforCenteredText(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
-            if (commandNum == 1) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
-
             text = "QUIT";
             x = getXforCenteredText(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
-            if (commandNum == 2) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
-        }
-        else if (titleScreenState == 1) {
-
-            g2.setColor(Color.WHITE);
-            g2.setFont(g2.getFont().deriveFont(42F));
-
-            String text = "Settings";
-            int x = getXforCenteredText(text);
-            int y = gp.tileSize * 3;
-            g2.drawString(text, x, y);
-
-            text = "Toggle Music";
-            x = getXforCenteredText(text);
-            y += gp.tileSize * 3;
-            g2.drawString(text, x, y);
-            if (commandNum == 0) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
-            text = "Volume Up";
-            x = getXforCenteredText(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
             if (commandNum == 1) {
                 g2.drawString(">", x - gp.tileSize, y);
             }
-            text = "Volume Down";
-            x = getXforCenteredText(text);
-            y += gp.tileSize;
-            g2.drawString(text, x, y);
-            if (commandNum == 2) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
-            text = "Back";
-            x = getXforCenteredText(text);
-            y += gp.tileSize * 2;
-            g2.drawString(text, x, y);
-            if (commandNum == 3) {
-                g2.drawString(">", x - gp.tileSize, y);
-            }
         }
-
-
     }
 
     public void drawDialogueScreen() {
@@ -186,45 +134,6 @@ public class UI {
 
     }
 
-    public void drawSettingsScreen() {
-
-        g2.setColor(Color.WHITE);
-        g2.setFont(g2.getFont().deriveFont(42F));
-
-        String text = "Settings";
-        int x = getXforCenteredText(text);
-        int y = gp.tileSize * 3;
-        g2.drawString(text, x, y);
-
-        text = "Toggle Music";
-        x = getXforCenteredText(text);
-        y += gp.tileSize * 3;
-        g2.drawString(text, x, y);
-        if (commandNum == 0) {
-            g2.drawString(">", x - gp.tileSize, y);
-        }
-        text = "Volume Up";
-        x = getXforCenteredText(text);
-        y += gp.tileSize;
-        g2.drawString(text, x, y);
-        if (commandNum == 1) {
-            g2.drawString(">", x - gp.tileSize, y);
-        }
-        text = "Volume Down";
-        x = getXforCenteredText(text);
-        y += gp.tileSize;
-        g2.drawString(text, x, y);
-        if (commandNum == 2) {
-            g2.drawString(">", x - gp.tileSize, y);
-        }
-        text = "Back";
-        x = getXforCenteredText(text);
-        y += gp.tileSize * 2;
-        g2.drawString(text, x, y);
-        if (commandNum == 3) {
-            g2.drawString(">", x - gp.tileSize, y);
-        }
-    }
 
     public void drawPauseScreen() {
 

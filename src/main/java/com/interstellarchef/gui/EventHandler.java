@@ -1,12 +1,9 @@
 package com.interstellarchef.gui;
 
-import com.interstellarchef.entity.Player;
-
 public class EventHandler {
 
     GamePanel gp;
     EventRect eventRect[][];
-    Player player;
 
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
@@ -112,7 +109,6 @@ public class EventHandler {
             gp.player.worldY = gp.tileSize * 12;
             gp.stopMusic();
             gp.playMusic(1);
-            gp.playSE(3);
         }
         else if (hit(18, 11, "any")) {
             gp.gameState = gameState;

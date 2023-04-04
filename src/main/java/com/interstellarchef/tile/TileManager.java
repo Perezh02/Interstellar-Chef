@@ -23,7 +23,6 @@ public class TileManager {
     GamePanel gp;
     public Tile[] tile;
     public int[][] mapTileNum;
-    public int[][] locationNum;
     public int[][] locationMap;
     ArrayList<String> fileNames = new ArrayList<>();
     ArrayList<String> collisionStatus =new ArrayList<>();
@@ -138,10 +137,6 @@ public class TileManager {
         return location;
     }
 
-
-
-
-
     public void getTileImage() {
 
         for (int i = 0; i < fileNames.size(); i++) {
@@ -206,22 +201,6 @@ public class TileManager {
 
         } catch (Exception e) {
 
-        }
-    }
-
-    public void assignLocationNumbers() {
-        // example of how you can assign location numbers based on mapTileNum array
-        for (int col = 0; col < gp.maxWorldCol; col++) {
-            for (int row = 0; row < gp.maxWorldRow; row++) {
-                int tileNum = mapTileNum[col][row];
-                if (tileNum == 1) {
-                    locationNum[col][row] = 1; // assign location number 1 to tiles with tileNum = 1
-                } else if (tileNum == 2) {
-                    locationNum[col][row] = 2; // assign location number 2 to tiles with tileNum = 2
-                } else {
-                    locationNum[col][row] = 0; // assign location number 0 to other tiles
-                }
-            }
         }
     }
 

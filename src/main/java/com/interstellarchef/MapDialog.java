@@ -1,7 +1,16 @@
 package com.interstellarchef;
 
-import javax.swing.*;
-import java.awt.*;
+import com.interstellarchef.util.MusicPlayer;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 
 public class MapDialog {
@@ -20,35 +29,82 @@ public class MapDialog {
   JPanel panelBottom = new JPanel();
 
 
+
   public void mapPopUp() {
-    mapDialog = new JDialog();
-    JPanel panelBg = new JPanel();
-    JPanel panelCenter = new JPanel();
-    panelBg.setBounds(0, 0, 800, 600);
-    panelCenter.setBounds(0, 100, 800, 400);
 
-    JLabel mapImageLabel = new JLabel();
-    Icon introImage1 = new ImageIcon("src/main/resources/Interstellarmap.jpg");
-    mapImageLabel.setIcon(introImage1);
-    panelBg.add(mapImageLabel);
-     //Intro Top Panel
-    panelBg.setBackground(Color.BLACK);
-    panelCenter.setOpaque(false);
 
-    JLayeredPane layeredPane = new JLayeredPane();
-    layeredPane.setBounds(0, 0, 800, 600);
+    mapDialog = new JDialog(mainGUI, "SETTINGS", true);
+    mapDialog.setLayout(new BorderLayout(0, 0));
+    mapDialog.add(panelTop, BorderLayout.NORTH);
+    mapDialog.add(panelBottom, BorderLayout.SOUTH);
+    mapDialog.add(panelCenter, BorderLayout.CENTER);
+    mapDialog.setSize(810, 585);
 
-    layeredPane.add(panelBg, Integer.valueOf(0));
-    layeredPane.add(panelCenter, Integer.valueOf(1));
+    mapDialog.setLocationRelativeTo(null); // center the frame on the screen
+    mapDialog.setLocation(this.mainGUI.getX() + this.mainGUI.getWidth(), this.mainGUI.getY()); // set location to the right of the main frame
 
-    mapDialog.setBounds(0, 0, 800, 600);
-    mapDialog.add(layeredPane);
+    label1 = new JLabel();
+    label1.setText("<html>* MAP *<br> </html>");
+    label1.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
+    label1.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
+    label1.setForeground(new Color(209, 228, 255, 255));
+    label1.setFont(new Font("Comic Sans", Font.BOLD, 40));
+
+    label2 = new JLabel();
+//    label2.setText("<html> Volume controls </b> "
+//        + "<br>Implement volume control on/off/up/down "
+//        + "</html>");
+    label2.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
+    label2.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
+    label2.setForeground(new Color(0, 0, 0, 255));
+    label2.setFont(new Font("Comic Sans", Font.PLAIN, 13));
+
+    JButton buttonCloseDialog = buttonLayout("CLICK TO CLOSE", new Color(0x365DA2), new Dimension(300, 30));
+
+    buttonCloseDialog.addActionListener(e -> mapDialog.setVisible(false));
+
+    panelTop.setBackground(new Color(0xFF1C3660, true));
+    panelBottom.setBackground(new Color(0xFF1C3660, true));
+
+    panelTop.setPreferredSize(new Dimension(700, 100));
+    panelTop.add(label1);
+    panelTop.setBorder(new EmptyBorder(20, 0, 0, 0));
+
+    panelCenter.setPreferredSize(new Dimension(500, 350));
+    panelCenter.add(label2);
+    panelCenter.setBorder(new EmptyBorder(40, 0, 0, 0));
+
+    panelBottom.setPreferredSize(new Dimension(700, 100));
+    panelBottom.add(buttonCloseDialog);
+    panelBottom.setBorder(new EmptyBorder(20, 0, 0, 0));
+
+//    JButton volumeUpButton = buttonLayout("Volume Up", new Color(0x365DA2), new Dimension(120, 100));
+//    JButton volumeDownButton = buttonLayout("Volume Down", new Color(0x365DA2), new Dimension(120, 100));
+//    JButton toggleMusic = buttonLayout("Toggle Music", new Color(0x4FA99C), new Dimension(120, 100));
+//
+
+//    panelCenter.add(volumeUpButton);
+//    panelCenter.add(volumeDownButton);
+//    panelCenter.add(toggleMusic);
+
     mapDialog.setVisible(true);
 
+  }
+
+  public JButton buttonLayout(String text, Color color, Dimension size) {
+    JButton button = new JButton();
+    button.setText(text);
+    button.setFocusable(false);
+    button.setHorizontalAlignment(JButton.CENTER);
+    button.setVerticalAlignment(JButton.CENTER);
+    button.setFont(new Font("Comic Sans", Font.BOLD, 13));
+    button.setForeground(Color.WHITE);
+    button.setBorder(BorderFactory.createEmptyBorder());
+    button.setBackground(color);
+    button.setBorder(BorderFactory.createEtchedBorder());
+    button.setPreferredSize(size);
+
+    return button;
+  }
 
   }
-}
-
-
-
-

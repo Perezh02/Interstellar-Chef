@@ -4,10 +4,11 @@ import com.google.gson.Gson;
 import com.interstellarchef.entity.NPC;
 import com.interstellarchef.gui.GamePanel;
 import com.interstellarchef.util.MusicPlayer;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
@@ -16,9 +17,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Objects;
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 
 
 
@@ -361,5 +359,13 @@ public class GameFrame extends JFrame{
 
     this.setVisible(true);
 
+  }
+
+  public JButton getButtonMap() {
+    return buttonMap;
+  }
+
+  public void setButtonMap(JButton buttonMap) {
+    this.buttonMap = buttonMap;
   }
 }

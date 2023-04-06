@@ -4,6 +4,7 @@ import com.interstellarchef.entity.SMJasper;
 import com.interstellarchef.entity.SMKun;
 import com.interstellarchef.entity.SMNyckolle;
 import com.interstellarchef.entity.SMSam;
+import com.interstellarchef.object.Spacesuit;
 
 public class AssetSetter {
 
@@ -14,13 +15,14 @@ public class AssetSetter {
     }
 
     public void setObject() {
-
+        int i = 0;
+        gp.obj[i] = new Spacesuit(gp);
+        gp.obj[i].worldX = gp.tileSize*38;
+        gp.obj[i].worldY = gp.tileSize*63;
+        i++;
     }
 
     public void setNPC() {
-        gp.npc[0] = new SMJasper(gp);
-        gp.npc[0].worldX = gp.tileSize * 62;
-        gp.npc[0].worldY = gp.tileSize * 76;
 
         gp.npc[1] = new SMSam(gp);
         gp.npc[1].worldX = gp.tileSize * 63;

@@ -7,9 +7,6 @@ public class EventHandler {
 
     int previousEventX, previousEventY;
     boolean canTouchEvent = true;
-
-
-
     public boolean isInPlanet;
 
     public EventHandler(GamePanel gp) {
@@ -108,13 +105,13 @@ public class EventHandler {
 
         // FOREST PLANET
         if (hit(46, 12, "any")) {
-
             gp.gameState = gameState;
             gp.ui.currentDialogue = "Welcome to the Forest Planet!";
             gp.player.worldX = gp.tileSize * 18;
             gp.player.worldY = gp.tileSize * 12;
             isInPlanet = true;
             musicHandler(1);
+
         }
         else if (hit(18, 11, "any")) {
             gp.gameState = gameState;

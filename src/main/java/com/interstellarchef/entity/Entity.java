@@ -11,18 +11,35 @@ import javax.imageio.ImageIO;
 public class Entity {
 
     GamePanel gp;
-    public int worldX, worldY;
-    public int speed;
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
-    public String direction;
-    public int spriteCounter = 0;
-    public int spriteNum = 1;
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
-    public boolean collisionOn = false;
-    public int actionLockCounter = 0;
     String[] dialogues = new String[20];
+    public boolean collision = false;
+
+    // STATE
+    public int worldX, worldY;
+    public boolean collisionOn = false;
     int dialogueIndex = 0;
+    public String direction = "down";
+    public int spriteNum = 1;
+
+    // COUNTERS
+    public int actionLockCounter = 0;
+    public int spriteCounter = 0;
+
+    // CHARACTER ATTRIBUTES
+    public String name;
+    public int speed;
+    public Entity currentEquipped;
+
+    public int type;
+    public final int typePlayer = 0;
+    public final int typeNPC = 1;
+    public final int typeUniformEquipped = 2;
+    public final int typeSpacesuitEquipped = 3;
+
+    public String description = "";
 
     public Entity(GamePanel gp) {
         this.gp = gp;
@@ -135,13 +152,13 @@ public class Entity {
         }
     }
 
-    public BufferedImage setup(String imagePath) {
+    public BufferedImage setup(String imagePath, int width, int height) {
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
 
         try {
             image = ImageIO.read(getClass().getResourceAsStream(imagePath + ".png"));
-            image = uTool.scaleImage(image, gp.tileSize, gp.tileSize);
+            image = uTool.scaleImage(image, width, height);
         } catch (IOException e) {
             e.printStackTrace();
         }

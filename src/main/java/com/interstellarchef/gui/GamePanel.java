@@ -2,12 +2,12 @@ package com.interstellarchef.gui;
 
 import com.interstellarchef.entity.Entity;
 import com.interstellarchef.entity.Player;
-import com.interstellarchef.object.SuperObject;
 import com.interstellarchef.tile.TileManager;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements Runnable {
@@ -35,14 +35,15 @@ public class GamePanel extends JPanel implements Runnable {
     Sound se = new Sound();
     public CollisionChecker cChecker = new CollisionChecker(this);
     public AssetSetter aSetter = new AssetSetter(this);
-    public UI ui = new UI(this, tileM);
+    public UI ui = new UI(this);
     public EventHandler eHandler = new EventHandler(this);
     Thread gameThread;
 
     // ENTITY AND OBJECT
     public Player player = new Player(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
-    public Entity npc[] = new Entity[10];
+    public Entity[] obj = new Entity[25];
+    public Entity[] npc = new Entity[25];
+    ArrayList<Entity> entityList = new ArrayList<>();
 
     // GAME STATE
     public boolean musicPlaying;
@@ -51,6 +52,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
+    public final int inventoryState = 4;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -75,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable {
             }
         }
 
-        gameState = titleState;
+        gameState = playState;
     }
 
     public void startGameThread() {
@@ -136,22 +138,33 @@ public class GamePanel extends JPanel implements Runnable {
             // TILE
             tileM.draw(g2);
 
-            // OBJECT
-            for (int i = 0; i < obj.length; i++) {
-                if (obj[i] != null) {
-                    obj[i].draw(g2, this);
+            // ADD ENTITIES
+            entityList.add(player);
+
+            for (Entity value : npc) {
+                if (value != null) {
+                    entityList.add(value);
+                }
+            }
+            for (Entity entity : obj) {
+                if (entity != null) {
+                    entityList.add(entity);
                 }
             }
 
-            // NPC
-            for (int i = 0; i < npc.length; i++) {
-                if (npc[i] != null) {
-                    npc[i].draw(g2);
-                }
+            // SORT
+            entityList.sort((e1, e2) -> {
+                int result = Integer.compare(e1.worldY, e2.worldY);
+                return result;
+            });
+
+            // DRAW ENTITIES
+            for (Entity entity : entityList) {
+                entity.draw(g2);
             }
 
-            // PLAYER
-            player.draw(g2);
+            // EMPTY ENTITY LIST
+            entityList.clear();
 
             // UI
             ui.draw(g2);

@@ -5,6 +5,7 @@ import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
 import com.interstellarchef.gui.KeyHandler;
 import com.interstellarchef.location.Location;
+import com.interstellarchef.object.Uniform;
 import com.interstellarchef.tile.Tile;
 import com.interstellarchef.tile.TileManager;
 import java.awt.Graphics2D;
@@ -13,6 +14,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.Objects;
 import javax.imageio.ImageIO;
 
@@ -21,6 +23,8 @@ public class Player extends Entity {
     KeyHandler keyH;
     public final int screenX;
     public final int screenY;
+    public ArrayList<Entity> inventory = new ArrayList<>();
+    public final int maxInventorySize = 26;
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -41,6 +45,7 @@ public class Player extends Entity {
 
         setDefaultValues();
         getPlayerImage();
+        setItems();
     }
 
     public void setDefaultValues() {
@@ -48,30 +53,59 @@ public class Player extends Entity {
         worldY = gp.tileSize * 61;
         speed = 4;
         direction = "down";
+        currentEquipped = new Uniform(gp);
+    }
+
+    public void setItems() {
+        inventory.add(new Uniform(gp));
+    }
+
+    public void selectItem() {
+        int itemIndex = gp.ui.getItemIndex();
+        if (itemIndex < inventory.size()) {
+            Entity selectedItem = inventory.get(itemIndex);
+            if (selectedItem.type == typeSpacesuitEquipped || selectedItem.type == typeUniformEquipped) {
+                currentEquipped = selectedItem;
+                getPlayerImage();
+            }
+        }
     }
 
     public void getPlayerImage() {
-        up1 = setup("/player/player_up_1");
-        up2 = setup("/player/player_up_2");
-        down1 = setup("/player/player_down_1");
-        down2 = setup("/player/player_down_2");
-        left1 = setup("/player/player_left_1");
-        left2 = setup("/player/player_left_2");
-        right1 = setup("/player/player_right_1");
-        right2 = setup("/player/player_right_2");
+        if (currentEquipped.type == typeUniformEquipped) {
+            up1 = setup("/player/player_up_1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/player_up_2", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/player_down_1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/player_down_2", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/player_left_1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/player_left_2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/player_right_1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/player_right_2", gp.tileSize, gp.tileSize);
+
+        }
+        else if (currentEquipped.type == typeSpacesuitEquipped) {
+            up1 = setup("/player/spaceman_white_up_1", gp.tileSize, gp.tileSize);
+            up2 = setup("/player/spaceman_white_up_2", gp.tileSize, gp.tileSize);
+            down1 = setup("/player/spaceman_white_down_1", gp.tileSize, gp.tileSize);
+            down2 = setup("/player/spaceman_white_down_2", gp.tileSize, gp.tileSize);
+            left1 = setup("/player/spaceman_white_left_1", gp.tileSize, gp.tileSize);
+            left2 = setup("/player/spaceman_white_left_2", gp.tileSize, gp.tileSize);
+            right1 = setup("/player/spaceman_white_right_1", gp.tileSize, gp.tileSize);
+            right2 = setup("/player/spaceman_white_right_2", gp.tileSize, gp.tileSize);
+        }
     }
 
     public void update() {
 
         if (keyH.upPressed
-            || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+            || keyH.downPressed || keyH.leftPressed || keyH.rightPressed || keyH.spacePressed) {
             if (keyH.upPressed) {
                 direction = "up";
             } else if (keyH.downPressed) {
                 direction = "down";
             } else if (keyH.leftPressed) {
                 direction = "left";
-            } else {
+            } else if (keyH.rightPressed) {
                 direction = "right";
             }
 
@@ -91,7 +125,7 @@ public class Player extends Entity {
             gp.eHandler.checkEvent();
 
             // IF COLLISION IS FALSE, PLAYER CAN MOVE
-            if (!collisionOn) {
+            if (!collisionOn && !keyH.spacePressed) {
 
                 switch (direction) {
                     case "up": worldY -= speed; break;
@@ -100,6 +134,8 @@ public class Player extends Entity {
                     case "right": worldX += speed; break;
                 }
             }
+
+            gp.keyH.spacePressed = false;
 
             spriteCounter++;
             if (spriteCounter > 12) {
@@ -117,18 +153,27 @@ public class Player extends Entity {
 
         if (i != 999) {
 
+            String text;
+
+            if (inventory.size() != maxInventorySize) {
+                inventory.add(gp.obj[i]);
+                text = "Got a " + gp.obj[i].name + "!";
+            } else {
+                text = "You cannot carry any more!";
+            }
+            gp.ui.showMessage(text);
+            gp.obj[i] = null;
         }
     }
 
     public void interactNPC(int i) {
-        if (i != 999) {
 
             if (gp.keyH.spacePressed) {
+                if (i != 999) {
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
             }
         }
-        gp.keyH.spacePressed = false;
     }
 
     public void draw(Graphics2D g2) {

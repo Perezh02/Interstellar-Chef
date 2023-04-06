@@ -10,16 +10,15 @@ public class UI {
 
     GamePanel gp;
     Graphics2D g2;
-    TileManager tm;
     Font arial_40, arial_80B;
     public boolean messageOn = false;
     public String message = "";
     public String currentDialogue = "";
     public int commandNum = 0;
-    public int titleScreenState = 0;
+    public int slotCol = 0;
+    public int slotRow = 0;
 
-    public UI(GamePanel gp, TileManager tm) {
-        this.tm = tm;
+    public UI(GamePanel gp) {
         this.gp = gp;
 
         arial_40 = new Font("Arial", Font.PLAIN, 40);
@@ -55,11 +54,15 @@ public class UI {
         if (gp.gameState == gp.dialogueState) {
             drawDialogueScreen();
         }
+        // INVENTORY STATE
+        if (gp.gameState == gp.inventoryState) {
+            drawInventoryScreen();
+            drawInventory();
+        }
     }
 
     public void drawTitleScreen() {
 
-        if (titleScreenState == 0) {
             g2.setColor(new Color(0, 0, 0));
             g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
             // TITLE NAME
@@ -99,7 +102,6 @@ public class UI {
             if (commandNum == 1) {
                 g2.drawString(">", x - gp.tileSize, y);
             }
-        }
     }
 
     public void drawDialogueScreen() {
@@ -134,6 +136,82 @@ public class UI {
 
     }
 
+    public void drawInventoryScreen() {
+        final int frameX = gp.tileSize;
+        final int frameY = gp.tileSize * 7 + 20;
+        final int frameWidth = gp.tileSize * 5;
+        final int frameHeight = gp.tileSize * 3 / 2;
+
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        g2.setColor(Color.WHITE);
+        g2.setFont(g2.getFont().deriveFont(32F));
+
+        int textX = frameX + 20;
+        int textY = frameY + gp.tileSize;
+
+        g2.drawString("Equipped: ", textX, textY);
+
+        g2.drawImage(gp.player.currentEquipped.down1, textX + 150, textY - 35, null);
+
+    }
+
+    public void drawInventory() {
+        int frameX = gp.tileSize;
+        int frameY = gp.tileSize * 9;
+        int frameWidth = gp.tileSize * 14;
+        int frameHeight = gp.tileSize * 3;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        final int slotXstart = frameX + 20;
+        final int slotYstart = frameY + 10;
+        int slotX = slotXstart;
+        int slotY = slotYstart;
+
+        for (int i = 0; i < gp.player.inventory.size(); i++) {
+
+            if (gp.player.inventory.get(i) == gp.player.currentEquipped) {
+                g2.setColor(new Color(240, 190, 90));
+                g2.fillRoundRect(slotX, slotY, gp.tileSize, gp.tileSize, 10, 10);
+            }
+            g2.drawImage(gp.player.inventory.get(i).down1, slotX, slotY, null);
+            slotX += gp.tileSize;
+
+            if (i == 12 || i == 25) {
+                slotX = slotXstart;
+                slotY += gp.tileSize;
+            }
+        }
+        int cursorX = slotXstart + (gp.tileSize * slotCol);
+        int cursorY = slotYstart + (gp.tileSize * slotRow);
+        int cursorWidth = gp.tileSize;
+        int cursorHeight = gp.tileSize;
+        g2.setColor(Color.WHITE);
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
+
+        // ITEM DESCRIPTION
+        int dFrameX = frameX * 6 + 4;
+        int dFrameY = frameY - frameHeight - 4;
+        int dFrameWidth = frameWidth - gp.tileSize * 5;
+        int dFrameHeight = gp.tileSize * 3;
+
+
+        int textX = dFrameX + 20;
+        int textY = dFrameY + gp.tileSize;
+        g2.setFont(g2.getFont().deriveFont(28F));
+
+        int itemIndex = getItemIndex();
+
+        if (itemIndex < gp.player.inventory.size()) {
+            drawSubWindow(dFrameX, dFrameY, dFrameWidth, dFrameHeight);
+            for (String line : gp.player.inventory.get(itemIndex).description.split("\n")) {
+                g2.drawString(line, textX, textY);
+                textY += 32;
+            }
+        }
+
+    }
 
     public void drawPauseScreen() {
 
@@ -143,6 +221,11 @@ public class UI {
         int y = gp.screenHeight/2;
 
         g2.drawString(text, x, y);
+    }
+
+    public int getItemIndex() {
+        int itemIndex = slotCol + (slotRow * 13);
+        return itemIndex;
     }
 
     public int getXforCenteredText(String text) {

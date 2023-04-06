@@ -17,31 +17,31 @@
   },
   {
     "name": "Gardener",
-    "dialogue": [": \n Check this out! Plants are amazing, aren’t they? \n What a lovely day for gardening!"]
+    "dialogue": [": \n Check this out! Plants are \n amazing, aren’t they?", "\n What a lovely day for gardening!"]
   },
   {
     "name": "Fitness Fanatic",
-    "dialogue": [": \n I always sneak into the kitchen for extra gains. Shh, don’t tell anyone!\n Whoa, that butter gave you killer biceps!!"]
+    "dialogue": [": \n I always sneak into the kitchen for \n extra gains. Shh, don’t tell anyone!", "\n Whoa, that butter gave you killer biceps!!"]
   },
   {
     "name": "Cadet",
-    "dialogue": [": \n Want these? I got an extra bag at the commissary.\n You can never have too many Tortillas."]
+    "dialogue": [": \n Want these? I got an extra bag \n at the commissary.", "\n You can never have too many Tortillas."]
   },
   {
     "name": "Head Chef",
-    "dialogue": [": \n Hello, Sous Chef!"]
-  },
-  {
-    "name": "Shadowy Figure",
-    "dialogue": [": \n Get me some Snacks and I'll give you a reward.\n Mmm... stolen Snacks always taste the best."]
+    "dialogue": [": \n Hello, Sous Chef!", "\n what's cooking?"]
   },
   {
     "name": "Information Center Liaison",
-    "dialogue": [": \n Do you need a GPS? They can be used to navigate to the Volcano Planet, \n the Rainforest Planet, the Snow Planet, the Swamp Planet and the Desert Planet.\n Traveling to distant planets can be dangerous. Be careful!"]
+    "dialogue": [": \n Do you need a GPS? They can be used \n to navigate to different planets", "\n Traveling to distant planets can be dangerous. \n Be careful!"]
   },
   {
     "name": "Lab Technician",
-    "dialogue": [": \n Did you know the ship’s tofu is lab-grown. \n Tofu is delicious, no matter where it came from."]
+    "dialogue": [": \n Did you know the ship’s tofu is lab-grown.", "\n Tofu is delicious, no matter where it came from."]
+  },
+  {
+    "name": "Shadowy Figure",
+    "dialogue": [": \n Get me some Snacks and I'll give you a reward.", "\n Mmm... stolen Snacks always taste the best."]
   },
   {
     "name": "Pod Technician",

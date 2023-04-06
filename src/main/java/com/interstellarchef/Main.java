@@ -2,6 +2,7 @@ package com.interstellarchef;
 
 import com.google.gson.Gson;
 import com.interstellarchef.entity.NPC;
+import com.interstellarchef.object.Object;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -17,8 +18,8 @@ public class Main {
         gameFrame.introGUI();
 
         Gson gson = new Gson();
-        objects = new Object[4];
-        npcs = new NPC[1];
+        objects = new Object[25];
+        npcs = new NPC[20];
 
         try (Reader reader = new InputStreamReader(Main.class.getClassLoader().getResourceAsStream(
             "items.json"))) {

@@ -67,6 +67,7 @@ public class HelpDialog {
     label2.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
     label2.setForeground(new Color(0, 0, 0, 255));
     label2.setFont(new Font("Comic Sans", Font.PLAIN, 13));
+    label2.setBorder(new EmptyBorder(5,5,5,5));
 
     buttonHelp = new JButton();
     buttonHelp.setText("CLICK TO CLOSE");

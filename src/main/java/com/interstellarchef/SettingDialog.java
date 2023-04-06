@@ -36,7 +36,6 @@ public class SettingDialog {
   public void settingPopUp() {
 
 
-
     helpDialog = new JDialog(mainGUI, "SETTINGS", true);
     helpDialog.setLayout(new BorderLayout(0, 0));
     helpDialog.add(panelTop, BorderLayout.NORTH);

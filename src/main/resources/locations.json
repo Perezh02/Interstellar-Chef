@@ -108,7 +108,7 @@
     "characters": [
       {
         "name": "Fitness Fanatic",
-        "description": "They're really buff!",
+        "description": "They're  buff!",
         "actionResponse": {
           "look": "They're really buff!",
           "talk": "You greet the Fitness Fanatic"

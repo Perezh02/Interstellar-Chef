@@ -26,10 +26,9 @@ public class GameFrame extends JFrame{
   JButton button;
   MusicPlayer musicPlayer = new MusicPlayer();
   GamePanel gamePanel = new GamePanel();
+  JFrame window = new JFrame();
 
   JButton buttonMap;
-  JLabel timerLabel;
-  private int timerSeconds;
 
   public static Object[] objects;
   public static NPC[] npcs;
@@ -56,8 +55,6 @@ public class GameFrame extends JFrame{
 
 
   public void introGUI() throws IOException {
-
-
 
 
     JPanel panelBg = new JPanel();
@@ -111,8 +108,6 @@ public class GameFrame extends JFrame{
     panelBottom.setOpaque(false);
     panelBottom.add(button);
     panelBottom.setBorder(new EmptyBorder(10,0,0,0));
-
-//    this.getContentPane().add(new JPanelWithBackground("src/main/resources/circling.gif"));
 
     JLayeredPane layeredPane = new JLayeredPane();
     layeredPane.setBounds(0,0,800,600);
@@ -188,7 +183,7 @@ public class GameFrame extends JFrame{
     buttonQuit.setBorder(BorderFactory.createEmptyBorder());
     buttonQuit.setBackground(new Color(0xB45D5D));
     buttonQuit.setBorder(BorderFactory.createEtchedBorder());
-    buttonQuit.setPreferredSize(new Dimension(100, 60));
+    buttonQuit.setPreferredSize(new Dimension(115, 60));
 
     JButton buttonHelp = new JButton();
     buttonHelp.setText("HELP");
@@ -201,7 +196,7 @@ public class GameFrame extends JFrame{
     buttonHelp.setBorder(BorderFactory.createEmptyBorder());
     buttonHelp.setBackground(new Color(0x5B90E5));
     buttonHelp.setBorder(BorderFactory.createEtchedBorder());
-    buttonHelp.setPreferredSize(new Dimension(100, 60));
+    buttonHelp.setPreferredSize(new Dimension(115, 60));
 
     JButton buttonSetting = new JButton();
     buttonSetting.setText("SETTINGS");
@@ -214,7 +209,7 @@ public class GameFrame extends JFrame{
     buttonSetting.setBorder(BorderFactory.createEmptyBorder());
     buttonSetting.setBackground(new Color(0x5B90E5));
     buttonSetting.setBorder(BorderFactory.createEtchedBorder());
-    buttonSetting.setPreferredSize(new Dimension(100, 60));
+    buttonSetting.setPreferredSize(new Dimension(115, 60));
 
     JButton buttonMap = new JButton();
     buttonMap.setText("MAP");
@@ -227,26 +222,20 @@ public class GameFrame extends JFrame{
     buttonMap.setBorder(BorderFactory.createEmptyBorder());
     buttonMap.setBackground(new Color(0x5B90E5));
     buttonMap.setBorder(BorderFactory.createEtchedBorder());
-    buttonMap.setPreferredSize(new Dimension(100, 60));
+    buttonMap.setPreferredSize(new Dimension(115, 60));
 
-
-
-
-    // create the timer label with the custom font and color
-    JLabel timerLabel = new JLabel("00:00");
-    timerLabel.setFont(new Font("Arial", Font.BOLD, 20));
-    timerLabel.setForeground(new Color(0x380E4A));
-
-    // create the timer object
-    Timer timer = new Timer(1000, e -> {
-      timerSeconds++;
-      int minutes = timerSeconds / 60;
-      int seconds = timerSeconds % 60;
-      String minutesStr = String.format("%02d", minutes);
-      String secondsStr = String.format("%02d", seconds);
-      timerLabel.setText(minutesStr + ":" + secondsStr);
-    });
-    timer.start();
+    JButton buttonReStart = new JButton();
+    buttonReStart.setText("RESTART");
+    buttonReStart.setFocusable(false);
+    buttonReStart.setHorizontalAlignment(JButton.CENTER);
+    buttonReStart.setVerticalAlignment(JButton.CENTER);
+    buttonReStart.setFont(new Font("Comic Sans", Font.BOLD, 10));
+    buttonReStart.setIconTextGap(5);
+    buttonReStart.setForeground(Color.BLACK);
+    buttonReStart.setBorder(BorderFactory.createEmptyBorder());
+    buttonReStart.setBackground(new Color(0xA1B269));
+    buttonReStart.setBorder(BorderFactory.createEtchedBorder());
+    buttonReStart.setPreferredSize(new Dimension(115, 60));
 
 
 
@@ -254,6 +243,16 @@ public class GameFrame extends JFrame{
     buttonHelp.addActionListener(e -> new HelpDialog(this).helpPopUp());
     buttonSetting.addActionListener(e -> new SettingDialog(this).settingPopUp());
     buttonMap.addActionListener(e -> new MapDialog(this).mapPopUp());
+    buttonReStart.addActionListener(e-> {
+      if (window.isVisible()) {
+        window.dispose();
+        gamePanel.toggleMusic();
+        playGamePopup();
+      } else {
+        System.out.println("No game detected.");
+      }
+
+    });
     buttonQuit.addActionListener(e -> System.exit(0));
 
 
@@ -277,6 +276,8 @@ public class GameFrame extends JFrame{
     gameDescriptionLabel.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
     gameDescriptionLabel.setForeground(new Color(255, 255, 255, 255));
     gameDescriptionLabel.setFont(new Font("Comic Sans", Font.PLAIN, 15));
+    gameDescriptionLabel.setBorder(new EmptyBorder(5,5,5,5));
+
 
     JButton gameStartButton = new JButton();
     gameStartButton.setText("START");
@@ -289,7 +290,9 @@ public class GameFrame extends JFrame{
     gameStartButton.setBorder(BorderFactory.createEmptyBorder());
     gameStartButton.setBackground(new Color(0xAD619B56));
     gameStartButton.setBorder(BorderFactory.createEtchedBorder());
-    gameStartButton.setPreferredSize(new Dimension(100,60));
+    gameStartButton.setPreferredSize(new Dimension(115,60));
+
+
 
     JLabel introImageLabel = new JLabel();
 
@@ -303,7 +306,7 @@ public class GameFrame extends JFrame{
       npcs = new NPC[1];
         try (Reader reader = new InputStreamReader(
             Objects.requireNonNull(Main.class.getClassLoader().getResourceAsStream(
-                "objects.json")))) {
+                "items.json")))) {
             objects = gson.fromJson(reader, Object[].class);
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -316,50 +319,59 @@ public class GameFrame extends JFrame{
             ex.printStackTrace();
         }
 
-
-//      GamePanel gamePanel = new GamePanel();
-
-      JFrame window = new JFrame();
-      window.setSize(new Dimension(800, 600));
-      window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      window.setResizable(false);
-      window.setTitle("Interstellar Chef");
-      window.add(gamePanel);
-      window.pack();
-      window.setVisible(true);
-      gamePanel.setupGame();
-      gamePanel.startGameThread();
-      window.setLocationRelativeTo(null); // center the frame on the screen
-      window.setLocation(GameFrame.this.getX() + GameFrame.this.getWidth(), GameFrame.this.getY()); // set location to the right of the main frame
-
-      try(InputStream imageStream = getClass().getClassLoader().getResourceAsStream("spaceship.png")) {
-        assert imageStream != null;
-        BufferedImage buffer = ImageIO.read(imageStream);
-        window.setIconImage(buffer);
-      } catch (IOException ioException) {
-        ioException.printStackTrace();
-      }
-
-      Icon introImage1 = new ImageIcon("src/main/resources/spaceships2.gif");
-      introImageLabel.setIcon(introImage1);
       panelCenter.removeAll();
       panelCenter.repaint();
-      panelCenter.add(introImageLabel);
-      panelTop.add(timerLabel);
-    });
 
+      //2D game frame pop-up
+      playGamePopup();
+
+      try(InputStream inputStream = getClass().getClassLoader().getResourceAsStream("spaceships2.gif")) {
+        byte[] buffer = inputStream.readAllBytes();
+        Icon introImage1 = new ImageIcon(buffer);
+        introImageLabel.setIcon(introImage1);
+        panelCenter.add(introImageLabel);
+      } catch (IOException ex) {
+        ex.printStackTrace();
+      }
+    });
 
     panelTop.setBorder(new EmptyBorder(10,0,0,0));
     panelTop.add(gameStartButton);
     panelTop.add(buttonHelp);
     panelTop.add(buttonSetting);
     panelTop.add(buttonMap);
+    panelTop.add(buttonReStart);
     panelTop.add(buttonQuit);
-    panelCenter.add(gameDescriptionLabel);
 
+    panelCenter.add(gameDescriptionLabel);
     this.setVisible(true);
 
   }
+
+
+
+  public void playGamePopup() {
+    window.setSize(new Dimension(800, 600));
+    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    window.setResizable(false);
+    window.setTitle("Interstellar Chef");
+    window.add(gamePanel);
+    window.pack();
+    window.setVisible(true);
+    gamePanel.setupGame();
+    gamePanel.startGameThread();
+    window.setLocationRelativeTo(null); // center the frame on the screen
+    window.setLocation(GameFrame.this.getX() + GameFrame.this.getWidth(), GameFrame.this.getY()); // set location to the right of the main frame
+
+    try(InputStream imageStream = getClass().getClassLoader().getResourceAsStream("spaceship.png")) {
+      assert imageStream != null;
+      BufferedImage buffer = ImageIO.read(imageStream);
+      window.setIconImage(buffer);
+    } catch (IOException ioException) {
+      ioException.printStackTrace();
+    }
+  }
+
 
   public JButton getButtonMap() {
     return buttonMap;

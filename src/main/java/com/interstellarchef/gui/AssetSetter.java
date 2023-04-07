@@ -57,8 +57,8 @@ public class AssetSetter {
     public void setObject() {
         int i = 0;
         gp.obj[i] = new Spacesuit(gp);
-        gp.obj[i].worldX = gp.tileSize*48;
-        gp.obj[i].worldY = gp.tileSize*59;
+        gp.obj[i].worldX = gp.tileSize*38;
+        gp.obj[i].worldY = gp.tileSize*57;
         i++;
         gp.obj[i] = new Noodles(gp);
         gp.obj[i].worldX = gp.tileSize*49;
@@ -218,7 +218,7 @@ public class AssetSetter {
 
         gp.npc[14] = new Alien(gp);
         gp.npc[14].worldX = gp.tileSize * 9;
-        gp.npc[14].worldY = gp.tileSize * 12;
+        gp.npc[14].worldY = gp.tileSize * 91;
 
         gp.npc[15] = new Alien2(gp);
         gp.npc[15].worldX = gp.tileSize * 91;

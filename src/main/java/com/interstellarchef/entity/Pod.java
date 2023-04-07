@@ -2,9 +2,13 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.Key;
+import com.interstellarchef.object.Tortillas;
 import java.util.Random;
 
 public class Pod extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Pod(GamePanel gp) {
         super(gp);
@@ -63,6 +67,15 @@ public class Pod extends Entity {
     public void speak() {
 
         super.speak();
+    }
+
+    public Key giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Key(gp);
+        } else {
+            return null;
+        }
     }
 
 }

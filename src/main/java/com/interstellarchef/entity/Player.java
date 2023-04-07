@@ -1,22 +1,19 @@
 package com.interstellarchef.entity;
 
-import com.google.gson.Gson;
-import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
 import com.interstellarchef.gui.KeyHandler;
-import com.interstellarchef.location.Location;
+import com.interstellarchef.object.Butter;
+import com.interstellarchef.object.GPS;
+import com.interstellarchef.object.Key;
+import com.interstellarchef.object.Milk;
+import com.interstellarchef.object.Noodles;
+import com.interstellarchef.object.Tofu;
+import com.interstellarchef.object.Tortillas;
 import com.interstellarchef.object.Uniform;
-import com.interstellarchef.tile.Tile;
-import com.interstellarchef.tile.TileManager;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
 import java.util.ArrayList;
-import java.util.Objects;
-import javax.imageio.ImageIO;
 
 public class Player extends Entity {
 
@@ -66,7 +63,8 @@ public class Player extends Entity {
         int itemIndex = gp.ui.getItemIndex();
         if (itemIndex < inventory.size()) {
             Entity selectedItem = inventory.get(itemIndex);
-            if (selectedItem.type == typeSpacesuitEquipped || selectedItem.type == typeUniformEquipped) {
+            if (selectedItem.type == typeSpacesuitEquipped
+                || selectedItem.type == typeUniformEquipped) {
                 currentEquipped = selectedItem;
                 getPlayerImage();
             }
@@ -84,8 +82,7 @@ public class Player extends Entity {
             right1 = setup("/player/player_right_1", gp.tileSize, gp.tileSize);
             right2 = setup("/player/player_right_2", gp.tileSize, gp.tileSize);
 
-        }
-        else if (currentEquipped.type == typeSpacesuitEquipped) {
+        } else if (currentEquipped.type == typeSpacesuitEquipped) {
             up1 = setup("/player/spaceman_white_up_1", gp.tileSize, gp.tileSize);
             up2 = setup("/player/spaceman_white_up_2", gp.tileSize, gp.tileSize);
             down1 = setup("/player/spaceman_white_down_1", gp.tileSize, gp.tileSize);
@@ -130,10 +127,18 @@ public class Player extends Entity {
             if (!collisionOn && !keyH.spacePressed) {
 
                 switch (direction) {
-                    case "up": worldY -= speed; break;
-                    case "down": worldY += speed; break;
-                    case "left": worldX -= speed; break;
-                    case "right": worldX += speed; break;
+                    case "up":
+                        worldY -= speed;
+                        break;
+                    case "down":
+                        worldY += speed;
+                        break;
+                    case "left":
+                        worldX -= speed;
+                        break;
+                    case "right":
+                        worldX += speed;
+                        break;
                 }
             }
 
@@ -155,11 +160,7 @@ public class Player extends Entity {
 
         if (i != 999) {
             String objectName = gp.obj[i].name;
-            if (objectName.equals("Key")) {
-                hasKey++;
-                gp.obj[i] = null;
-                inventory.add(gp.obj[i]);
-            } else if (objectName.equals("Door")) {
+            if (objectName.equals("Door")) {
                 if (hasKey > 0) {
                     gp.obj[i] = null;
                 }
@@ -172,8 +173,63 @@ public class Player extends Entity {
 
     public void interactNPC(int i) {
 
-            if (gp.keyH.spacePressed) {
-                if (i != 999) {
+        if (gp.keyH.spacePressed) {
+            if (i != 999) {
+                if (gp.npc[i] instanceof Cadet) {
+                    Tortillas tortilla = ((Cadet) gp.npc[i]).giveItem();
+                    if (tortilla != null) {
+                        inventory.add(tortilla);
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
+                else if (gp.npc[i] instanceof Gardener) {
+                    Milk milk = ((Gardener) gp.npc[i]).giveItem();
+                    if (milk != null) {
+                        inventory.add(milk);
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
+                else if (gp.npc[i] instanceof Fanatic) {
+                    Butter butter = ((Fanatic) gp.npc[i]).giveItem();
+                    if (butter != null) {
+                        inventory.add(butter);
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
+                else if (gp.npc[i] instanceof Liaison) {
+                    GPS gps = ((Liaison) gp.npc[i]).giveItem();
+                    if (gps != null) {
+                        inventory.add(gps);
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
+                else if (gp.npc[i] instanceof Technician) {
+                    Tofu tofu = ((Technician) gp.npc[i]).giveItem();
+                    if (tofu != null) {
+                        inventory.add(tofu);
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
+                else if (gp.npc[i] instanceof Pod) {
+                    Key key = ((Pod) gp.npc[i]).giveItem();
+                    if (key != null) {
+                        inventory.add(key);
+                        hasKey++;
+                        gp.npc[i].dialogueIndex = 0;
+                    } else {
+                        gp.npc[i].dialogueIndex = 1;
+                    }
+                }
                 gp.gameState = gp.dialogueState;
                 gp.npc[i].speak();
             }

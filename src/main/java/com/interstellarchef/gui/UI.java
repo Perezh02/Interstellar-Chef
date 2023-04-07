@@ -25,7 +25,6 @@ public class UI {
         arial_80B = new Font("Arial", Font.BOLD, 80);
     }
 
-
     public void showMessage(String text) {
         message = text;
         messageOn = true;

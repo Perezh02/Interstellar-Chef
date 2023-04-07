@@ -53,6 +53,7 @@ public class Entity {
         if (dialogues[dialogueIndex] == null) {
             dialogueIndex = 0;
         }
+
         gp.ui.currentDialogue = dialogues[dialogueIndex];
         dialogueIndex++;
 

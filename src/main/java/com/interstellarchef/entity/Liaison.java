@@ -2,9 +2,13 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.GPS;
+import com.interstellarchef.object.Tortillas;
 import java.util.Random;
 
 public class Liaison extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Liaison(GamePanel gp) {
         super(gp);
@@ -63,6 +67,15 @@ public class Liaison extends Entity {
     public void speak() {
 
         super.speak();
+    }
+
+    public GPS giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new GPS(gp);
+        } else {
+            return null;
+        }
     }
 
 }

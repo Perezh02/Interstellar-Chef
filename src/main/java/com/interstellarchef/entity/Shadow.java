@@ -2,9 +2,13 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.Butter;
+import com.interstellarchef.object.Noodles;
 import java.util.Random;
 
 public class Shadow extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Shadow(GamePanel gp) {
         super(gp);
@@ -63,6 +67,15 @@ public class Shadow extends Entity {
     public void speak() {
 
         super.speak();
+    }
+
+    public Noodles giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Noodles(gp);
+        } else {
+            return null;
+        }
     }
 
 }

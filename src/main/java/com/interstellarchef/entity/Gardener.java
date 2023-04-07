@@ -2,9 +2,13 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.Milk;
+import com.interstellarchef.object.Tortillas;
 import java.util.Random;
 
 public class Gardener extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Gardener(GamePanel gp) {
         super(gp);
@@ -64,5 +68,15 @@ public class Gardener extends Entity {
 
         super.speak();
     }
+
+    public Milk giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Milk(gp);
+        } else {
+            return null;
+        }
+    }
+
 
 }

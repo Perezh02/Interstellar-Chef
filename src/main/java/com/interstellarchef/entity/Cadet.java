@@ -2,9 +2,12 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.Tortillas;
 import java.util.Random;
 
 public class Cadet extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Cadet(GamePanel gp) {
         super(gp);
@@ -62,8 +65,16 @@ public class Cadet extends Entity {
     }
 
     public void speak() {
-
         super.speak();
+    }
+
+    public Tortillas giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Tortillas(gp);
+        } else {
+            return null;
+        }
     }
 
 }

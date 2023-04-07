@@ -1,103 +1,103 @@
 [
   {
     "name": "Uniform",
-    "description": ": \n A uniform given to members of the galley staff."
+    "description": "\nA uniform given to members of the galley staff."
   },
   {
     "name": "Spacesuit",
-    "description": ": \n You must equip this before going to the \n floating garden or discovery pod."
+    "description": "\nWear this to go into space!"
   },
   {
     "name": "Milk",
-    "description": ": \n This Milk must be plant-based."
+    "description": "\nThis Milk must be plant-based."
   },
   {
     "name": "Butter",
-    "description": ": \n This is a good source of calories."
+    "description": "\nThis is a good source of \ncalories."
   },
   {
     "name": "Tortillas",
-    "description": ": \n These look nice and fresh."
+    "description": "\nThese look nice and fresh."
   },
   {
     "name": "Snacks",
-    "description": ": \n These look tasty."
+    "description": "\nThese look tasty."
   },
   {
     "name": "Noodles",
-    "description": ": \n Can’t make spaghetti without \nthe noodles!"
+    "description": "\nCan’t make spaghetti without \nthe noodles!"
   },
   {
     "name": "GPS",
-    "description": ": \n A device that can be used to track \nyour location and navigate."
+    "description": "\nA device that can be used to \ntrack your location."
   },
   {
     "name": "Tofu",
-    "description": ": \nThis will be good with some curry powder."
+    "description": "\nThis will be good with some \ncurry powder."
   },
   {
     "name": "Key",
-    "description": ": \nThe bathroom key!"
+    "description": "\nThe bathroom key!"
   },
   {
     "name": "Pepper",
-    "description": ": \nWonder how old this is…"
+    "description": "\nWonder how old this is…"
   },
   {
     "name": "Space Rock",
-    "description": ": \nShiny space rock."
+    "description": "\nShiny space rock."
   },
   {
     "name": "Martian Meatballs",
-    "description": ": \nYou're too afraid to ask what \nthese are made of."
+    "description": "\nYou're too afraid to ask what \nthese are made of."
   },
   {
     "name": "Giant Snail Shell",
-    "description": ": \n There’s no one living here anymore!"
+    "description": "\n There’s no one living here \nanymore!"
   },
   {
     "name": "Snowflake Crystal",
-    "description": ": \nAn oddity that won’t melt, \n but holds the same sparkle \nas a snowflake!"
+    "description": "\nAn oddity that won’t melt, it \nlooks like a snowflake!"
   },
   {
     "name": "Cosmic Curry Powder",
-    "description": ": \nCurry is perfect for cold weather."
+    "description": "\nCurry is perfect for cold weather."
   },
   {
     "name": "Terrestrial Space Fish",
-    "description": ": \nThis space fish lives on land."
+    "description": "\nThis space fish lives on land."
   },
   {
     "name": "Frog Fossil",
-    "description": ": \nYou can see the frog's \nskeleton in the rock."
+    "description": "\nYou can see the frog's \nskeleton in the rock."
   },
   {
     "name": "Lightning Glass",
-    "description": ": \nIt shines in the light."
+    "description": "\nIt shines in the light."
   },
   {
     "name": "Baking Powder",
-    "description": ": \nDoes this mean baking powder \nis made of sand?"
+    "description": "\nDoes this mean baking powder \nis made of sand?"
   },
   {
     "name": "Flying Saucer Flour",
-    "description": ": \nA small satchel of flour that \nmakes your hands powdery."
+    "description": "\nA small satchel of flour that \nmakes your hands powdery."
   },
   {
     "name": "Tomato Sauce",
-    "description": ": \nA rich and flavorful tomato sauce, \nperfect for pasta or as a base for other dishes."
+    "description": "\nA rich and flavorful tomato \nsauce."
   },
   {
     "name": "Salsa",
-    "description": ": \nIt has some spice to it, but would go \ngreat with seafood!"
+    "description": "\nIt has some spice to it, but \ngoes great with seafood!"
   },
   {
     "name": "Lunar Lamb Chops",
-    "description": ": \nSeveral lamb chops, ready to be cooked."
+    "description": "\nSeveral lamb chops, ready to \nbe cooked."
   },
   {
     "name": "Rice",
-    "description": ": \nA fragrant and flavorful rice that \npairs well with many dishes."
+    "description": "\nA fragrant and flavorful rice that \npairs well with many dishes."
 
   }
 

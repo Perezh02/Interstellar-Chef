@@ -2,9 +2,14 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.Butter;
+import com.interstellarchef.object.Milk;
+import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class Fanatic extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Fanatic(GamePanel gp) {
         super(gp);
@@ -63,6 +68,15 @@ public class Fanatic extends Entity {
     public void speak() {
 
         super.speak();
+    }
+
+    public Butter giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Butter(gp);
+        } else {
+            return null;
+        }
     }
 
 }

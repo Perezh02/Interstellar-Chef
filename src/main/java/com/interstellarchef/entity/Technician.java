@@ -2,11 +2,15 @@ package com.interstellarchef.entity;
 
 import com.interstellarchef.Main;
 import com.interstellarchef.gui.GamePanel;
+import com.interstellarchef.object.GPS;
 import com.interstellarchef.object.Milk;
+import com.interstellarchef.object.Tofu;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Technician extends Entity {
+
+    private boolean hasGivenItem = false;
 
     public Technician(GamePanel gp) {
         super(gp);
@@ -65,5 +69,14 @@ public class Technician extends Entity {
     public void speak() {
 
         super.speak();
+    }
+
+    public Tofu giveItem() {
+        if (!hasGivenItem) {
+            hasGivenItem = true;
+            return new Tofu(gp);
+        } else {
+            return null;
+        }
     }
 }

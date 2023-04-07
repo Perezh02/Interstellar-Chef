@@ -1,57 +1,57 @@
 [
   {
     "name": "Spaceman Jasper",
-    "dialogue": [": \n Do you have any lightning glass? \n I have rice to trade.", ": \n There's nothing like a \n spacewalk in the morning."]
+    "dialogue": [": \nDo you have any lightning glass? \nI have rice to trade.", ": \nThere's nothing like a \nspacewalk in the morning."]
   },
   {
     "name": "Spaceman Sam",
-    "dialogue": [": \n Do you have any interesting fossils? \n I make the best spaghetti sauce, \n but I don’t give it to strangers \n for free.", ": \n If anyone asks, I'm not out here."]
+    "dialogue": [": \nDo you have any interesting fossils? \nI make the best spaghetti sauce, \nbut I don’t give it to strangers \nfor free.", ": \nIf anyone asks, I'm not out here."]
   },
   {
     "name": "Spaceman Nyckolle",
-    "dialogue": [": \n Salsa is my jam! I’ll trade you some \n for something sparkly from the \n snow planet!", ": \n Have you looked at all the plants?"]
+    "dialogue": [": \nSalsa is my jam! I’ll trade you some \nfor something sparkly from the \nsnow planet!", ": \nHave you looked at all the plants?"]
   },
   {
     "name": "Spaceman Kun",
-    "dialogue": [": \n Have you been to the Volcano planet? \n I hear they have beautiful \n rocks there.", ": \n Did you end up cooking \n something nice?"]
+    "dialogue": [": \nHave you been to the Volcano planet? \nI hear they have beautiful \nrocks there.", ": \nDid you end up cooking \nsomething nice?"]
   },
   {
     "name": "Gardener",
-    "dialogue": [": \n Check this out! Plants are \n amazing, aren’t they?", "\n What a lovely day for gardening!"]
+    "dialogue": [": \nCheck this out! Plants are \namazing, aren’t they?", "\nWhat a lovely day for gardening!"]
   },
   {
     "name": "Fitness Fanatic",
-    "dialogue": [": \n I always sneak into the kitchen for \n extra gains. Shh, don’t tell anyone!", "\n Whoa, that butter gave you killer biceps!!"]
+    "dialogue": [": \nI always sneak into the kitchen for \nextra gains. Shh, don’t tell anyone!", "\nWhoa, that butter gave you killer biceps!!"]
   },
   {
     "name": "Cadet",
-    "dialogue": [": \n Want these? I got an extra bag \n at the commissary.", "\n You can never have too many Tortillas."]
+    "dialogue": [": \nWant these? I got an extra bag \nat the commissary.", "\nYou can never have too many Tortillas."]
   },
   {
     "name": "Head Chef",
-    "dialogue": [": \n Hello, Sous Chef!", "\n what's cooking?"]
+    "dialogue": [": \nHello, Sous Chef!", "\nwhat's cooking?"]
   },
   {
     "name": "Information Center Liaison",
-    "dialogue": [": \n Do you need a GPS? They can be used \n to navigate to different planets", "\n Traveling to distant planets can be dangerous. \n Be careful!"]
+    "dialogue": [": \nDo you need a GPS? They can be used \nto navigate to different planets", "\nTraveling to distant planets can be dangerous. \n Be careful!"]
   },
   {
     "name": "Lab Technician",
-    "dialogue": [": \n Did you know the ship’s tofu is lab-grown.", "\n Tofu is delicious, no matter where it came from."]
+    "dialogue": [": \nDid you know the ship’s tofu is lab-grown.", "\nTofu is delicious, no matter where it came from."]
   },
   {
     "name": "Shadowy Figure",
-    "dialogue": [": \n Get me some Snacks and I'll give you a reward.", "\n Mmm... stolen Snacks always taste the best."]
+    "dialogue": [": \nGet me some Snacks and I'll give you a reward.", "\nMmm... stolen Snacks always taste the best."]
   },
   {
     "name": "Pod Technician",
-    "dialogue": [": \n You sure you know how to fly this thing? Make sure you use gps.\n Safe travels!"]
+    "dialogue": [":\nYou sure you know how to fly this thing?", "\nMake sure you use the gps.\n Safe travels!"]
   },
   {
     "name": "Random Alien",
-    "dialog": [
-      "%s: Hello, Spacewalker, have you ever tried the local hot springs? They're great for relaxing after a long day of running away from lava.",
-      "%s: Hello, Spacewalker, I'm not saying I'm an expert on volcanoes, but I do have a PhD in lava dodging.",
+    "dialogue": [
+      "\nHello, Spacewalker, have you ever tried the local hot springs? \nThey're great for relaxing after a long day of running away from lava.",
+      "\nHello, Spacewalker, I'm not saying I'm an expert on volcanoes, \nbut I do have a PhD in lava dodging.",
       "%s: Hello, Spacewalker, if you want to impress the locals, try eating a volcano pepper. Just don't come crying to me when your insides start to melt.",
       "%s: Hello, Spacewalker, I'm convinced that the only reason the volcanoes on this planet erupt so often is because they're angry at us for being so delicious.",
       "%s: Hello, Spacewalker, I once tried to ride a lava flow like a surfboard. It did not end well.",
@@ -64,9 +64,9 @@
   },
   {
     "name": "Spacewalker Felix",
-    "dialog": [
-      "%s: Hello, Spacewalker, did you know that the mud here is so thick, even the mosquitoes have trouble flying through it?",
-      "%s: Hello, Spacewalker, I'm not afraid of the alligators here. It's the mosquitoes I'm worried about. They're the real predators.",
+    "dialogue": [
+      "\nHello, Spacewalker, did you know that the mud here is so thick, \neven the mosquitoes have trouble flying through it?",
+      "\nHello, Spacewalker, I'm not afraid of the alligators here. \nIt's the mosquitoes I'm worried about. They're the real predators.",
       "%s: Hello, Spacewalker, I once saw a plant here that was so big, it tried to eat me. Luckily, I was too tough to digest.",
       "%s: Hello, Spacewalker, if you need me, I'll be in my swamp hut, cooking up some 'gator gumbo. Want to try some?",
       "%s: Hello, Spacewalker, I have a pet mosquito named Buzz. He's a real pain in the neck, but he's loyal.",
@@ -79,9 +79,9 @@
   },
   {
     "name": "Desert Alien",
-    "dialog": [
-      "%s: Hello, Spacewalker, I don't always drink water, but when I do, I prefer it with a side of sand.",
-      "%s: Hello, Spacewalker, I tried to make a sandcastle once, but it just turned into a pile of sand. Oops!",
+    "dialogue": [
+      "\nHello, Spacewalker, I don't always drink water, but when \nI do, I prefer it with a side of sand.",
+      "\nHello, Spacewalker, I tried to make a sandcastle once, but \nit just turned into a pile of sand. Oops!",
       "%s: Hello, Spacewalker, I love a good sandstorm. It's like a giant, sandy hug.",
       "%s: Hello, Spacewalker, Do you have any idea how hard it is to find a good cactus to hug around here?",
       "%s: Hello, Spacewalker, I once met a space cowboy who tried to lasso a sand dune. He wasn't very good.",
@@ -94,7 +94,7 @@
   },
   {
     "name": "Lava Monster",
-    "dialogue": ["%s: Hello, Spacewalker"],
+    "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
     "riddles": {
       "I am hot and molten, and reside underneath the Earth's crust. \nWhat am I? " : "Magma",
       "I am a type of lava flow. I appear smooth, and have a low viscosity. \nWhat is my name?": "Pahoehoe",
@@ -103,7 +103,7 @@
   },
   {
     "name": "Vine Monster",
-    "dialogue": ["%s: Hello, Spacewalker"],
+    "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
     "riddles": {
       "I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I?": "Jaguar",
       "I am a furry creature with eight legs. \nI hide during the day and come out at night to hunt small birds and reptiles. \nWhat am I?": "Tarantula",
@@ -112,17 +112,12 @@
   },
   {
     "name": "Ice Monster",
-    "dialogue": ["%s: Hello, Spacewalker"],
-    "riddles": {}
-  },
-  {
-    "name": "Swamp Monster",
-    "dialogue": ["%s: Hello, Spacewalker"],
+    "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
     "riddles": {}
   },
   {
     "name": "Sand Monster",
-    "dialogue": ["%s: Hello, Spacewalker"],
+    "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
     "riddles": {
       "What is the name for a place where stars are born?": "Nebula",
       "What is a name for a natural satellite?" : "Moon",

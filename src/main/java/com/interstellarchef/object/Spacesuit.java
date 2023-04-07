@@ -1,7 +1,5 @@
 package com.interstellarchef.object;
 
-
-
 import com.interstellarchef.Main;
 import com.interstellarchef.entity.Entity;
 import com.interstellarchef.gui.GamePanel;

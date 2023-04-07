@@ -11,6 +11,6 @@ public class Flour extends Entity {
 
         name = Main.objects[20].getName();
         description = name + Main.objects[20].getDescription();
-        down1 = setup("/object/spice", gp.tileSize, gp.tileSize);
+        down1 = setup("/object/flour", gp.tileSize, gp.tileSize);
     }
 }

@@ -25,6 +25,8 @@ public class Player extends Entity {
     public final int screenY;
     public ArrayList<Entity> inventory = new ArrayList<>();
     public final int maxInventorySize = 26;
+    public int hasKey = 0;
+
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -152,17 +154,19 @@ public class Player extends Entity {
     public void pickUpObject(int i) {
 
         if (i != 999) {
-
-            String text;
-
-            if (inventory.size() != maxInventorySize) {
+            String objectName = gp.obj[i].name;
+            if (objectName.equals("Key")) {
+                hasKey++;
+                gp.obj[i] = null;
                 inventory.add(gp.obj[i]);
-                text = "Got a " + gp.obj[i].name + "!";
+            } else if (objectName.equals("Door")) {
+                if (hasKey > 0) {
+                    gp.obj[i] = null;
+                }
             } else {
-                text = "You cannot carry any more!";
+                inventory.add(gp.obj[i]);
+                gp.obj[i] = null;
             }
-            gp.ui.showMessage(text);
-            gp.obj[i] = null;
         }
     }
 

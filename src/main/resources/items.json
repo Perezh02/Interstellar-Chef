@@ -25,31 +25,31 @@
   },
   {
     "name": "Noodles",
-    "description": ": \n Can’t make spaghetti without the noodles!"
+    "description": ": \n Can’t make spaghetti without \nthe noodles!"
   },
   {
     "name": "GPS",
-    "description": ": \n A device that can be used to track your location and navigate."
+    "description": ": \n A device that can be used to track \nyour location and navigate."
   },
   {
     "name": "Tofu",
-    "description": ": \n This will be good with some curry powder."
+    "description": ": \nThis will be good with some curry powder."
   },
   {
     "name": "Key",
-    "description": ": \n This doesn't appear to be a door key."
+    "description": ": \nThe bathroom key!"
   },
   {
     "name": "Pepper",
-    "description": ": \n Wonder how old this is…"
+    "description": ": \nWonder how old this is…"
   },
   {
     "name": "Space Rock",
-    "description": ": \n shiny space rock."
+    "description": ": \nShiny space rock."
   },
   {
     "name": "Martian Meatballs",
-    "description": ": \n You're too afraid to ask what these are made of."
+    "description": ": \nYou're too afraid to ask what \nthese are made of."
   },
   {
     "name": "Giant Snail Shell",
@@ -57,47 +57,48 @@
   },
   {
     "name": "Snowflake Crystal",
-    "description": ": \n An oddity that won’t melt, \n but holds the same sparkle as a snowflake!"
+    "description": ": \nAn oddity that won’t melt, \n but holds the same sparkle \nas a snowflake!"
   },
   {
     "name": "Cosmic Curry Powder",
-    "description": ": \n Curry is perfect for cold weather."
+    "description": ": \nCurry is perfect for cold weather."
   },
   {
     "name": "Terrestrial Space Fish",
-    "description": ": \n This space fish lives on land."
+    "description": ": \nThis space fish lives on land."
   },
   {
     "name": "Frog Fossil",
-    "description": ": \n You can see the frog's skeleton in the rock."
+    "description": ": \nYou can see the frog's \nskeleton in the rock."
   },
   {
     "name": "Lightning Glass",
-    "description": ": \n It shines in the light."
+    "description": ": \nIt shines in the light."
   },
   {
     "name": "Baking Powder",
-    "description": ": \n Does this mean baking powder is made of sand?"
+    "description": ": \nDoes this mean baking powder \nis made of sand?"
   },
   {
     "name": "Flying Saucer Flour",
-    "description": ": \n A small satchel of flour that makes your hands powdery."
+    "description": ": \nA small satchel of flour that \nmakes your hands powdery."
   },
   {
     "name": "Tomato Sauce",
-    "description": ": \n A rich and flavorful tomato sauce, \n perfect for pasta or as a base for other dishes."
+    "description": ": \nA rich and flavorful tomato sauce, \nperfect for pasta or as a base for other dishes."
   },
   {
     "name": "Salsa",
-    "description": ": \n It has some spice to it, but would go great with seafood!"
+    "description": ": \nIt has some spice to it, but would go \ngreat with seafood!"
   },
   {
     "name": "Lunar Lamb Chops",
-    "description": ": \n Several lamb chops, ready to be cooked."
+    "description": ": \nSeveral lamb chops, ready to be cooked."
   },
   {
     "name": "Rice",
-    "description": ": \n A fragrant and flavorful rice that pairs well with many dishes."
+    "description": ": \nA fragrant and flavorful rice that \npairs well with many dishes."
+
   }
 
 

@@ -11,6 +11,6 @@ public class Tomato extends Entity {
 
         name = Main.objects[21].getName();
         description = name + Main.objects[21].getDescription();
-        down1 = setup("/object/spice", gp.tileSize, gp.tileSize);
+        down1 = setup("/object/tomato", gp.tileSize, gp.tileSize);
     }
 }

@@ -183,7 +183,11 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
+
+
                 else if (gp.npc[i] instanceof Gardener) {
                     Milk milk = ((Gardener) gp.npc[i]).giveItem();
                     if (milk != null) {
@@ -192,6 +196,8 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
                 else if (gp.npc[i] instanceof Fanatic) {
                     Butter butter = ((Fanatic) gp.npc[i]).giveItem();
@@ -201,6 +207,8 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
                 else if (gp.npc[i] instanceof Liaison) {
                     GPS gps = ((Liaison) gp.npc[i]).giveItem();
@@ -210,6 +218,8 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
                 else if (gp.npc[i] instanceof Technician) {
                     Tofu tofu = ((Technician) gp.npc[i]).giveItem();
@@ -219,6 +229,8 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
                 else if (gp.npc[i] instanceof Pod) {
                     Key key = ((Pod) gp.npc[i]).giveItem();
@@ -229,9 +241,16 @@ public class Player extends Entity {
                     } else {
                         gp.npc[i].dialogueIndex = 1;
                     }
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
                 }
-                gp.gameState = gp.dialogueState;
-                gp.npc[i].speak();
+                else if(gp.npc[i] instanceof DesertMON || gp.npc[i] instanceof ForestMON || gp.npc[i] instanceof LavaMON || gp.npc[i] instanceof SnowMON) {
+                    gp.gameState = gp.riddleState;
+                } else {
+                    gp.gameState = gp.dialogueState;
+                    gp.npc[i].speak();
+                }
+
             }
         }
     }

@@ -12,6 +12,10 @@ public class KeyHandler implements KeyListener {
         this.gp = gp;
     }
 
+  public KeyHandler() {
+
+  }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -24,6 +28,11 @@ public class KeyHandler implements KeyListener {
         // TITLE STATE
         if (gp.gameState == gp.titleState) {
             titleState(code);
+        }
+
+        // RIDDLE STATE
+        if (gp.gameState == gp.riddleState) {
+            riddleState(code);
         }
 
         // PLAY STATE
@@ -39,6 +48,9 @@ public class KeyHandler implements KeyListener {
         // DIALOGUE STATE
         else if (gp.gameState == gp.dialogueState) {
             dialogueState(code);
+            // Require if statement perhaps to not to accidentally shut the game or not progressing with space bar..?
+            riddleState(code);
+
         }
         // INVENTORY STATE
         else if (gp.gameState == gp.inventoryState) {
@@ -69,6 +81,50 @@ public class KeyHandler implements KeyListener {
             }
         }
     }
+
+
+
+    public void riddleState(int code) {
+        if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
+            gp.ui.commandNum--;
+            if (gp.ui.commandNum < 0) {
+                gp.ui.commandNum = 1;
+            }
+        }
+        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
+            downPressed = true;
+            gp.ui.commandNum++;
+            if (gp.ui.commandNum > 3) {
+                gp.ui.commandNum = 0;
+            }
+        }
+
+//        if (code == KeyEvent.VK_S || code == KeyEvent.VK_DOWN) {
+//            downPressed = true;
+//            gp.ui.commandNum++;
+//            if (gp.ui.commandNum > 1) {
+//                gp.ui.commandNum = 0;
+//            }
+//        }
+
+        if (code == KeyEvent.VK_SPACE) {
+            if (gp.ui.commandNum == 0) {
+                gp.gameState = gp.playState;
+            }
+            if (gp.ui.commandNum == 1) {
+                gp.gameState = gp.playState;
+            }
+            if (gp.ui.commandNum == 2) {
+                gp.gameState = gp.playState;
+            }
+            if (gp.ui.commandNum == 3) {
+                gp.gameState = gp.playState;
+            }
+
+        }
+    }
+
+
 
     public void playState(int code) {
         if (code == KeyEvent.VK_W || code == KeyEvent.VK_UP) {
@@ -103,6 +159,8 @@ public class KeyHandler implements KeyListener {
     public void dialogueState(int code) {
         if (code == KeyEvent.VK_SPACE) {
             gp.gameState = gp.playState;
+            // add key up & down
+
         }
     }
 

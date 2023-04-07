@@ -29,7 +29,7 @@ public class GamePanel extends JPanel implements Runnable {
     int FPS = 60;
 
     // SYSTEM
-    TileManager tileM = new TileManager(this);
+    public TileManager tileM = new TileManager(this);
     public KeyHandler keyH = new KeyHandler(this);
     public Sound music = new Sound();
     Sound se = new Sound();
@@ -53,6 +53,7 @@ public class GamePanel extends JPanel implements Runnable {
     public final int pauseState = 2;
     public final int dialogueState = 3;
     public final int inventoryState = 4;
+    public final int riddleState = 5;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -132,6 +133,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         // TITLE SCREEN
         if (gameState == titleState) {
+//        if (gameState == riddleState) {
 
             ui.draw(g2);
         } else {

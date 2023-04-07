@@ -71,34 +71,22 @@
   {
     "name": "Lava Monster",
     "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
-    "riddles": {
-      "I am hot and molten, and reside underneath the Earth's crust. \nWhat am I? " : "Magma",
-      "I am a type of lava flow. I appear smooth, and have a low viscosity. \nWhat is my name?": "Pahoehoe",
-      "I am a large crater caused by a volcanic explosion that collapses into a depression. \nWhat am I?": "Caldera"
-    }
+    "riddles": ["I am hot and molten, and reside underneath the Earth's crust. \nWhat am I?  (1) Magma (2) Choice (3) Choice"]
   },
   {
     "name": "Vine Monster",
     "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
-    "riddles": {
-      "I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I?": "Jaguar",
-      "I am a furry creature with eight legs. \nI hide during the day and come out at night to hunt small birds and reptiles. \nWhat am I?": "Tarantula",
-      "I am a mammal. I can climb trees but I usually live on the forest floor. \nI am seven feet long from my nose to my tail. I eat termites and ants. \nWhat am I?": "Anteater"
-    }
+    "riddles": [ "I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I? (1) Jaguar (2) Choice (3) Choice"]
   },
   {
     "name": "Ice Monster",
     "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
-    "riddles": {}
+    "riddles": []
   },
   {
     "name": "Sand Monster",
     "dialogue": ["\nHello, Spacewalker", "\nmwahahaha"],
-    "riddles": {
-      "What is the name for a place where stars are born?": "Nebula",
-      "What is a name for a natural satellite?" : "Moon",
-      "I can have 1 or 2 humps, a very long neck, and am known for taking long treks across the desert. \nWhat am I?": "Camel"
-    }
+    "riddles": ["What is a name for a natural satellite? \n (1) Moon (2) Sun (3) Earth"]
   }
 
 

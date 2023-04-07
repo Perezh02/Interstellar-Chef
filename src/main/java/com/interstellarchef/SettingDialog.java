@@ -11,7 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+import javax.swing.text.StyledEditorKit.ForegroundAction;
 
 
 public class SettingDialog {

@@ -15,12 +15,14 @@ public class Entity {
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public int solidAreaDefaultX, solidAreaDefaultY;
     String[] dialogues = new String[20];
+    String[] riddles = new String[20];
     public boolean collision = false;
 
     // STATE
     public int worldX, worldY;
     public boolean collisionOn = false;
     int dialogueIndex = 0;
+    int riddleIndex = 0;
     public String direction = "down";
     public int spriteNum = 1;
 
@@ -53,8 +55,14 @@ public class Entity {
         if (dialogues[dialogueIndex] == null) {
             dialogueIndex = 0;
         }
+        if(riddles[0] == null) {
+            riddleIndex = 0;
+        }
+
+        System.out.println(riddles[0]);
 
         gp.ui.currentDialogue = dialogues[dialogueIndex];
+        gp.ui.currentRiddle = riddles[riddleIndex];
         dialogueIndex++;
 
         switch (gp.player.direction) {

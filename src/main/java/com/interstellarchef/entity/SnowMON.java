@@ -35,6 +35,7 @@ public class SnowMON extends Entity {
         dialogues[1] = dialogue2;
     }
 
+
     public void setAction() {
 
         actionLockCounter++;

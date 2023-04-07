@@ -1,22 +1,34 @@
 package com.interstellarchef.gui;
 
+import com.interstellarchef.entity.DesertMON;
+import com.interstellarchef.entity.Entity;
+import com.interstellarchef.entity.NPC;
 import com.interstellarchef.tile.TileManager;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.sql.Array;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.List;
 
 public class UI {
 
     GamePanel gp;
     Graphics2D g2;
+    NPC npc;
     Font arial_40, arial_80B;
     public boolean messageOn = false;
     public String message = "";
     public String currentDialogue = "";
+    public String currentRiddle = "";
     public int commandNum = 0;
     public int slotCol = 0;
     public int slotRow = 0;
+    public int titleScreenState = 0;
 
     public UI(GamePanel gp) {
         this.gp = gp;
@@ -57,6 +69,10 @@ public class UI {
         if (gp.gameState == gp.inventoryState) {
             drawInventoryScreen();
             drawInventory();
+        }
+        // RIDDLE STATE
+        if (gp.gameState == gp.riddleState) {
+            drawRiddleScreen();
         }
     }
 
@@ -103,6 +119,84 @@ public class UI {
             }
     }
 
+
+
+    public void drawRiddleScreen() {
+        g2.setColor(new Color(0, 0, 0));
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+        // TITLE NAME
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 20));
+        String text = "YOU MUST SOLVE THIS RIDDLE TO PASS ME!!";
+        int x = getXforCenteredText(text);
+        int y = gp.tileSize * 2;
+        g2.setColor(Color.WHITE);
+        g2.drawString(text, x, y);
+
+        //Menu
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 15));
+
+        String[] riddlesHC = new String[20];
+
+
+//        riddlesHC.add("I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I? (1)Jaguar (2)Puddle (3)Cow (4)Eagle");
+//        riddlesHC.add("What is a name for a natural satellite? \n (1)Moon (2)Sun (3)Earth (4)Verizon");
+//        riddlesHC.add("I can have 1 or 2 humps, a very long neck, \nand am known for taking long treks across the desert. \nWhat am I? (1)Camel (2)Zebra (3)Horse (4)Python");
+
+        String riddlesQuestion1 = "I am hot and molten, and reside underneath the Earth's crust. \n";
+        String RiddleAnswer1 = "What am I?  (1)Magma (2)Worm (3)Mantle (4)Groundhog";
+//        String riddles2 = " I am a spotted cat and I do not roar. \nI live on the forest floor and in the understory. \nWhat am I? (1)Jaguar (2)Puddle (3)Cow (4)Eagle";
+//        String riddles3 = " What is a name for a natural satellite? \n (1)Moon (2)Sun (3)Earth (4)Verizon";
+//        String riddles4 = " I can have 1 or 2 humps, a very long neck, \nand am known for taking long treks across the desert. \nWhat am I? (1)Camel (2)Zebra (3)Horse (4)Python";
+
+
+
+        text = riddlesQuestion1;
+        x = getXforCenteredText(text);
+        y += gp.tileSize * 2.2;
+        g2.drawString(text, x, y);
+
+        text = RiddleAnswer1;
+        x = getXforCenteredText(text);
+        y += gp.tileSize * 1;
+        g2.drawString(text, x, y);
+
+        text = "Choice-1";
+        x = getXforCenteredText(text);
+        y += gp.tileSize * 3;
+        g2.drawString(text, x, y);
+        if (commandNum == 0) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "Choice-2";
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+        if (commandNum == 1) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "Choice-3";
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+        if (commandNum == 2) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+        text = "Choice-4";
+        x = getXforCenteredText(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+        if (commandNum == 3) {
+            g2.drawString(">", x - gp.tileSize, y);
+        }
+
+
+    }
+
+
+
     public void drawDialogueScreen() {
         // WINDOW
         int x = gp.tileSize * 2;
@@ -120,6 +214,7 @@ public class UI {
             g2.drawString(line, x, y);
             y += 40;
         }
+
     }
 
     public void drawSubWindow(int x, int y, int width, int height) {

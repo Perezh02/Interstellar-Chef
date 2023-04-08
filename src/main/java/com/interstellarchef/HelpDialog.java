@@ -1,16 +1,8 @@
 package com.interstellarchef;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
-import java.awt.Font;
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
 public class HelpDialog {
   GameFrame mainGUI;
@@ -50,19 +42,20 @@ public class HelpDialog {
     label1.setFont(new Font("Comic Sans", Font.BOLD, 40));
 
     label2 = new JLabel();
-    label2.setText("<html> &nbsp;Direction options: <b>North, South, West, East, Up & Down</b> "
-        + "<br> &nbsp;<b>go</b> <Direction>: Moves character in selected direction "
-        + "<br> &nbsp;<b>get</b> <Item Name>: Adds item in the current location to Player's Inventory"
-        + "<br> &nbsp;<b>look</b> <Item/Location/Character/Monster Name>/Inventory: Investigates Item, Location, Character or Monster, or displays player's inventory"
-        + "<br> &nbsp;<b>equip</b> <Item Name>: item disappears from your inventory and is set as the player's equipped item"
-        + "<br> &nbsp;<b>drop</b> <Item Name>: item is dropped onto the floor of the current location"
-        + "<br> &nbsp;<b>talk</b> <Character Name>/<Monster Name>: Starts conversation with Character"
-        + "<br> &nbsp;<b>fly Discovery Pod</b>: Requires key, GPS and equipped spacesuit in Discovery Pod. Allows user to fly to other planets."
-        + "<br> &nbsp;<b>toggle music</b>: Allows player to toggle music on/off."
-        + "<br> &nbsp;<b>volume up/down</b>: Allows player to adjust music volume."
-        + "<br> &nbsp;<b>help</b>: Displays a list of valid commands"
-        + "<br> &nbsp;<b>quit</b>: prompts user if they would like to end the game"
-        + "</html>");
+    label2.setText("<html>  Key options: <b>W, A, S, D, P, I, Space</b> "
+            + "<br>  <b>W</b>: Move player up"
+            + "<br>  <b>A</b>: Move player left"
+            + "<br>  <b>S</b>: Move player down"
+            + "<br>  <b>D</b>: Move player right"
+            + "<br>  <b>P</b>: Pause game"
+            + "<br>  <b>I</b>: Open inventory"
+            + "<br>  <b>Space</b>: Use selected item in inventory"
+            + "<br><br> Depending on the game state, some keys may not have any effect:"
+            + "<br>   - Play state: All keys available including <b>I</b> to open inventory"
+            + "<br>   - Pause state: <b>P</b> to unpause and return to play state"
+            + "<br>   - Dialogue state: <b>Space</b> to advance dialogue"
+            + "<br>   - Inventory state: <b>I</b> to close inventory, <b>W, A, S, D</b> to navigate inventory slots, <b>Space</b> to select an item"
+            + "</html>");
     label2.setHorizontalAlignment(JLabel.CENTER); // set text LEFT, CENTER, RIGHT of imageicon
     label2.setVerticalAlignment(JLabel.TOP); // set text TOP, CENTER, BOTTOM of imageicon
     label2.setForeground(new Color(0, 0, 0, 255));
